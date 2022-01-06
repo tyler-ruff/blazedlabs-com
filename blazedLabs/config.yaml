@@ -17,9 +17,9 @@ imaging:
   quality: 99
 
 params:
-  description: An accessibility-friendly Hugo theme, ported from the [original Cupper](https://github.com/ThePacielloGroup/cupper) project.
-  homeMetaContent: An accessibility-friendly Hugo theme, ported from the original Cupper project.
-  footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
+  description: Engineering a better way.
+  homeMetaContent: Product development and engineering; research and open source collaboration.
+  footer: Created by [Blazed Labs](https://blazedlabs.com/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
   codePenUser: someUser
@@ -30,7 +30,7 @@ params:
   defaultDarkTheme: false
   moveFooterToHeader: false
   # navTitleText: Cupper Theme
-  logoAlt: An alternative text description of the logo
+  logoAlt: Black beaker
   customCss:
     - css/custom_01.css
     - css/custom_02.css
