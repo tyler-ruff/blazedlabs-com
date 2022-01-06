@@ -1,0 +1,11 @@
+/* Custom 02: Site Brand Styles */
+
+::selection{
+  background: #000;
+  color: #fff;
+}
+::-moz-selection{
+  background: #000;
+  color: #fff;
+}
+

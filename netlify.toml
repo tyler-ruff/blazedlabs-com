@@ -1,11 +1,11 @@
 [build]
-  publish = "exampleSite/public"
-  command = "cd exampleSite && hugo --themesDir ../.."
+  publish = "blazedLabs/public"
+  command = "cd blazedLabs && hugo --themesDir ../.."
 
 [build.environment]
   HUGO_VERSION = "0.83.1"
   HUGO_THEME = "repo"
-  HUGO_BASEURL = "https://cupper-hugo-theme.netlify.app"
+  HUGO_BASEURL = "https://blazedlabs.com/"
 
 [[headers]]
   for = "/*"
