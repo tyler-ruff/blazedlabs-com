@@ -3,14 +3,12 @@ date: "2014-04-09"
 title: "About"
 ---
 
-Hugo is the **world’s fastest framework for building websites**. It is written in Go.
+Hello, we are Blazed Labs, a product development company based out of Ocean City, New Jersey.
 
-It makes use of a variety of open source projects including:
+Discover the Blazed Nation:
 
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+* [Blazed Labs Facebook](https://www.facebook.com/blazedlabs)
+* [Blazed Nation Facebook](https://www.facebook.com/blznation)
+* [Blazed Twitter](https://twitter.com/BlazedLabs)
+* [Blazed Instagram](https://instagram.com/blazed_labs)
+* [Blazed Labs Github](https://github.com/blazed-labs)

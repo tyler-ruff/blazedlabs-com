@@ -17,8 +17,8 @@ imaging:
   quality: 99
 
 params:
-  description: Engineering a better way.
-  homeMetaContent: Product development and engineering; research and open source collaboration.
+  description: We turn dreams into reality.
+  homeMetaContent: Engineering a better way. Product development and engineering; research and open source collaboration.
   footer: Created by [Blazed Labs](https://blazedlabs.com/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
@@ -43,14 +43,14 @@ menu:
     - name: Home
       url: /
       weight: 1
-    - name: Blog
-      url: /post/
-      weight: 2
-    - name: Tags
-      url: /tags/
-      weight: 3
     - name: About
       url: /about/
+      weight: 2
+    - name: Blog
+      url: /post/
+      weight: 3
+    - name: Tags
+      url: /tags/
       weight: 4
     - name: RSS
       url: /index.xml
