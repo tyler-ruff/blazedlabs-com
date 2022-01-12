@@ -5,9 +5,9 @@ title: "Home"
 
 **Divisions**:
 {{< ticks >}}
-* [Blazed Publishing BD.](https://blazed.xyz/)
-* [Blazed Systems BD.](https://blazed.systems/)
-* [Blazed Telecommunications BD.](https://blazed.tel/)
+* [Blazed Publishing](https://blazed.xyz/)
+* [Blazed Systems](https://blazed.systems/)
+* [Blazed Telecom](https://blazed.tel/)
 {{< /ticks >}}
 
 **University**:

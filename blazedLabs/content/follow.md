@@ -1,11 +1,9 @@
 ---
 date: "2014-04-09"
-title: "About"
+title: "Follow Us"
 ---
 
-Hello, we are Blazed Labs, a product development company based out of Ocean City, New Jersey.
-
-Discover the Blazed Nation:
+Follow the Blazed Nation:
 
 * [Blazed Labs Facebook](https://www.facebook.com/blazedlabs)
 * [Blazed Nation Facebook](https://www.facebook.com/blznation)
