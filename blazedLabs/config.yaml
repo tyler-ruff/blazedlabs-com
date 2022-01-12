@@ -43,12 +43,15 @@ menu:
     - name: Home
       url: /
       weight: 1
-    - name: Follow
-      url: /follow/
+    - name: About
+      url: /about/
       weight: 2
     - name: Blog
       url: /post/
       weight: 3
+    - name: Tags
+      url: /tags/
+      weight: 4
 
 markup:
   defaultMarkdownHandler: goldmark
