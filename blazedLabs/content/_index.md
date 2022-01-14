@@ -12,21 +12,21 @@ title: "Home"
 
 **University**:
 {{< ticks >}}
-* [Blazed Space](https://blazed.space/)
 * [Blazed City](https://blazed.city/)
 * [Blazed World](https://blazed.world/)
 * [Coding Club](https://blazed.cc/)
-* [Foods R&D](https://blazedfoods.com/)
 {{< /ticks >}}
 
 **Creative**:
 {{< ticks >}}
-* [Blazed Productions BD.](https://blazed.watch/)
+* [Blazed Space](https://blazed.space/)
+* [Blazed Watch Productions](https://blazed.watch/)
 * [Concrete Games Interactive](https://blazed.games/)
 {{< /ticks >}}
 
 **Other**:
 {{< ticks >}}
+* [Food R&D](https://blazedfoods.com/)
 * [Project Management](https://blazed.quest/)
 * [RUFF Foundation](https://blz.one/)
 {{< /ticks >}}
