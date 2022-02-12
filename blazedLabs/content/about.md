@@ -6,3 +6,5 @@ title: "About"
 Blazed Labs LLC is a product development company founded by Tyler Ruff in 2020.
 
 * [Discover Blazed](/follow) on social media.
+
+We are working to turn dreams into reality. Our business practices span multiple industries, but all center around the unified goal of individual actualization. We operate mostly in New Jersey, but also work closely with global open source contributors.
