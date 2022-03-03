@@ -24,4 +24,4 @@ title: "Blazed Labs"
 * [Blazed World](https://blazed.world/)
 * [Blazed City](https://blazed.city/)
 * [Blazed Quest](https://blazed.quest/)
-{{ < /ticks > }}
+{{< /ticks >}}
