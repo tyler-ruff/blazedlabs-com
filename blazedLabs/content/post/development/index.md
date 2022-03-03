@@ -41,7 +41,7 @@ Please make sure to report all bugs to our ticketing system.
 Also, make use of the public [Development Group](https://blazed.monster/dev/) to help connect with other contributors.
 
 ```
-{{</* code numbered="true" */>}}
+{{< code numbered="true" >}}
 <blz-app>
     <blz-header>
         <header>
@@ -57,7 +57,8 @@ Also, make use of the public [Development Group](https://blazed.monster/dev/) to
         </footer>
     </blz-footer>
 </blz-app>
-{{</* /code */>}}
+{{< /code >}}
+```
 
 To submit changes to a Blazed Project, follow the steps below:
 
@@ -65,8 +66,8 @@ To submit changes to a Blazed Project, follow the steps below:
 2. Create a Pull Request, and submit a PR Form (Either ISSUE or FEATURE).
 3. The Pull Request must then get the approval of two or more project maintainers.
 4. Once a Pull request is accepted (merged), the senior development team will work to add attributions and documentation.
-```
 
+```html
 {{< code numbered="true" >}}
 <div [[[role="dialog"]]] [[[aria-labelledby="dialog-heading"]]]>
   <button [[[aria-label="close"]]]>x</button>
@@ -76,6 +77,7 @@ To submit changes to a Blazed Project, follow the steps below:
   <button>Cancel</button>
 </div>
 {{< /code >}}
+```
 
 1. The dialog is only announced as a dialog if it takes the `dialog` ARIA role
 2. The `aria-labelledby` relationship attribute makes the element carrying the `id` it points to its label
@@ -86,7 +88,6 @@ To submit changes to a Blazed Project, follow the steps below:
 
 To get syntax highlighting for your code, use markdown code fences, then specify the language:
 
-````
 ```html
 <div role="dialog" aria-labelledby="dialog-heading">
   <button aria-label="close">x</button>
