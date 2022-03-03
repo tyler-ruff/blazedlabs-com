@@ -1,75 +1,70 @@
 ---
-title: "Cupper Shortcodes"
+title: "Training and Contribution"
 date: 2019-02-12T23:39:06-06:00
-tags: [hugo, shortcodes]
+tags: [development, open, source, school, training, contribution]
 toc: true
 ---
 
-## blockquote
-
-```
-{{</* blockquote author="Carl Jung" */>}}
-Even a happy life cannot be without a measure of darkness, and the word happy would lose its meaning if it were not balanced by sadness. It is far better to take things as they come along with patience and equanimity.
-{{</* /blockquote */>}}
-```
-
-{{< blockquote author="Carl Jung" >}}
-Even a happy life cannot be without a measure of darkness, and the word happy would lose its meaning if it were not balanced by sadness. It is far better to take things as they come along with patience and equanimity.
+{{< blockquote author="Tyler Ruff" >}}
+We are all the students, as well as the teachers.
 {{< /blockquote >}}
 
-## note
+## Facebook Groups
 
-```
-{{</* note */>}}
-This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical. You can also *include* **markdown** stuffs like `code`. 
-{{</* /note */>}}
-```
+- [Blazed University](https://www.facebook.com/groups/blazed.edu)
+- [Blazed Development](https://www.facebook.com/groups/blzdev)
+- [Blazed National Forum](https://www.facebook.com/groups/blazedforum)
+- [Web Development School](https://www.facebook.com/groups/webdevschool)
+- [Truth](https://www.facebook.com/groups/eternalknowledge)
+- [The Monastic Order of Nature](https://www.facebook.com/groups/naturalmonks)
+- [Forbidden Mystery School of Atlantis](https://www.facebook.com/groups/atlantismysteryschool)
 
-{{< note >}}
-This is a note! It's something the reader may like to know about but is supplementary to the main content. Use notes when something may be interesting but not critical. You can also *include* **markdown** stuffs like `code`.
-{{< /note >}}
+## Facebook Pages
 
-## warning note
+- [Blazed Labs](https://www.facebook.com/blazedlabs)
+- [Blazed Foods](https://www.facebook.com/blazedfoods)
+- [Blazed Nation](https://www.facebook.com/blznation)
+- [Woodrow Bronzelton](https://www.facebook.com/woodrowbronze/)
+- [Plotinus Magnus](https://www.facebook.com/plotinusmagnus/)
+- [Alexander Mazelow](https://www.facebook.com/alexmazelow/)
+- [Thoth](https://www.facebook.com/thothbaboon)
+- [Ruff Management Group](https://www.facebook.com/ruffmanagement)
+- [Ocean Car Service](https://www.facebook.com/oceancarservicellc)
+- [RTM Transportation](https://www.facebook.com/rtmtransit)
 
-```
-{{</* warning */>}}
-This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong. You can also *include* **markdown** stuffs like `code`.
-{{</* /warning */>}}
-```
+## Contributing Guide
 
-{{< warning >}}
-This is a warning! It's about something the reader should be careful to do or to avoid doing. Use warnings when something could go wrong. You can also *include* **markdown** stuffs like `code`.
-{{< /warning >}}
+Thank you for your interest in the Blazed Development Group, your contributions are dearly appreciated. To begin, please refer to the specific guidelines present in the CONTRIBUTING.md file, found in the root of the target repository.
 
-## cmd
+Please make sure to report all bugs to our ticketing system. 
 
-```
-{{</* cmd */>}}
-hugo server --gc
-{{</* /cmd */>}}
-```
-
-{{< cmd >}}
-hugo server --gc
-{{< /cmd >}}
-
-## code
+Also, make use of the public [Development Group](https://blazed.monster/dev/) to help connect with other contributors.
 
 ```
 {{</* code numbered="true" */>}}
-<div [[[role="dialog"]]] [[[aria-labelledby="dialog-heading"]]]>
-  <button [[[aria-label="close"]]]>x</button>
-  <h2 [[[id="dialog-heading"]]]>Confirmation</h2>
-  <p>Press Okay to confirm or Cancel</p>
-  <button>Okay</button>
-  <button>Cancel</button>
-</div>
+<blz-app>
+    <blz-header>
+        <header>
+            [...]
+        </header>
+    </blz-header>
+    <main>
+        [...]
+    </main>
+    <blz-footer>
+        <footer>
+            [...]
+        </footer>
+    </blz-footer>
+</blz-app>
 {{</* /code */>}}
 
-1. The dialog is only announced as a dialog if it takes the `dialog` ARIA role
-2. The `aria-labelledby` relationship attribute makes the element carrying the `id` it points to its label
-3. The close button uses `aria-label` to provide the text label "close", overriding the text content
-4. The heading is used as the dialog's label. The `aria-labelledby` attribute points to its `id`
+To submit changes to a Blazed Project, follow the steps below:
+
+1. Fork the project and stage all changes within the forked repository.
+2. Create a Pull Request, and submit a PR Form (Either ISSUE or FEATURE).
+3. The Pull Request must then get the approval of two or more project maintainers.
+4. Once a Pull request is accepted (merged), the senior development team will work to add attributions and documentation.
 ```
 
 {{< code numbered="true" >}}
