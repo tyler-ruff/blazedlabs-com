@@ -46,12 +46,9 @@ menu:
     - name: About
       url: /about/
       weight: 2
-    - name: Blog
+    - name: Posts
       url: /post/
       weight: 3
-    - name: Tags
-      url: /tags/
-      weight: 4
 
 markup:
   defaultMarkdownHandler: goldmark
