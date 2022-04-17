@@ -3,14 +3,11 @@ date: "2017-06-26T18:27:58+01:00"
 title: "Blazed Labs"
 ---
 
-We are a product development company who specializes in software, food, and media publishing.
+## How can we make your dreams come True?
 
-**Creative**:
-{{< ticks >}}
-* [Blazed Space](https://blazed.space/)
-* [Blazed Watch](https://blazed.watch/)
-* [Concrete Games](https://blazed.games/)
-{{< /ticks >}}
+{{% colors "#09b068, #FFFFFF, #ab0717" %}}
+
+We are a product development company who specializes in systems administration, software development, and media publishing.
 
 **Divisions**:
 {{< ticks >}}
@@ -18,3 +15,17 @@ We are a product development company who specializes in software, food, and medi
 * [Blazed Publishing](https://blazed.xyz/)
 * [Blazed Systems](https://blazed.systems/)
 {{< /ticks >}}
+
+**Network**:
+{{< ticks >}}
+* [Blazed City](https://blazed.city/)
+* [Blazed Space](https://blazed.space/)
+* [Blazed World](https://blazed.world/)
+{{< /ticks >}}
+
+**Products**
+{{ < ticks > }}
+* [Blazed One](https://blz.one/)
+* [Concrete Games](https://blazed.games/)
+* [Coding Club](https://blazed.cc/)
+{{ < /ticks > }}

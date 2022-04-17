@@ -10,4 +10,10 @@ Fire is just front end frameworks/boilerplate.
 Ice is just back end frameworks/boilerplate.
 Together, they make websites that are simple, easy to maintain, and modular.
 
+# Discover Fire
+* [Fire/Javascript Lib](https://github.com/blazed-space/fire)
 
+# Discover Ice
+* [Ice/PHP Lib](https://github.com/blazed-space/ice)
+* [Ice/PHP Boilerplate](https://github.com/blazed-space/blz-ice-php)
+* [Ice/Python Boilerplate](https://github.com/blazed-space/blz-ice-py)
