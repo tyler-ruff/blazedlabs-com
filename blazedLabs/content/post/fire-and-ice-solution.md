@@ -5,9 +5,12 @@ tags: [engineering]
 ---
 
 There is no doubt about it, no matter what language or build platform one uses, all development is becoming more modular and more decentralized.
+
 This is true mostly in the field of web development, so that is why we have been working to create Fire and Ice.
-Fire is just front end frameworks/boilerplate.
-Ice is just back end frameworks/boilerplate.
+
+* Fire is just front end frameworks/boilerplate.
+* Ice is just back end frameworks/boilerplate.
+
 Together, they make websites that are simple, easy to maintain, and modular.
 
 # Discover Fire
@@ -17,3 +20,4 @@ Together, they make websites that are simple, easy to maintain, and modular.
 * [Ice/PHP Lib](https://github.com/blazed-space/ice)
 * [Ice/PHP Boilerplate](https://github.com/blazed-space/blz-ice-php)
 * [Ice/Python Boilerplate](https://github.com/blazed-space/blz-ice-py)
+* [Ice/Node Boilerplate](https://github.com/blazed-space/blz-ice-node)

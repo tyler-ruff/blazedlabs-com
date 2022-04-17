@@ -5,8 +5,6 @@ title: "Blazed Labs"
 
 ## How can we make your dreams come True?
 
-{{% colors "#09b068, #FFFFFF, #ab0717" %}}
-
 We are a product development company who specializes in systems administration, software development, and media publishing.
 
 **Divisions**:
