@@ -20,10 +20,3 @@ We are a product development company who specializes in systems administration, 
 * [Blazed Space](https://blazed.space/)
 * [Blazed World](https://blazed.world/)
 {{< /ticks >}}
-
-**Products**:
-{{< ticks >}}
-* [Blazed One](https://blz.one/)
-* [Concrete Games](https://blazed.games/)
-* [Coding Club](https://blazed.cc/)
-{{< /ticks >}}
