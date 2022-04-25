@@ -7,16 +7,10 @@ title: "Blazed Labs"
 
 We are a product development company who specializes in systems administration, software development, and media publishing.
 
-**Divisions**:
+**Discover Blazed**:
 {{< ticks >}}
+* [Blazed One](https://blz.one/)
 * [Blazed Foods](https://blazedfoods.com/)
-* [Blazed Publishing](https://blazed.xyz/)
-* [Blazed Systems](https://blazed.systems/)
+* [Blazed City](https://blazed.city/)
 {{< /ticks >}}
 
-**Network**:
-{{< ticks >}}
-* [Blazed City](https://blazed.city/)
-* [Blazed Space](https://blazed.space/)
-* [Blazed World](https://blazed.world/)
-{{< /ticks >}}

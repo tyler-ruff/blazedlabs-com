@@ -14,10 +14,16 @@ This is true mostly in the field of web development, so that is why we have been
 Together, they make websites that are simple, easy to maintain, and modular.
 
 # Discover Fire
-* [Fire/Javascript Lib](https://github.com/blazed-space/fire)
+* [Fire Core](https://github.com/ruff-org/fire)
+* [Fire Angular](https://github.com/blazed-space/fire-angular)
+* [Fire React](https://github.com/blazed-space/fire-react)
+* [Fire Svelte](https://github.com/blazed-space/fire-svelte)
 
 # Discover Ice
-* [Ice/PHP Lib](https://github.com/blazed-space/ice)
-* [Ice/PHP Boilerplate](https://github.com/blazed-space/blz-ice-php)
-* [Ice/Python Boilerplate](https://github.com/blazed-space/blz-ice-py)
-* [Ice/Node Boilerplate](https://github.com/blazed-space/blz-ice-node)
+* [Ice Core](https://github.com/ruff-org/ice)
+* [Ice Php Library](https://github.com/blazed-space/ice)
+* [Ice Php](https://github.com/blazed-space/blz-ice-php)
+* [Ice Node.js](https://github.com/blazed-space/blz-ice-node)
+* [Ice Ruby](https://github.com/blazed-space/blz-ice-ruby)
+* [Ice C#](https://github.com/blazed-space/blz-ice-dotnet)
+* [Ice Java](https://github.com/blazed-space/blz-ice-java)
