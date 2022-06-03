@@ -17,7 +17,7 @@ imaging:
   quality: 99
 
 params:
-  description: We turn dreams into reality.
+  description: blazed
   homeMetaContent: Engineering a better way. Product development and engineering; research and open source collaboration.
   footer: Created by [Blazed Labs](https://blazedlabs.com/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
