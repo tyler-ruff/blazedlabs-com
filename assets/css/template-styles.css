@@ -354,6 +354,7 @@ caption {
     margin-right: auto;
     max-width: 25rem;
     font-size: 28px;
+    text-align: center;
 }
 .main-and-footer {
     margin-left: 15rem;
