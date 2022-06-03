@@ -11,5 +11,5 @@ We are a product development company who specializes in systems administration, 
 {{< ticks >}}
 * [Blazed One](https://blz.one/)
 * [Follow Us](https://www.blazedlabs.com/follow)
-* [All Sites...](https://www.blazedlabs.com/blazed-network)
+* [All Sites](https://www.blazedlabs.com/blazed-network)
 {{< /ticks >}}
