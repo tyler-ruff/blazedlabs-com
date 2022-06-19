@@ -1,7 +1,7 @@
 ---
 title: "Blazed Network"
 date: 2020-06-17T22:01:14-05:00
-tags: [issue]
+tags: [directory]
 ---
 
 Discover the sites available in the Blazed Network!

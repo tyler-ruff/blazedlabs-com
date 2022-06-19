@@ -18,6 +18,7 @@ Together, they make websites that are simple, easy to maintain, and modular.
 * [Fire Angular](https://github.com/blazed-space/fire-angular)
 * [Fire React](https://github.com/blazed-space/fire-react)
 * [Fire Svelte](https://github.com/blazed-space/fire-svelte)
+* [Fire G (On Facebook)](https://www.facebook.com/firewebdev)
 
 # Discover Ice
 * [Ice Core](https://github.com/ruff-org/ice)
@@ -27,3 +28,4 @@ Together, they make websites that are simple, easy to maintain, and modular.
 * [Ice Ruby](https://github.com/blazed-space/blz-ice-ruby)
 * [Ice C#](https://github.com/blazed-space/blz-ice-dotnet)
 * [Ice Java](https://github.com/blazed-space/blz-ice-java)
+* [Ice T (On Facebook)](https://www.facebook.com/icedtyrod)
