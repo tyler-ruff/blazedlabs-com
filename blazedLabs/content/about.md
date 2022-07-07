@@ -14,7 +14,8 @@ We operate globally for the collective betterment of all open source developers 
 * [Publishing](https://blazed.xyz/)
 * [Systems Admin](https://blazed.systems/)
 * [Telecommunications](https://blazed.tel/)
-* 
+* [All Services](https://www.blz.one/services)
+
 ## Legal
 * [Privacy Policy](https://www.blazedlabs.com/privacy/)
 * [Blazed One TOS](https://blazed.sbs/assets/pdf/tos.pdf)
