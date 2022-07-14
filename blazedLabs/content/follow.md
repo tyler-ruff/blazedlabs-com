@@ -7,8 +7,8 @@ Follow the Blazed Nation:
 
 * [Blazed Labs Facebook](https://www.facebook.com/blazedlabs)
 * [Blazed Nation Facebook](https://www.facebook.com/blznation)
-* [Blazed Twitter](https://twitter.com/BlazedLabs)
-* [Blazed Instagram](https://instagram.com/blazed_labs)
-* [Blazed Labs Github](https://github.com/blazed-labs)
-
-
+* [Twitter](https://twitter.com/BlazedLabs)
+* [Instagram](https://instagram.com/blazed_labs)
+* [Github](https://github.com/blazed-labs)
+* [Linkedin](https://www.linkedin.com/company/blazed-labs/)
+* [OpenCollective](https://opencollective.com/blazed-labs)
