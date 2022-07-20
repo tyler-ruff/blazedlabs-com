@@ -9,7 +9,8 @@ We are a product development company who specializes in systems administration, 
 
 **Discover Blazed**:
 {{< ticks >}}
-* [Blazed One](https://blz.one/)
+* [One](https://blz.one/)
+* [Space](https://blazed.space/)
 * [Follow Us](https://www.blazedlabs.com/follow)
 * [All Sites](https://www.blazedlabs.com/blazed-network)
 {{< /ticks >}}

@@ -18,13 +18,13 @@ Definitions:
   F. any other identifier that the Commission determines permits the physical or online contacting of a specific individual; or
   G. information concerning the child or the parents of that child that the website collects online from the child and combines with an identifier described in this paragraph
 
-INTRODUCTION
+## INTRODUCTION
 
     The Blazed Labs ("Company") cares deeply about the privacy of its users' ("Personal Information"). 
     That is why the ("Company") does not store, share, or accept any user's ("Personal Information"), until the user agrees to our privacy policy this ("Document"). By agreeing to this ("Document"), the user also claims that he/she has attained to the age of thirteen (13), and if under the age of eighteen (18), has agreed to this ("Document") only if accompanied by a legal parent or gaurdian (as defined by the user's local government).
 
 
-DATA COLLECTED
+## DATA COLLECTED
 
     Data is only collected when a user registers or logs on to an account. Before a user can register for an account, they must agree to this privacy policy as well as the service agreement(s) pertaining to the service to be availed.
 
@@ -43,12 +43,12 @@ DATA COLLECTED
     - Social media accounts
 
 
-DATA PRIVACY
+## DATA PRIVACY
 
     The ("Company") agrees to never sell, share, or devulge the ("Personal Information") of any of its users.
     The ("Company") agrees to be honest and share with its users in the event of a data leak (or otherwise loss of control over the data collected from the user).
 
-QUESTIONS? CONCERNS?
+### QUESTIONS? CONCERNS?
 
     Please reach out to us if you have any questions or concerns.
     Via phone:
