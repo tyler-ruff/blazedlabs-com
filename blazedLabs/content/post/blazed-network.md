@@ -9,13 +9,15 @@ Discover the sites available in the Blazed Network!
 {{< expandable label="Community" level="2" >}}
 * [Developer's Gitub](https://github.com/blazed-space)
 * [Main Github](https://github.com/blazed-labs)
-* [Blazed Nation](https://blazed.city/)
+* [Blazed Nation](https://blazed.dev/)
 {{< /expandable >}}
 
 {{< expandable label="Platforms" level="2" >}}
 * [Blazed One](https://blz.one/)
 * [Blazed Space](https://blazed.space/)
+* [Blazed City](https://blazed.city/)
 * [Blazed World](https://blazed.world/)
+* [Blazed Boston](https://blazed.boston/)
 * [Blazed Watch](https://blazed.watch/)
 * [Concrete Games](https://blazed.games/)
 {{< /expandable >}}
