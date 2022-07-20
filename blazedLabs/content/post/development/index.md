@@ -36,7 +36,7 @@ Once your PR is merged, your contributions will be publicly visible on the [Blaz
 - If you come across a bug, fluke, or unsavory UX story; please do not hesitate to create a new [Issue](https://github.com/blazed-labs/blazed-labs/issues/new). Of course, first check if the issue has already been raised by using the search feature.
 - If you would like to share your user experience story, even if it was purely positive, you may do so in the [Discussions](https://github.com/blazed-labs/blazed-labs/discussions) section of this repo.
 
-- [Source](https://github.com/blazed-labs/blazed-labs/blob/main/CONTRIBUTING.md)
+> [Source](https://github.com/blazed-labs/blazed-labs/blob/main/CONTRIBUTING.md)
 
 ## Website Standards
 
@@ -215,6 +215,9 @@ body::-webkit-scrollbar-thumb:hover{
 
 * Note: don't forget to create [manifest.json](https://github.com/tyler-ruff/tyler-ruff/blob/main/Web-Gallery/HTML-Snippets/manifest.json), [browserconfig.xml](https://github.com/tyler-ruff/tyler-ruff/blob/main/Web-Gallery/HTML-Snippets/browserconfig.xml), [robots.txt](https://github.com/tyler-ruff/tyler-ruff/blob/main/Web-Gallery/HTML-Snippets/robots.txt), and optionally [humans.txt](https://github.com/tyler-ruff/tyler-ruff/blob/main/Web-Gallery/HTML-Snippets/humans.txt).
 
+## Example App
+
+{{< codePen PoRpMjp >}}
 
 ## Facebook Groups
 
@@ -238,135 +241,5 @@ body::-webkit-scrollbar-thumb:hover{
 - [Ruff Management Group](https://www.facebook.com/ruffmanagement)
 - [Ocean Car Service](https://www.facebook.com/oceancarservicellc)
 - [RTM Transportation](https://www.facebook.com/rtmtransit)
-
-## codePen
-
-```
-{{</* codePen VpVNKW */>}}
-```
-
-{{< codePen VpVNKW >}}
-
-## colors
-
-```
-{{</* colors "#111111, #cccccc, #ffffff" */>}}
-```
-
-{{< colors "#111111, #cccccc, #ffffff" >}}
-
-## expandable
-
-```
-{{</* expandable label="A section of dummy text" level="2" */>}}
-Here is some markdown including [a link](https://twitter.com/heydonworks). Donec erat est, feugiat a est sed, aliquet pharetra ipsum. Vivamus in arcu leo. Praesent feugiat, purus a molestie ultrices, libero massa iaculis ante, sit amet accumsan leo eros vel ligula.
-{{</* /expandable */>}}
-```
-
-{{< expandable label="A section of dummy text" level="2" >}}
-Here is some markdown including [a link](https://twitter.com/heydonworks). Donec erat est, feugiat a est sed, aliquet pharetra ipsum. Vivamus in arcu leo. Praesent feugiat, purus a molestie ultrices, libero massa iaculis ante, sit amet accumsan leo eros vel ligula.
-{{< /expandable >}}
-
-## fileTree
-
-```
-{{</* fileTree */>}}
-* Level 1 folder
-    * Level 2 file
-    * Level 2 folder
-        * Level 3 file
-        * Level 3 folder
-            * Level 4 file
-        * Level 3 folder
-            * Level 4 file
-            * Level 4 file
-        * Level 3 file
-    * Level 2 folder
-        * Level 3 file
-        * Level 3 file
-        * Level 3 file
-    * Level 2 file
-* Level 1 file
-{{</* /fileTree */>}}
-```
-
-{{< fileTree >}}
-* Level 1 folder
-    * Level 2 file
-    * Level 2 folder
-        * Level 3 file
-        * Level 3 folder
-            * Level 4 file
-        * Level 3 folder
-            * Level 4 file
-            * Level 4 file
-        * Level 3 file
-    * Level 2 folder
-        * Level 3 file
-        * Level 3 file
-        * Level 3 file
-    * Level 2 file
-* Level 1 file
-{{< /fileTree >}}
-
-## ticks
-
-```
-{{</* ticks */>}}
-* Selling point one
-* Selling point two
-* Selling point three
-{{</* /ticks */>}}
-```
-
-{{< ticks >}}
-* Selling point one
-* Selling point two
-* Selling point three
-{{< /ticks >}}
-
-## figureCupper
-
-```
-{{</* figureCupper
-img="sun.jpg" 
-caption="The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth. [Credits](https://images.nasa.gov/details-GSFC_20171208_Archive_e000393.html)." 
-command="Resize" 
-options="700x" */>}}
-```
-
-{{< figureCupper
-img="sun.jpg" 
-caption="The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth. [Credits](https://images.nasa.gov/details-GSFC_20171208_Archive_e000393.html)." 
-command="Resize" 
-options="700x" >}}
-
-## principles
-
-See the [full principles list](https://github.com/zwbetz-gh/cupper-hugo-theme/blob/master/data/principles.json).
-
-```
-{{</* principles include="Add value, Be consistent" descriptions="true" */>}}
-```
-
-{{< principles include="Add value, Be consistent" descriptions="true" >}}
-
-## wcag
-
-See the [full wcag list](https://github.com/zwbetz-gh/cupper-hugo-theme/blob/master/data/wcag.json). 
-
-```
-{{</* wcag include="1.2.1, 1.3.1, 4.1.2" */>}}
-```
-
-{{< wcag include="1.2.1, 1.3.1, 4.1.2" >}}
-
-## tested
-
-See the [full browser list](https://github.com/zwbetz-gh/cupper-hugo-theme/tree/master/static/images).
-
-```
-{{</* tested using="Firefox + JAWS, Chrome, Safari iOS + Voiceover, Edge" */>}}
-```
 
 {{< tested using="Firefox + JAWS, Chrome, Safari iOS + Voiceover, Edge" >}}
