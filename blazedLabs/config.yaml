@@ -22,7 +22,7 @@ params:
   footer: Created by [Blazed Labs](https://blazedlabs.com/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
-  codePenUser: blazed-labs
+  codePenUser: blazed-space
   katex: true
   hideHeaderLinks: false
   search: true

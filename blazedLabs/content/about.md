@@ -21,7 +21,7 @@ We operate globally for the collective betterment of all open source developers 
 ### Phone Numbers
 - [1(855)788-2348](tel:+18557882348) - Main Telephone
 - [1(833)887-0061](tel:+18338870061) - Corporate / Legal
-- [1(855)976-4121](tel:+18559784121) - Blazed Telecom
+- [1(855)976-4121](tel:+18559764121) - Blazed Telecom
 
 ### Email
 - [hello@blazed.space](mailto:hello@blazed.space)
