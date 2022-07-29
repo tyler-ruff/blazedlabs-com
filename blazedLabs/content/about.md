@@ -10,13 +10,13 @@ Blazed Labs LLC is a product development company founded in 2020. Our business p
 
 We operate globally for the collective betterment of all open source developers and contributors.
 
+We are managed by [Ruff Management Inc.](https://ruff-manage.com/)
+
 ## Services
 * [Publishing](https://blazed.xyz/)
 * [Systems Admin](https://blazed.systems/)
 * [Telecommunications](https://blazed.tel/)
 * [All Services](https://www.blz.one/services)
-
-## Contact
 
 ### Phone Numbers
 - [1(855)788-2348](tel:+18557882348) - Main Telephone
