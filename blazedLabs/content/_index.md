@@ -6,11 +6,11 @@ title: "Blazed Labs"
 ## We turn Dreams into Reality.
 
 We are a product development company who specializes in systems administration, software development, and media publishing.
-
-**Discover Blazed**:
+[![Follow Blazed on Twitter](https://img.shields.io/twitter/follow/BlazedLabs?style=for-the-badge "Follow Blazed on Twitter")](https://twitter.com/BlazedLabs)
 {{< ticks >}}
 * [One](https://blz.one/)
 * [Company](https://blazed.company/)
 * [Follow Us](https://www.blazedlabs.com/follow)
 * [All Sites](https://www.blazedlabs.com/blazed-network)
 {{< /ticks >}}
+
