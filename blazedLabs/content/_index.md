@@ -8,7 +8,8 @@ title: "Blazed Labs"
 We are a product development company who specializes in systems administration, software development, and media publishing.
 
 {{< ticks >}}
-* [One](https://blz.one/)
+* [Products](https://blz.one/products)
+* [Services](https://blz.one/services)
 * [Company](https://blazed.company/)
 * [Follow Us](https://www.blazedlabs.com/follow)
 * [All Sites](https://www.blazedlabs.com/blazed-network)
