@@ -14,8 +14,11 @@ Identification of the material that is claimed to be infringing or to be the sub
 Information sufficient to demonstrate that you are the owner of the copyrighted work or an authorized representative of such owner;
 Information reasonably sufficient to permit us to contact you, such as an address, telephone number, and, if available, an electronic mail address, if different from the information you provided in your User Account (as defined in our Terms of Use)  and
 Include the following statements:
-“I have a good faith belief that use of the material in the manner complained of is not authorized by me, my agent, or the law.”; and
-“The information in the notification is accurate, and under penalty of perjury, that I am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.”
+
+> “I have a good faith belief that use of the material in the manner complained of is not authorized by me, my agent, or the law.”;
+and;
+> “The information in the notification is accurate, and under penalty of perjury, that I am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.”
+
 The foregoing notice must be sent to our Designated Agent, whose contact information is as follows:
 
 * Designated Agent telephone at (833) 887-0061
@@ -31,5 +34,11 @@ If you believe that your content should not have been removed for alleged copyri
 Identification of the copyrighted work that was removed, and the location on the Sites where the material would have been found prior to such materials removal;
 Information reasonably sufficient to permit us to contact you, such as an address, telephone number, and, if available, an electronic mail address, if different from the information you provided in your user account; and
 Include the following statement:
-“Under penalty of perjury, I have a good faith belief that the content was removed as a result of a mistake or misidentification.”
+
+> “Under penalty of perjury, I have a good faith belief that the content was removed as a result of a mistake or misidentification.”
+
 Upon receipt of a counter-notice by our Designated Agent, we may send a copy of the counter-notice to the original complaining party informing that person that we may replace the removed material or cease disabling it within ten (10) business days and unless the copyright owner files an action seeking a court order against the alleged infringing user, we may replace and cease disabling access to such removed material between ten (10) and fourteen (14) business days after our Designated Agent receives the counter-notice.
+
+### Questions? Comments? Concerns?
+- Contact us at: [hello@blazed.space](mailto:hello@blazed.space)
+- Or call us at: [+1 (833) 887-0061](tel:+18338870061)
