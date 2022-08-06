@@ -109,3 +109,7 @@ such as waste prevention, waste reduction, pollution prevention, clean air and w
 strongly desires to minimize the amount of waste sent to landfills. Both the product
 purchased and the packaging materials associated with it should be minimized to prevent
 waste as much as possible.
+
+### Questions? Comments? Concerns?
+- Contact us at: [hello@blazed.space](mailto:hello@blazed.space)
+- Or call us at: [+1 (855) 788-2348](tel:+18557882348)

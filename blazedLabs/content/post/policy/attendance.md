@@ -7,10 +7,10 @@ tags: ["policy"]
 # Attendance Policy
 ## Objective
 
-The purpose of this policy is to set forth Blazed Labs/Ruff Management's policy and procedures for handling employee absences and tardiness to promote the efficient operation of the company and minimize unscheduled absences. 
+The purpose of this policy is to set forth Blazed Labs LLC's policy and procedures for handling employee absences and tardiness to promote the efficient operation of the company and minimize unscheduled absences. 
 Policy
 
-Punctual and regular attendance is an essential responsibility of each employee at Blazed Labs/Ruff Management. Employees are expected to report to work as scheduled, on time and prepared to start working. Employees also are expected to remain at work for their entire work schedule. Late arrival, early departure or other absences from scheduled hours are disruptive and must be avoided.
+Punctual and regular attendance is an essential responsibility of each employee at Blazed Labs LLC. Employees are expected to report to work as scheduled, on time and prepared to start working. Employees also are expected to remain at work for their entire work schedule. Late arrival, early departure or other absences from scheduled hours are disruptive and must be avoided.
 
 This policy does not apply to absences covered by the Family and Medical Leave Act (FMLA) or leave provided as a reasonable accommodation under the Americans with Disabilities Act (ADA). These exceptions are described in separate policies.
 
@@ -26,7 +26,7 @@ The employee has sufficient accrued paid time off (PTO) to cover the absence.
 Unexcused absence occurs when any of the above conditions are not met. If it is necessary for an employee to be absent or late for work because of an illness or an emergency, the employee must notify his or her supervisor no later than the employee's scheduled starting time on that same day. If the employee is unable to call, he or she must have someone make the call.
 An unexcused absence counts as one occurrence for the purposes of discipline under this policy.
 
-Employees with three or more consecutive days of excused absences because of illness or injury must give Blazed Labs/Ruff Management proof of physician's care and a fitness for duty release prior to returning to work.
+Employees with three or more consecutive days of excused absences because of illness or injury must give Blazed Labs LLC proof of physician's care and a fitness for duty release prior to returning to work.
 
 Employees must take earned PTO for every absence unless otherwise allowed by company policy (e.g., leave of absence, bereavement, jury duty).
 
@@ -45,3 +45,7 @@ Excessive absenteeism is defined as two or more occurrences of unexcused absence
 ## Job Abandonment
 
 Any employee who fails to report to work for a period of three days or more without notifying his or her supervisor will be considered to have abandoned the job and voluntarily terminated the employment relationship. 
+
+### Questions? Comments? Concerns?
+- Contact us at: [hello@blazed.space](mailto:hello@blazed.space)
+- Or call us at: [+1 (855) 788-2348](tel:+18557882348)

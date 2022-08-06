@@ -41,4 +41,4 @@ Upon receipt of a counter-notice by our Designated Agent, we may send a copy of 
 
 ### Questions? Comments? Concerns?
 - Contact us at: [hello@blazed.space](mailto:hello@blazed.space)
-- Or call us at: [+1 (833) 887-0061](tel:+18338870061)
+- Or call us at: [+1 (855) 788-2348](tel:+18557882348)

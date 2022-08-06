@@ -6,13 +6,13 @@ tags: ["policy"]
 
 # Employee Code of Conduct policy
 
-This code of conduct for employees applies to each employee of Blazed Labs LLC or Ruff Management Inc. regardless of start date, contractual agreement or employee rank. Failure to comply with the policies set forth may result in disciplinary action, which can include termination of employment. Per the contract an employee signed, all company employees are in fact bound by their contract to follow our code of conduct for employees on a daily basis while performing their duties. If an employee has a question or feels that a fellow co-worker or even the company is not meeting our commitment, we want to hear from you - do not stay silent. Contact your direct manager, HR, the Ethics and Compliance helpline or a government agency. We take our code of conduct seriously and we expect the same of our employees. **The following now outlines the specifics of our code of conduct for employees:**
+This code of conduct for employees applies to each employee of Blazed Labs LLC regardless of start date, contractual agreement or employee rank. Failure to comply with the policies set forth may result in disciplinary action, which can include termination of employment. Per the contract an employee signed, all company employees are in fact bound by their contract to follow our code of conduct for employees on a daily basis while performing their duties. If an employee has a question or feels that a fellow co-worker or even the company is not meeting our commitment, we want to hear from you - do not stay silent. Contact your direct manager, HR, the Ethics and Compliance helpline or a government agency. We take our code of conduct seriously and we expect the same of our employees. **The following now outlines the specifics of our code of conduct for employees:**
 
 ## Compliance with law 
-All Blazed Labs LLC or Ruff Management Inc. employees are required to protect our company’s legality, therefore they should comply with all environmental, safety and fair dealing laws. We do expect employees to be ethical and responsible whenever dealing with our company finances, products, partnerships and public image. 
+All Blazed Labs LLC employees are required to protect our company’s legality, therefore they should comply with all environmental, safety and fair dealing laws. We do expect employees to be ethical and responsible whenever dealing with our company finances, products, partnerships and public image. 
 
 ## Respect in the workplace 
-All employees of Blazed Labs LLC or Ruff Management Inc. are expected to respect their colleagues. We will not allow for any kind of discriminatory behavior, harassment or victimization. Employees should also conform with the equal opportunity policy in all aspects of their job duties. 
+All employees of Blazed Labs LLC are expected to respect their colleagues. We will not allow for any kind of discriminatory behavior, harassment or victimization. Employees should also conform with the equal opportunity policy in all aspects of their job duties. 
 
 ## Protection of company property 
 All employees are expected to treat ABC Production’s property with respect and care. This means that employees: 
@@ -32,7 +32,7 @@ We strongly discourage employees from accepting gifts from outside parties. We a
 ### Job duties and authority 
 All employees should fulfill their job duties with integrity and respect toward customers, stakeholders and the community. Supervisors and managers mustn’t abuse their authority. We expect them to delegate duties to their team members taking into account their competences and workload. Likewise, we expect team members to follow team leaders’ instructions and complete their duties with skill and in a timely manner. 
 
-We encourage mentoring throughout our company. 
+**We encourage mentoring throughout our company.**
 
 ### Absenteeism and tardiness
 Employees need to follow their schedules. However, there are exceptions that may prevent employees from following the standard working hours or days and we outline those in our Employee Attendance Policy. In any case, we do expect all employees to be punctual when clocking in and clocking out. 
@@ -56,8 +56,8 @@ All employees are required to read and follow all of our company policies. If yo
 * Suspension or termination, when dealing with serious offenses. 
 * Detraction of benefits for a specific amount of time. 
 
-Ruff Management Inc. may take legal action if corruption, theft, embezzlement or other unlawful behavior takes place at any given time.
+Blazed Labs LLC may take legal action if corruption, theft, embezzlement or other unlawful behavior takes place at any given time.
 
 ### Questions? Comments? Concerns?
 - Contact us at: [hello@blazed.space](mailto:hello@blazed.space)
-- Or call us at: [+1 (833) 887-0061](tel:+18338870061)
+- Or call us at: [+1 (855) 788-2348](tel:+18557882348)
