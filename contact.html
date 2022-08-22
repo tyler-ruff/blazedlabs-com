@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="dns-prefetch" href="//blazed.sirv.com/">
+        <link rel="preconnect" href="https://blazed.sirv.com/">
+
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="lib/blz-fire/fire.css">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">-->
+        <link href="css/style.css" rel="stylesheet">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <script src="lib/blz-fire/fire.js"></script>
+        <script src="js/site.blz.js"></script>
+
+        <script src="js/views/contact.blz.js"></script>
+        
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+      <script>
+        let page = getPage();
+        const config = build_config(siteConfig, 
+        'Blazed Labs LLC: We turn Dreams into Reality - Get in touch.', 
+        page);
+        let pageData = build_routes(page);
+        const app = new Fire(config);
+        create_app(app.config, pageData);
+      </script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+      <script src="lib/isotope/isotope.pkgd.min.js"></script>
+      <script src="lib/lightbox/js/lightbox.min.js"></script>
+      <script src="js/main.js"></script>
+    </body>
+</html>
