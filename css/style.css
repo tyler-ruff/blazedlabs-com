@@ -353,6 +353,10 @@ a:focus {
     line-height: 24px;
 }
 
+.home-promo-img{
+    border-radius:10px;
+}
+
 /* Video Player */
 .player{
     margin-left:60px;

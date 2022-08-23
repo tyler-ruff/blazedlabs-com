@@ -25,10 +25,12 @@ function home(){
                     <p>
                         The <b>Blazed Labs LLC</b> company is dedicated to producing quality software, building secure and performant networks, and helping our customers experience immersive & interactive virtual worlds.
                     </p>
-                    <a class="btn" href="https://blazedlabs.com/products.html">Discover Blazed</a>
+                    <a class="btn" href="https://blazedlabs.com/services.html">Our Services</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://blazed.sirv.com/logo/Lockscreen-Beaker.png" alt="Beaker City 1">
+                    <a href="https://blazedlabs.com/products.html" title="Our Products">
+                        <img class="home-promo-img" src="https://blazed.sirv.com/blazedlabs.com/Blazed%20Labs%20(1).png?w=500&h=500" alt="Our Products">
+                    </a>
                 </div>
             </div>
         </div>
