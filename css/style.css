@@ -1922,3 +1922,9 @@ a:focus {
         text-align: center;
     }
 }
+
+@media only screen and (max-width:900px) {
+    .player{
+        display:none;
+    }
+}

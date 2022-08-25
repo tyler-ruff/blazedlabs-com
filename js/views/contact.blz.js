@@ -46,38 +46,48 @@ function contact(){
                             <h3>How to reach us</h3>
                             <h3>Telephone: <a href="tel:+18557882348">1 (855) 788-2348</a></h3>
                             <h3>E-mail: <a href="mailto:hello@blazed.space">hello@blazed.space</a></h3>
+                            <h3>Online: <a target="_blank" href="https://blazed.contact/">Sales Inquiries</a> &nbsp; <a target="_blank" href="https://blazed.company/contact">Other Inquiries</a></h3>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="editor-info">
                             <h2 class="section-title">
-                                Contact Person
+                                Contacts
                             </h2>
                             <div class="editor-item">
                                 <div class="editor-img">
-                                    <img src="img/editor-1.jpg" alt="Editor Image">
+                                    <img src="https://blazed.sirv.com/ruff-manage.com/ruff-lion.png?w=100&h=100" alt="Editor Image">
                                 </div>
                                 <div class="editor-text">
-                                    <h3>Name Goes Here</h3>
-                                    <a href="mailto:email@example.com">Email Now</a>
+                                    <h3>
+                                        Ruff Management Inc.
+                                    </h3>
+                                    <a href="mailto:hello@ruff-manage.com">hello@ruff-manage.com</a> <br />
+                                    <a href="tel:+18338870061">1 (833) 887-0061</a>
                                 </div>
                             </div>
                             <div class="editor-item">
                                 <div class="editor-img">
-                                    <img src="img/editor-1.jpg" alt="Editor Image">
+                                    <img src="https://blazed.sirv.com/ibis/blazed-games-desktop.jpg?w=100&h=100" alt="Editor Image">
                                 </div>
                                 <div class="editor-text">
-                                    <h3>Name Goes Here</h3>
-                                    <a href="mailto:email@example.com">Email Now</a>
+                                    <h3>
+                                        Blazed Telecom
+                                    </h3>
+                                    <a href="mailto:hello@blazed.tel">hello@blazed.tel</a> <br />
+                                    <a href="tel:+18559764121">1 (855) 976-4121</a>
                                 </div>
                             </div>
                             <div class="editor-item">
                                 <div class="editor-img">
-                                    <img src="img/editor-1.jpg" alt="Editor Image">
+                                    <img src="https://blazed.sirv.com/blazed.games/Concrete-Games-White.png?w=100&h=100" alt="Editor Image">
                                 </div>
                                 <div class="editor-text">
-                                    <h3>Name Goes Here</h3>
-                                    <a href="mailto:email@example.com">Email Now</a>
+                                    <h3>
+                                        Concrete Games LLC
+                                    </h3>
+                                    <a href="mailto:email@example.com">hello@blazed.games</a> <br />
+                                    <a href="tel:+18882008103">1 (888) 200-8103</a>
                                 </div>
                             </div>
                         </div>
