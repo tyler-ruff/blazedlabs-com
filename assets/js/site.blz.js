@@ -1,6 +1,6 @@
 const siteConfig = {
   siteTitle: "Blazed Labs",
-  website: 'blazedlabs.com', 
+  website: 'www.blazedlabs.com', 
   icon: 'https://blazed.sirv.com/logo/Beaker-White.png', 
   twitter: 'BlazedLabs',
   fbAppId: '503698127531557',

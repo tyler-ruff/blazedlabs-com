@@ -36,7 +36,7 @@ function unknown(){
                         You can find plenty of other things on our homepage.
                     </p>
 
-                    <a href="https://blazed.systems/home"
+                    <a href="https://blazedlabs.com/"
                         class="inline px-4 py-2 text-sm font-medium leading-5 text-white uppercase transition-colors duration-150 bg-gray-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-blue active:bg-blue-600 hover:bg-gray-700">
                         Back to Homepage
                     </a>
