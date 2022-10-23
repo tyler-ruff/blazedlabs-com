@@ -31,10 +31,6 @@ const siteConfig = {
       url: "https://blazedlabs.com/"
   },
   {
-      text: "About",
-      url: "https://www.blazed.company/about"
-  },
-  {
       text: "Products",
       url: "https://blz.one/products"
   },
@@ -53,10 +49,6 @@ const siteConfig = {
       {
           text: "Home",
           url: "https://blazedlabs.com/"
-      },
-      {
-          text: "About",
-          url: "https://blazedlabs.com/about.html"
       },
       {
           text: "Services",

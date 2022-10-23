@@ -6,12 +6,6 @@
 function build_routes(page){
     let data = {};
     switch(page){
-        case 'about':
-            data = {
-                pageNum: 1,
-                content: about()
-            };
-            break;
         case 'home':
         default:
             data = {
@@ -35,9 +29,6 @@ function home(){
                         The Blazed Labs LLC company is dedicated to producing quality software, building secure and performant networks, and helping our customers experience immersive & interactive virtual worlds.
                     </p>
                     <div class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <a rel="noopener noreferrer" href="https://www.blazed.company/about" class="px-8 py-3 hover:underline text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">
-                            Learn More
-                        </a>
                         <a rel="noopener noreferrer" href="https://blazed.contact/" class="px-8 py-3 hover:bg-gray-100 text-lg font-semibold border rounded dark:border-gray-100">
                             Contact
                         </a>
