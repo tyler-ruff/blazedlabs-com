@@ -10,7 +10,7 @@ const Index = ({ page, navigation, settings }) => {
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
-        <title>{prismicH.asText(page.data.title)}</title>
+        <title>Blazed Labs | {prismicH.asText(page.data.title)}</title>
       </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
