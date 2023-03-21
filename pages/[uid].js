@@ -11,7 +11,7 @@ const Page = ({ page, navigation, settings }) => {
     <Layout navigation={navigation} settings={settings}>
       <Head>
         <title>
-          {prismicH.asText(page.data.title)} |{" "}
+          Blazed Labs - {prismicH.asText(page.data.title)} |{" "}
           {prismicH.asText(settings.data.siteTitle)}
         </title>
       </Head>

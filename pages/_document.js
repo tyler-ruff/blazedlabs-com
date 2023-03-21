@@ -12,7 +12,7 @@ export default function Document() {
         <link rel="apple-touch-icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
         <link rel="apple-touch-startup-image" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <meta name="theme-color" content="#000000"/>
+        <meta name="theme-color" content="#2E3138"/>
         <meta name="application-name" content="Blazed Labs"/>
         <meta name="apple-mobile-web-app-title" content="Blazed Labs"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
