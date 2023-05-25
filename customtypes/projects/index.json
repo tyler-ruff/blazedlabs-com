@@ -1,0 +1,75 @@
+{
+  "id": "projects",
+  "label": "Project",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Id",
+          "placeholder": ""
+        }
+      },
+      "name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Name",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "repo": {
+        "type": "Link",
+        "config": {
+          "label": "Repository",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "slug": {
+        "type": "Text",
+        "config": {
+          "label": "Slug",
+          "placeholder": ""
+        }
+      },
+      "website": {
+        "type": "Link",
+        "config": {
+          "label": "Website",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "color": {
+        "type": "Color",
+        "config": {
+          "label": "Project Color",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

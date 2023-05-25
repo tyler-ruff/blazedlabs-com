@@ -1,0 +1,48 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "projects",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "name": [
+      {
+        "type": "heading2",
+        "text": "Different",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Enim laboris eu ut eiusmod officia consequat est.",
+        "spans": []
+      }
+    ],
+    "image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
+    },
+    "repo": {
+      "link_type": "Web",
+      "url": "https://github.com/"
+    },
+    "slug": "grabbed",
+    "website": {
+      "link_type": "Web",
+      "url": "https://blazed.dev/"
+    },
+    "color": "#4fcb53"
+  }
+}

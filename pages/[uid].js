@@ -10,10 +10,24 @@ const Page = ({ page, navigation, settings }) => {
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="google" content="nositelinkssearchbox"/>
+        <meta name="robots" content="index,follow"/>
+        <meta name="googlebot" content="index,follow"/>
         <title>
           {prismicH.asText(page.data.title)} |{" "}
           {prismicH.asText(settings.data.siteTitle)}
         </title>
+        <meta name="apple-mobile-web-app-title" content={settings.data.siteTitle}/>
+        <meta name="application-name" content={settings.data.siteTitle}/>
+        <meta name="theme-color" content="#2E3138"/>
+        <link rel="icon" sizes="192x192" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=192&h=192"/>
+        <link rel="apple-touch-icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
+        <link rel="apple-touch-startup-image" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
       </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
