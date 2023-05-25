@@ -99,7 +99,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Hero/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Hero\\default\\preview.png",
             "width": 800,
             "height": 694
           }
@@ -201,12 +201,12 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Image/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Image\\default\\preview.png",
             "width": 800,
             "height": 530
           },
           "banner": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Image/banner/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Image\\banner\\preview.png",
             "width": 800,
             "height": 363
           }
@@ -328,7 +328,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/ImageCards/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\ImageCards\\default\\preview.png",
             "width": 1280,
             "height": 800
           }
@@ -398,7 +398,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Quote/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Quote\\default\\preview.png",
             "width": 800,
             "height": 392
           }
@@ -510,12 +510,12 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Text/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Text\\default\\preview.png",
             "width": 800,
             "height": 516
           },
           "twoColumns": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/Text/twoColumns/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\Text\\twoColumns\\preview.png",
             "width": 800,
             "height": 276
           }
@@ -674,12 +674,12 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/TextWithImage/default/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\TextWithImage\\default\\preview.png",
             "width": 800,
             "height": 656
           },
           "withButton": {
-            "path": "/Users/angeloashmore/projects/prismic/nextjs-starter-prismic-multi-page/.slicemachine/assets/slices/TextWithImage/withButton/preview.png",
+            "path": "C:\\Users\\truff\\Documents\\GitHub\\blazedlabs-com\\.slicemachine\\assets\\slices\\TextWithImage\\withButton\\preview.png",
             "width": 800,
             "height": 424
           }
