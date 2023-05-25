@@ -279,19 +279,19 @@ export const Footer = ({ settings }) => {
                     <nav className="mt-8 sm:mt-0">
                         <ul className="hidden md:flex flex-wrap justify-start gap-4 text-xs lg:justify-end">
                             <li>
-                                <a href="https://blazed.sbs/assets/pdf/tos.pdf" target="legal" className="text-gray-500 transition hover:opacity-75">
+                                <PrismicLink href="/tos" className="text-gray-500 transition hover:opacity-75">
                                     Terms & Conditions
-                                </a>
+                                </PrismicLink>
                             </li>
                             <li>
-                                <a href="https://blazed.sbs/assets/pdf/privacy.pdf" target="legal" className="text-gray-500 transition hover:opacity-75">
+                                <PrismicLink href="/privacy" className="text-gray-500 transition hover:opacity-75">
                                     Privacy Policy
-                                </a>
+                                </PrismicLink>
                             </li>
                             <li>
-                                <a href="/sitemap.xml" target="legal" className="text-gray-500 transition hover:opacity-75">
-                                    Sitemap
-                                </a>
+                                <PrismicLink href="/dmca" className="text-gray-500 transition hover:opacity-75">
+                                    DMCA Policy
+                                </PrismicLink>
                             </li>
                             <li>
                                 <a href="#Top" className="text-gray-500 transition hover:opacity-75">

@@ -81,6 +81,11 @@
         },
         "items": {}
       }
+    },
+    "BrowseBlog": {
+      "default": {
+        "items": {}
+      }
     }
   },
   "_cts": {
@@ -93,6 +98,73 @@
       }
     },
     "navigation": {},
-    "settings": {}
+    "settings": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "blog_post": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "content": {
+        "config": {
+          "patternType": "STORY",
+          "blocks": 1
+        }
+      },
+      "category": {
+        "content": "General"
+      }
+    },
+    "projects": {
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "repo": {
+        "content": "https://github.com/"
+      },
+      "website": {
+        "content": "https://blazed.dev/"
+      },
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "product": {
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "website": {
+        "content": "https://blz.one/"
+      },
+      "overview": {
+        "config": {
+          "patternType": "STORY",
+          "blocks": 1
+        }
+      }
+    }
   }
 }

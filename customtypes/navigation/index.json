@@ -26,6 +26,13 @@
                 "placeholder": "Link for navigation item",
                 "select": null
               }
+            },
+            "uid": {
+              "type": "Text",
+              "config": {
+                "label": "Page UID",
+                "placeholder": ""
+              }
             }
           }
         }

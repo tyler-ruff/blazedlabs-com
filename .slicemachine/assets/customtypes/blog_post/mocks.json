@@ -1,0 +1,58 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "blog_post",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading2",
+        "text": "Amount",
+        "spans": []
+      }
+    ],
+    "published_on": "2023-05-21",
+    "content": [
+      {
+        "type": "heading1",
+        "text": "Establish",
+        "spans": []
+      },
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+        "alt": null,
+        "copyright": null,
+        "dimensions": {
+          "width": 900,
+          "height": 500
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "Ullamco nulla incididunt elit sit id esse. Adipisicing aliquip dolore magna dolor ea id do sit amet cupidatat anim aliqua enim irure.",
+        "spans": []
+      }
+    ],
+    "category": "General",
+    "linked_item": {
+      "id": "mock_document_id",
+      "link_type": "Document",
+      "type": "projects",
+      "tags": [],
+      "lang": "en-us",
+      "slug": null,
+      "first_publication_date": "1970-01-01T00:00:01+0000",
+      "last_publication_date": "1970-01-01T01:00:00+0000"
+    },
+    "slug": "tool",
+    "slices": []
+  }
+}
