@@ -8,7 +8,7 @@ import { Heading } from "../../components/Heading";
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
   heading1: ({ children }) => (
-    <Heading as="h2" size="xl" className="mb-4 mt-12 first:mt-0 last:mb-0">
+    <Heading as="h2" size="xl" className="text-3xl font-extrabold text-gray-300/80 sm:text-5xl">
       {children}
     </Heading>
   ),
@@ -39,7 +39,7 @@ const Hero = ({ slice }) => {
           {prismicH.isFilled.link(slice.primary.buttonLink) && (
             <PrismicLink
               field={slice.primary.buttonLink}
-              className="rounded bg-white px-5 py-3 font-medium text-slate-800"
+              className="rounded inline-block px-12 py-3 mt-8 text-sm font-medium text-white border bg-blue-600/75 border-indigo-600 rounded-full hover:bg-blue-800 hover:text-white focus:outline-none focus:ring active:bg-blue-900"
             >
               {slice.primary.buttonText || "Learn More"}
             </PrismicLink>
