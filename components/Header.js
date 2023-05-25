@@ -15,7 +15,7 @@ export const Header = ({ navigation, settings }) => {
     <Bounded as="header" yPadding="sm">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicLink href="/" className="text-xl font-semibold tracking-tight">
-          <img alt="Logo Image" priority="true" className="pt-7 hover:opacity-75" title="Blazed Labs" src="https://blazed.sirv.com/logo/Beaker-Dark.png?w=45&h=45"/>
+          <img alt="Logo Image" priority="true" className="md:pt-7 hover:opacity-75" title="Blazed Labs" src="https://blazed.sirv.com/logo/Beaker-Dark.png?w=45&h=45"/>
         </PrismicLink>
         <nav className="hidden md:block">
           <ul className="flex flex-wrap gap-6 md:gap-10 mb-12">
