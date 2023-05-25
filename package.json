@@ -7,14 +7,11 @@
   "scripts": {
     "dev": "concurrently \"npm:next:dev\" \"npm:slicemachine\" --names \"next,slicemachine\" --prefix-colors blue,magenta",
     "next:dev": "next",
-    "ux": "npm run storybook",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-    "format": "prettier --write .",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@prismicio/client": "^6.7.1",
@@ -29,13 +26,6 @@
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.4",
-    "@storybook/addon-essentials": "^7.0.17",
-    "@storybook/addon-interactions": "^7.0.17",
-    "@storybook/addon-links": "^7.0.17",
-    "@storybook/blocks": "^7.0.17",
-    "@storybook/nextjs": "^7.0.17",
-    "@storybook/react": "^7.0.17",
-    "@storybook/testing-library": "^0.0.14-next.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.5.0",
@@ -47,7 +37,6 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "slice-machine-ui": "^0.5.2",
-    "storybook": "^7.0.17",
     "tailwindcss": "^3.2.4"
   }
 }

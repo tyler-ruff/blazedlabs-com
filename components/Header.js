@@ -25,6 +25,7 @@ export const Header = ({ navigation, settings }) => {
           </ul>
         </nav>
       </div>
+      
     </Bounded>
   );
 };
