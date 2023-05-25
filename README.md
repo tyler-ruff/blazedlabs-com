@@ -1,65 +1,35 @@
-# Prismic + Next.js Multi-Page Starter
+# blazedlabs.com
 
-Want to see an example of a multi-page website using [Prismic][prismic] and [Next.js][nextjs]? Look no further! This project provides all the code you need for a personal website with a homepage, information pages, and navigation.
+Main website of Blazed Labs LLC.
 
-- **Demo**: [Open live demo][live-demo]
-- **Learn more about Prismic and Next.js**: [Prismic Next.js Documentation][prismic-docs]
+- **Demo**: [Visit Blazed Labs][https://blazedlabs.com/]
+- **Development Beta**: [Test Latest Features][https://dev.blazedlabs.com/]
 
-&nbsp;
+## Development
 
-<img src="https://user-images.githubusercontent.com/8601064/166617932-eaaa1643-f086-4909-9868-56234f8da98d.png" alt="Screenshots of the site seen on deskop and mobile browsers" />
-
-&nbsp;
-
-## 🚀 Quick Start
-
-To start a new project using this starter, run the following commands in your terminal:
-
+First, install dependencies:
 ```sh
-npx degit prismicio-community/nextjs-starter-prismic-multi-page your-project-name
-cd your-project-name
-npx @slicemachine/init
+npm install
 ```
 
-The commands will do the following:
-
-1. Start a new Next.js project using this starter.
-2. Ask you to log in to Prismic or [create an account][prismic-sign-up].
-3. Create a new Prismic content repository with sample content.
-
-When you're ready to start your project, run the following command:
-
-```sh
+Run the following command to start the dev server:
+```
 npm run dev
 ```
 
-## Documentation
-
-To learn how to work with your new project, [**see this starter's docs**][starter-docs].
-
-To learn more about working with Prismic, [**see the Prismic docs**][prismic-docs].
-
-## License
-
-```
-Copyright 2013-2022 Prismic <contact@prismic.io> (https://prismic.io)
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Run the following command to start the Storybook server:
+```sh
+npm run ux
 ```
 
-[prismic]: https://prismic.io/
-[prismic-docs]: https://prismic.io/docs/technologies/nextjs
-[prismic-sign-up]: https://prismic.io/dashboard/signup
-[nextjs]: https://nextjs.org/
-[starter-docs]: ./docs/README.md
-[live-demo]: https://nextjs-starter-prismic-multi-page.vercel.app/
+# Credits
+![Last Commit](https://img.shields.io/github/last-commit/blazed-space/fire-angular?style=for-the-badge "Last Commit")
+## Development Team
+* Maintained by: [The Blazed Development Group](https://www.facebook.com/groups/blzdev)
+* Published by: [Blazed Publishing](https://blazed.xyz/)
+- Lead Developer, Project Management: [Tyler Ruff](https://github.com/tyler-ruff)
+- UX Testing, Project Advising: Star Dom
+## Special Thanks
+- [Vercel](https://vercel.com/) and [Next.js](https://nextjs.org/)
+- [HTML Head](https://htmlhead.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
