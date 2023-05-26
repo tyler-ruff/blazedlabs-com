@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import { PrismicText, PrismicRichText, PrismicLink, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
@@ -10,9 +11,16 @@ import { dateFormatter } from "../../lib/dateFormatter";
 import  readingTime  from "../../lib/readingTime";
 
 const Article = ({ article, navigation, settings }) => {
+  const [mounted, setMounted] = useState(false);
   const date = prismicH.asDate(
     article.data.published_on
   );
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null; // return this null to avoid hydration errors
+  }
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
