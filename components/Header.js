@@ -31,6 +31,11 @@ export const Header = ({ navigation, settings }) => {
                   </PrismicLink>
                 </li>
               ))}
+                <li key="blog">
+                  <PrismicLink className="hover:underline" href="/blog">
+                    Blog
+                  </PrismicLink>
+                </li>
             </ul>
           </nav>
         </div>

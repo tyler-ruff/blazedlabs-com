@@ -30,6 +30,9 @@ const Index = ({ page, navigation, settings }) => {
         <meta itemprop="name" content="Blazed Labs"/>
         <meta itemprop="description" content="We turn dreams into reality."/>
         <meta itemprop="image" content="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
+        <link rel="icon" sizes="192x192" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=192&h=192"/>
+        <link rel="apple-touch-icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
+        <link rel="apple-touch-startup-image" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
       </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
