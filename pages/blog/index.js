@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import { PrismicText, PrismicLink, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
@@ -9,7 +10,13 @@ import { Article } from "../../components/Article";
 import { Pagination } from "../../components/Pagination";
 
 const Blog = ({ blog, navigation, settings }) => {
-
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null; // return this null to avoid hydration errors
+  }
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
