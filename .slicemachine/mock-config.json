@@ -86,6 +86,24 @@
       "default": {
         "items": {}
       }
+    },
+    "SingleProject": {
+      "default": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "name": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {

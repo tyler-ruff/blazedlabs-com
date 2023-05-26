@@ -64,22 +64,11 @@
           ]
         }
       },
-      "slug": {
-        "type": "Text",
-        "config": {
-          "label": "Slug",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "browse_blog": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     }

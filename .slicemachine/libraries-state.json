@@ -498,6 +498,105 @@
           }
         }
       },
+      "single_project": {
+        "library": "slices",
+        "id": "single_project",
+        "name": "SingleProject",
+        "description": "SingleProject",
+        "model": {
+          "id": "single_project",
+          "type": "SharedSlice",
+          "name": "SingleProject",
+          "description": "SingleProject",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "SingleProject",
+              "primary": {
+                "name": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Name",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "repo": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Repository",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "select": null
+                  }
+                },
+                "website": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Website",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "name": [
+                {
+                  "type": "heading1",
+                  "text": "Collect",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Quis velit magna velit quis. Consectetur qui incididunt irure labore anim reprehenderit ea non ipsum non eiusmod Lorem deserunt officia ad.",
+                  "spans": []
+                }
+              ],
+              "repo": {
+                "link_type": "Web",
+                "url": "https://prismic.io"
+              },
+              "website": {
+                "link_type": "Web",
+                "url": "http://twitter.com"
+              }
+            },
+            "slice_type": "single_project"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "text": {
         "library": "slices",
         "id": "text",

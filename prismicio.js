@@ -31,6 +31,10 @@ const routes = [
     type: "navigation",
     path: "/",
   },
+  {
+    type: "blog_post",
+    path: "/blog"
+  }
 ];
 
 /**
