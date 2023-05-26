@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PrismicText, PrismicLink, SliceZone } from "@prismicio/react";
+import { PrismicText, PrismicLink, SliceZone, PrismicImage } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
@@ -48,6 +48,7 @@ const Project = ({ project, navigation, settings }) => {
                 </ul>
             </div>
         <article className="space-y-8 dark:bg-gray-800 dark:text-gray-50">
+            <PrismicImage field={project.data.image} alt={project.data.name} />
             <div className="space-y-6">
                 <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
                     <PrismicText field={project.data.name} />
