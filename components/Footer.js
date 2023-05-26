@@ -40,9 +40,9 @@ export const Footer = ({ settings }) => {
                         </li>
 
                         <li>
-                            <a href="https://blazed.space/" className="text-gray-700 transition hover:opacity-75">
-                                Solutions
-                            </a>
+                            <PrismicLink href="/blog" className="text-gray-700 transition hover:opacity-75">
+                                Blog
+                            </PrismicLink>
                         </li>
 
                         </ul>
@@ -120,9 +120,9 @@ export const Footer = ({ settings }) => {
                             </li>
 
                             <li>
-                                <a href="https://blazed.city/" className="text-gray-700 transition hover:opacity-75">
-                                    City
-                                </a>
+                                <PrismicLink href="/projects" className="text-gray-700 transition hover:opacity-75">
+                                    Projects
+                                </PrismicLink>
                             </li>
 
                             <li>

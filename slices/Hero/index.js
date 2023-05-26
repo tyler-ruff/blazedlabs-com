@@ -39,7 +39,7 @@ const Hero = ({ slice }) => {
           {prismicH.isFilled.link(slice.primary.buttonLink) && (
             <PrismicLink
               field={slice.primary.buttonLink}
-              className="rounded inline-block px-12 py-3 mt-3 text-sm font-medium text-white border bg-blue-600/75 border-indigo-600 rounded-full hover:bg-blue-800 hover:text-white focus:outline-none focus:ring active:bg-blue-900"
+              className="btn rounded inline-block px-12 py-3 mt-3 text-sm font-medium text-white border bg-blue-600/75 border-indigo-600 rounded-full hover:bg-blue-800 hover:text-white focus:outline-none focus:ring active:bg-blue-900"
             >
               {slice.primary.buttonText || "Learn More"}
             </PrismicLink>

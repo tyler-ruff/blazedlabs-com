@@ -2,8 +2,8 @@
 
 Main website of Blazed Labs LLC.
 
-- **Demo**: [Visit Blazed Labs][https://blazedlabs.com/]
-- **Development Beta**: [Test Latest Features][https://dev.blazedlabs.com/]
+- **Demo**: (Visit Blazed Labs)[https://blazedlabs.com/]
+- **Development Beta**: (Test Latest Features)[https://dev.blazedlabs.com/]
 
 ## Development
 
