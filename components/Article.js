@@ -44,7 +44,7 @@ export const Article = ({ article }) => {
                     Published
                 </dt>
                 <dd className="text-xs text-gray-500">
-                    <time dateTime={date.toUTCString()}>
+                    <time>
                         {dateFormatter.format(date)}
                     </time>
                 </dd>

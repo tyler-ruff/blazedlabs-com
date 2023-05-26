@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PrismicText, PrismicLink, SliceZone } from "@prismicio/react";
+import { PrismicText, PrismicLink, PrismicImage, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
@@ -50,7 +50,21 @@ const Projects = ({ projects, navigation, settings }) => {
         </div>
       </div>
       <div className="p-5 lg:px-20 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
-
+        {projects.map(project => (
+            <div key={project.uid}>
+                <a href={"/projects/" + project.uid} className="block group">
+                <PrismicImage field={project.data.image} alt={project.data.name} />
+                    <div className="mt-3">
+                        <h3 className="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                            <PrismicText field={project.data.name} />
+                        </h3>
+                        <p className="mt-1.5 max-w-[40ch] text-xs text-gray-500">
+                            <PrismicText field={project.data.description} />
+                        </p>
+                    </div>
+                </a>
+            </div>
+        ))}
       </div>
       <div className="py-10 text-center">
         <Pagination />
