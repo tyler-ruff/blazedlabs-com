@@ -86,9 +86,7 @@ const Article = ({ article, navigation, settings }) => {
             </div>
             <div className="divider"></div> 
             <div className="dark:text-gray-100">
-                <p>
-                    <PrismicRichText field={article.data.content} />
-                </p>
+                <PrismicRichText field={article.data.content} />
             </div>
         </article>
         <div>
