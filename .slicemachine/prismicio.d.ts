@@ -65,17 +65,6 @@ interface BlogPostDocumentData {
      */
     linked_item: prismicT.RelationField<"projects" | "product">;
     /**
-     * Slug field in *Blog*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog_post.slug
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    slug: prismicT.KeyTextField;
-    /**
      * Slice Zone field in *Blog*
      *
      * - **Field Type**: Slice Zone
@@ -91,7 +80,7 @@ interface BlogPostDocumentData {
  * Slice for *Blog → Slice Zone*
  *
  */
-type BlogPostDocumentDataSlicesSlice = BrowseBlogSlice;
+type BlogPostDocumentDataSlicesSlice = never;
 /**
  * Blog document from Prismic
  *
@@ -328,17 +317,6 @@ interface ProjectsDocumentData {
      */
     repo: prismicT.LinkField;
     /**
-     * Slug field in *Project*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: projects.slug
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    slug: prismicT.KeyTextField;
-    /**
      * Website field in *Project*
      *
      * - **Field Type**: Link
@@ -360,7 +338,23 @@ interface ProjectsDocumentData {
      *
      */
     color: prismicT.ColorField;
+    /**
+     * Slice Zone field in *Project*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projects.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ProjectsDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Project → Slice Zone*
+ *
+ */
+type ProjectsDocumentDataSlicesSlice = SingleProjectSlice;
 /**
  * Project document from Prismic
  *
@@ -762,6 +756,75 @@ type QuoteSliceVariation = QuoteSliceDefault;
  */
 export type QuoteSlice = prismicT.SharedSlice<"quote", QuoteSliceVariation>;
 /**
+ * Primary content in SingleProject → Primary
+ *
+ */
+interface SingleProjectSliceDefaultPrimary {
+    /**
+     * Name field in *SingleProject → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_project.primary.name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.RichTextField;
+    /**
+     * Description field in *SingleProject → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_project.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Repository field in *SingleProject → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_project.primary.repo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    repo: prismicT.LinkField;
+    /**
+     * Website field in *SingleProject → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: single_project.primary.website
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    website: prismicT.LinkField;
+}
+/**
+ * Default variation for SingleProject Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `SingleProject`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SingleProjectSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SingleProjectSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *SingleProject*
+ *
+ */
+type SingleProjectSliceVariation = SingleProjectSliceDefault;
+/**
+ * SingleProject Shared Slice
+ *
+ * - **API ID**: `single_project`
+ * - **Description**: `SingleProject`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SingleProjectSlice = prismicT.SharedSlice<"single_project", SingleProjectSliceVariation>;
+/**
  * Primary content in Text → Primary
  *
  */
@@ -934,6 +997,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { BlogPostDocumentData, BlogPostDocumentDataSlicesSlice, BlogPostDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProductDocumentData, ProductDocument, ProjectsDocumentData, ProjectsDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, BrowseBlogSliceDefaultPrimary, BrowseBlogSliceDefaultItem, BrowseBlogSliceDefault, BrowseBlogSliceVariation, BrowseBlogSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { BlogPostDocumentData, BlogPostDocumentDataSlicesSlice, BlogPostDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProductDocumentData, ProductDocument, ProjectsDocumentData, ProjectsDocumentDataSlicesSlice, ProjectsDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, BrowseBlogSliceDefaultPrimary, BrowseBlogSliceDefaultItem, BrowseBlogSliceDefault, BrowseBlogSliceVariation, BrowseBlogSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, SingleProjectSliceDefaultPrimary, SingleProjectSliceDefault, SingleProjectSliceVariation, SingleProjectSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

@@ -47,13 +47,6 @@
           "select": null
         }
       },
-      "slug": {
-        "type": "Text",
-        "config": {
-          "label": "Slug",
-          "placeholder": ""
-        }
-      },
       "website": {
         "type": "Link",
         "config": {
@@ -68,6 +61,17 @@
         "config": {
           "label": "Project Color",
           "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "single_project": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     }

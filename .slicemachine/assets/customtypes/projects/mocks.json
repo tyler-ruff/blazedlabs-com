@@ -14,14 +14,14 @@
     "name": [
       {
         "type": "heading2",
-        "text": "Different",
+        "text": "Bound",
         "spans": []
       }
     ],
     "description": [
       {
         "type": "paragraph",
-        "text": "Enim laboris eu ut eiusmod officia consequat est.",
+        "text": "Proident velit ex eu reprehenderit proident labore officia veniam occaecat veniam. Sunt qui anim ex occaecat non mollit consectetur id deserunt exercitation aute quis quis.",
         "spans": []
       }
     ],
@@ -38,11 +38,11 @@
       "link_type": "Web",
       "url": "https://github.com/"
     },
-    "slug": "grabbed",
     "website": {
       "link_type": "Web",
       "url": "https://blazed.dev/"
     },
-    "color": "#4fcb53"
+    "color": "#cc1843",
+    "slices": []
   }
 }
