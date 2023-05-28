@@ -2,8 +2,8 @@
 
 Main website of Blazed Labs LLC.
 
-- **Demo**: (Visit Blazed Labs)[https://blazedlabs.com/]
-- **Development Beta**: (Test Latest Features)[https://dev.blazedlabs.com/]
+- **Demo**: [Visit Blazed Labs](https://blazedlabs.com/)
+- **Development Beta**: [Test Latest Features](https://dev.blazedlabs.com/)
 
 ## Development
 
@@ -15,11 +15,6 @@ npm install
 Run the following command to start the dev server:
 ```
 npm run dev
-```
-
-Run the following command to start the Storybook server:
-```sh
-npm run ux
 ```
 
 # Credits
