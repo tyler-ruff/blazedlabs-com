@@ -34,6 +34,10 @@ const routes = [
   {
     type: "blog_post",
     path: "/blog"
+  },
+  {
+    type: "projects",
+    path: "/projects"
   }
 ];
 

@@ -31,11 +31,11 @@ export const Header = ({ navigation, settings }) => {
                   </PrismicLink>
                 </li>
               ))}
-                <li key="blog">
-                  <PrismicLink className={router.asPath == "/blog" ? "underline" : "hover:underline"} href="/blog">
-                    Blog
-                  </PrismicLink>
-                </li>
+              <li key="blog">
+                <PrismicLink className={router.asPath == "/blog" ? "underline" : "hover:underline"} href="/blog">
+                  Blog
+                </PrismicLink>
+              </li>
             </ul>
           </nav>
         </div>
@@ -58,18 +58,18 @@ export const Header = ({ navigation, settings }) => {
       </div>
       <div id="mobile-menu" className="hidden">
         <ul className="block md:hidden menu bg-base-100 w-full pt-5">
-              {navigation.data?.links.map((item) => (
-                <li key={prismicH.asText(item.label)}>
-                  <PrismicLink className={router.asPath == item.uid ? "bg-gray-100" : "hover:bg-gray-100"} field={item.link}>
-                    <PrismicText field={item.label} />
-                  </PrismicLink>
-                </li>
-              ))}
-              <li key="blog">
-                <PrismicLink className={router.asPath == "/blog" ? "bg-gray-100" : "hover:bg-gray-100"} href="/blog">
-                  Blog
+            {navigation.data?.links.map((item) => (
+              <li key={prismicH.asText(item.label)}>
+                <PrismicLink className={router.asPath == item.uid ? "bg-gray-100" : "hover:bg-gray-100"} field={item.link}>
+                  <PrismicText field={item.label} />
                 </PrismicLink>
               </li>
+            ))}
+            <li key="blog">
+              <PrismicLink className={router.asPath == "/blog" ? "bg-gray-100" : "hover:bg-gray-100"} href="/blog">
+                Blog
+              </PrismicLink>
+            </li>
         </ul>
       </div>
     </Bounded>

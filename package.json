@@ -1,9 +1,9 @@
 {
-  "name": "nextjs-starter-prismic-multi-page",
+  "name": "blazedlabs-com",
   "version": "0.0.0",
   "private": true,
-  "license": "Apache-2.0",
-  "author": "Prismic <contact@prismic.io> (https://prismic.io)",
+  "license": "MIT",
+  "author": "Blazed Labs LLC",
   "scripts": {
     "dev": "concurrently \"npm:next:dev\" \"npm:slicemachine\" --names \"next,slicemachine\" --prefix-colors blue,magenta",
     "next:dev": "next",
