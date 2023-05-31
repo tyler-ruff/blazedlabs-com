@@ -3,7 +3,7 @@ import { createClient } from "../prismicio";
 // Your site's root URL
 const EXTERNAL_DATA_URL = "https://blazedlabs.com";
 
-function generateSiteMap(pages) {
+function generateSiteMap(pages, posts, projects) {
 	// A helper function to generate the XML string.
 	// Customize this to match your site's structure and needs
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -20,6 +20,26 @@ function generateSiteMap(pages) {
     `;
        })
        .join("")}
+     <url>
+       <loc>${EXTERNAL_DATA_URL}/blog</loc>
+     </url>
+     ${posts.map(({ uid }) => {
+      return `
+        <url>
+          <loc>${`${EXTERNAL_DATA_URL}/blog/${uid}`}</loc>
+        </url>
+      `;
+     }).join("")}
+     <url>
+      <loc>${EXTERNAL_DATA_URL}/projects</loc>
+     </url>
+     ${projects.map(({ uid }) => {
+      return `
+        <url>
+          <loc>${`${EXTERNAL_DATA_URL}/projects/${uid}`}</loc>
+        </url>
+      `;
+     }).join("")}
    </urlset>
  `;
 }
@@ -31,11 +51,13 @@ function SiteMap() {
 export async function getServerSideProps({ res }) {
   const client = createClient();
 
-  // We fetch our pages first
+  // Fetch data
   const pages = await client.getAllByType("page");
+  const posts = await client.getAllByType("blog_post");
+  const projects = await client.getAllByType("projects");
 
   // We generate the XML sitemap with the pages and blog posts data
-  const sitemap = generateSiteMap(pages);
+  const sitemap = generateSiteMap(pages, posts, projects);
 
   res.setHeader("Content-Type", "text/xml");
   // we send the XML to the browser

@@ -13,24 +13,17 @@ const Projects = ({ projects, navigation, settings }) => {
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-        <meta name="google" content="nositelinkssearchbox"/>
-        <meta name="robots" content="index,follow"/>
-        <meta name="googlebot" content="index,follow"/>
         <title>
-          Browse Projects | Projects |{" "}
-          {prismicH.asText(settings.data.siteTitle)}
+          Browse Projects | Projects | {prismicH.asText(settings.data.siteTitle)}
         </title>
-        <meta name="apple-mobile-web-app-title" content={settings.data.siteTitle}/>
-        <meta name="application-name" content={settings.data.siteTitle}/>
-        <meta name="theme-color" content="#2E3138"/>
-        <link rel="icon" sizes="192x192" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=192&h=192"/>
-        <link rel="apple-touch-icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
-        <link rel="apple-touch-startup-image" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
+        <meta itemprop="name" content="Blazed Labs Blog."/>
+        <meta itemprop="description" content="Blazed Labs company projects, view our active projects."/>
+        <meta property="og:title" content="Blazed Labs Blog."/>
+        <meta name="description" content="Blazed Labs company projects, view our active projects."/>
+        <meta property="og:description" content="Blazed Labs company projects, view our active projects."/>
+        <meta name="twitter:title" content="Blazed Labs Blog."/>
+        <meta name="twitter:description" content="Blazed Labs company projects, view our active projects."/>
+        <link rel="archives" href="https://blazedlabs.com/projects/"/>
       </Head>
       <div className="text-center">
         <h2 className="text-3xl">
