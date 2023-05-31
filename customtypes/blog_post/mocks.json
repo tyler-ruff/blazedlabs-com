@@ -1,0 +1,51 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "search"
+    },
+    "title": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Minim est ea incididunt deserunt sit culpa nulla ad ut proident pariatur minim est veniam. Deserunt enim cupidatat velit aute culpa reprehenderit elit aliquip eiusmod in magna ut et."
+          }
+        }
+      ]
+    },
+    "published_on": {
+      "__TYPE__": "FieldContent",
+      "type": "Date",
+      "value": "2018-06-10"
+    },
+    "content": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Culpa occaecat in consequat magna exercitation in irure amet mollit tempor incididunt laboris in. Elit quis eiusmod est cupidatat eiusmod. Sint labore elit aute quis in consectetur esse ullamco ipsum officia dolor officia qui Lorem est."
+          }
+        }
+      ]
+    },
+    "category": {
+      "__TYPE__": "FieldContent",
+      "value": "Project Update",
+      "type": "Select"
+    },
+    "linked_item": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "DocumentLink",
+        "id": "mock_document_id"
+      }
+    },
+    "slices": {
+      "__TYPE__": "SliceContentType",
+      "value": []
+    }
+  }
+]

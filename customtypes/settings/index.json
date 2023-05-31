@@ -25,19 +25,13 @@
       },
       "favicon": {
         "type": "Link",
-        "config": {
-          "label": "Favicon",
-          "placeholder": "",
-          "select": "media"
-        }
+        "config": { "label": "Favicon", "placeholder": "", "select": "media" }
       },
       "theme_color": {
         "type": "Color",
-        "config": {
-          "label": "Theme Color",
-          "placeholder": ""
-        }
+        "config": { "label": "Theme Color", "placeholder": "" }
       }
     }
-  }
+  },
+  "format": "custom"
 }

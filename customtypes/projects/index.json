@@ -5,13 +5,7 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "Id",
-          "placeholder": ""
-        }
-      },
+      "uid": { "type": "UID", "config": { "label": "Id", "placeholder": "" } },
       "name": {
         "type": "StructuredText",
         "config": {
@@ -32,11 +26,7 @@
       },
       "image": {
         "type": "Image",
-        "config": {
-          "label": "Image",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
       },
       "repo": {
         "type": "Link",
@@ -58,22 +48,14 @@
       },
       "color": {
         "type": "Color",
-        "config": {
-          "label": "Project Color",
-          "placeholder": ""
-        }
+        "config": { "label": "Project Color", "placeholder": "" }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "single_project": {
-              "type": "SharedSlice"
-            }
-          }
-        }
+        "config": { "choices": {} }
       }
     }
-  }
+  },
+  "format": "custom"
 }
