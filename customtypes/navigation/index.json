@@ -29,14 +29,12 @@
             },
             "uid": {
               "type": "Text",
-              "config": {
-                "label": "Page UID",
-                "placeholder": ""
-              }
+              "config": { "label": "Page UID", "placeholder": "" }
             }
           }
         }
       }
     }
-  }
+  },
+  "format": "custom"
 }
