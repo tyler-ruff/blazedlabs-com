@@ -61,13 +61,13 @@ export const Header = ({ navigation, settings }) => {
         <ul className="block md:hidden menu bg-base-100 w-full pt-5">
               {navigation.data?.links.map((item) => (
                 <li key={prismicH.asText(item.label)}>
-                  <PrismicLink className="hover:underline" field={item.link}>
+                  <PrismicLink className={router.asPath == item.uid ? "bg-gray-100" : "hover:bg-gray-100"} field={item.link}>
                     <PrismicText field={item.label} />
                   </PrismicLink>
                 </li>
               ))}
               <li key="blog">
-                <PrismicLink className="hover:underline" href="/blog">
+                <PrismicLink className={router.asPath == "/blog" ? "bg-gray-100" : "hover:bg-gray-100"} href="/blog">
                   Blog
                 </PrismicLink>
               </li>
