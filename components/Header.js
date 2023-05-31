@@ -26,14 +26,15 @@ export const Header = ({ navigation, settings }) => {
             <ul className="flex flex-wrap gap-6 md:gap-10 mb-12">
               {navigation.data?.links.map((item) => (
                 <li key={prismicH.asText(item.label)}>
-                  <PrismicLink className="hover:underline" field={item.link}>
+                  <PrismicLink className={router.asPath == item.uid ? "underline" : "hover:underline"} field={item.link}>
                     <PrismicText field={item.label} />
                   </PrismicLink>
                 </li>
               ))}
                 <li key="blog">
-                  <PrismicLink className="hover:underline" href="/blog">
+                  <PrismicLink className={router.asPath == "/blog" ? "underline" : "hover:underline"} href="/blog">
                     Blog
+                    {console.log(router.asPath)}
                   </PrismicLink>
                 </li>
             </ul>
