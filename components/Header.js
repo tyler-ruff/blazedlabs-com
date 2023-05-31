@@ -34,7 +34,6 @@ export const Header = ({ navigation, settings }) => {
                 <li key="blog">
                   <PrismicLink className={router.asPath == "/blog" ? "underline" : "hover:underline"} href="/blog">
                     Blog
-                    {console.log(router.asPath)}
                   </PrismicLink>
                 </li>
             </ul>
