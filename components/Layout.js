@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { useRouter } from 'next/router';
 
 import * as prismicH from "@prismicio/helpers";
@@ -12,6 +13,16 @@ export const Layout = ({ navigation, settings, children }) => {
   return (
     <div id="Top" className="text-slate-800">
       <Head>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-3CRR9C662E" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3CRR9C662E');
+          `}
+        </Script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
