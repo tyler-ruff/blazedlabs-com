@@ -33,6 +33,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.5.0",
+    "eslint": "^8.43.0",
     "node-fetch": "^3.3.0",
     "postcss": "^8.4.19",
     "prettier": "^2.7.1",
