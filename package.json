@@ -19,6 +19,7 @@
     "@prismicio/next": "^1.0.0",
     "@prismicio/react": "^2.5.0",
     "@prismicio/slice-simulator-react": "^0.2.2",
+    "@vercel/analytics": "^1.0.1",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.6",
     "moment": "^2.29.4",
