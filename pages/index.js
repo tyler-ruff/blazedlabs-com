@@ -10,7 +10,7 @@ const Index = ({ page, navigation, settings }) => {
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
-      <title>
+        <title>
           {prismicH.asText(page.data.title)} | {prismicH.asText(settings.data.siteTitle)}
         </title>
         <meta itemprop="name" content={prismicH.asText(settings.data.siteTitle)}/>

@@ -81,6 +81,7 @@ export async function getStaticProps({ locale, previewData }) {
       navigation,
       settings,
     },
+    revalidate: 10,
   };
 }
 

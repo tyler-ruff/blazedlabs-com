@@ -134,6 +134,7 @@ export async function getStaticProps({ params, locale, previewData }) {
       navigation,
       settings,
     },
+    revalidate: 10,
   };
 }
 
