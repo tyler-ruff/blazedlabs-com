@@ -57,7 +57,7 @@ export const Header = ({ navigation, settings }) => {
         </div>
       </div>
       <div id="mobile-menu" className="hidden">
-        <ul className="block md:hidden menu bg-base-100 w-full border-t">
+        <ul className="block h-screen md:hidden menu bg-base-100 w-full border-t">
             {navigation.data?.links.map((item) => (
               <li key={prismicH.asText(item.label)}>
                 <PrismicLink className={router.asPath == item.uid ? "bg-gray-100" : "hover:bg-gray-100"} field={item.link}>
