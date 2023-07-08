@@ -9,7 +9,7 @@ export const Pagination = ({ totalPages = 1 }) => {
     }
     const handleNextPage = () => {
         if(page < totalPages){
-            page = Integer(page) + 1;
+            page += 1;
             router.push(`blog/?page=${page}`);
         }
     }
