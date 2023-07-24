@@ -16,23 +16,20 @@ export const Layout = ({ navigation, settings, children }) => {
   }, []);
   const router = useRouter();
 
-  const pageUrl = router.pathname;
   const siteTitle = prismicH.asText(settings.data.siteTitle);
   const siteDesc = "Main website for Blazed Labs."
   const titleTemplate = `${siteTitle} | %s`;
   const twitterHandle = "@BlazedLabs";
   const favicon = "https://blazed.sirv.com/logo/Beaker-Dark.png";
-
+  
   return (
     <>
       <NextSeo
         titleTemplate={titleTemplate}
         title="Blazed Labs"
-        canonical={pageUrl}
         openGraph={{
           type: "website",
           locale: "en_US",
-          url: pageUrl,
           title: "Blazed Labs",
           description: siteDesc,
           images: [
