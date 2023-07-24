@@ -22,7 +22,7 @@ const Hero = ({ slice }) => {
       {prismicH.isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
-          alt="Hero Image"
+          alt=""
           fill={true}
           priority="true"
           className="pointer-events-none select-none object-cover opacity-40"
