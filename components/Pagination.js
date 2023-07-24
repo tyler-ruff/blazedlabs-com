@@ -23,7 +23,7 @@ export const Pagination = ({ totalPages = 1 }) => {
         <nav aria-label="Pagination" className="inline-flex -space-x-px rounded-md shadow-sm dark:bg-gray-800 dark:text-gray-100">
             <button 
                 type="button" 
-                className={page <= 1 ? "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md bg-gray-200" : "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md hover:bg-gray-50"}
+                className={page <= 1 ? "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md bg-gray-200 dark:bg-gray-700" : "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md hover:bg-gray-50 dark:hover:bg-gray-900"}
                 disabled={page <= 1}
                 onClick={() => handlePrevPage()}>
                 <span className="sr-only">Previous</span>
@@ -35,7 +35,7 @@ export const Pagination = ({ totalPages = 1 }) => {
                 (pageNumber) => (
                     <button 
                         type="button"
-                        className={page == String(pageNumber) ? "inline-flex items-center px-4 py-2 text-sm font-semibold border bg-gray-100" : "inline-flex items-center px-4 py-2 text-sm font-semibold border hover:bg-gray-50"}
+                        className={page == String(pageNumber) ? "inline-flex items-center px-4 py-2 text-sm font-semibold border bg-gray-100 dark:bg-gray-900" : "inline-flex items-center px-4 py-2 text-sm font-semibold border hover:bg-gray-50 dark:hover:bg-gray-900"}
                         key={pageNumber}
                         onClick={() => handleClick(pageNumber)}
                         disabled={page == String(pageNumber)}>
@@ -45,7 +45,7 @@ export const Pagination = ({ totalPages = 1 }) => {
             )}
             <button 
                 type="button" 
-                className={totalPages == page ? "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-r-md bg-gray-200" : "inline-flex items-center px-2 py-2 text-sm font-semibold border hover:bg-gray-50 rounded-r-md"}
+                className={totalPages == page ? "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-r-md bg-gray-200 dark:bg-gray-700" : "inline-flex items-center px-2 py-2 text-sm font-semibold border hover:bg-gray-50 dark:hover:bg-gray-900 rounded-r-md"}
                 disabled={totalPages == page}
                 onClick={() => handleNextPage()}>
                 <span className="sr-only">Next</span>

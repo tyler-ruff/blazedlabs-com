@@ -7,6 +7,7 @@ import * as prismicH from "@prismicio/helpers";
 
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { NextSeo } from "next-seo";
 
 export const Layout = ({ navigation, settings, children }) => {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -14,47 +15,65 @@ export const Layout = ({ navigation, settings, children }) => {
     setDomLoaded(true);
   }, []);
   const router = useRouter();
-  const pageUrl = "https://blazedlabs.com" + router.asPath;
+
+  const siteTitle = prismicH.asText(settings.data.siteTitle);
+  const siteDesc = "Main website for Blazed Labs."
+  const titleTemplate = `${siteTitle} | %s`;
+  const twitterHandle = "@BlazedLabs";
+  const favicon = "https://blazed.sirv.com/logo/Beaker-Dark.png";
+  
   return (
     <>
+      <NextSeo
+        titleTemplate={titleTemplate}
+        title="Blazed Labs"
+        openGraph={{
+          type: "website",
+          locale: "en_US",
+          title: "Blazed Labs",
+          description: siteDesc,
+          images: [
+            {
+              url: "https://blazed.sirv.com/logo/Lockscreen-Beaker.png?w=1200&h=630",
+              width: 1200,
+              height: 630,
+              alt: "We turn Dreams into Reality."
+            },
+          ],
+          siteName: "Blazed Labs"
+        }}
+        twitter={{
+          handle: twitterHandle,
+          site: twitterHandle,
+          cardType: "summary_large_image"
+        }}
+        additionalMetaTags={[
+          {
+            name: "theme-color",
+            content: settings.data.theme_color
+          }
+        ]}
+        additionalLinkTags={[
+          {
+            rel: "icon",
+            href: `${favicon}?w=192&h=192`
+          },
+          {
+            rel: "apple-touch-icon",
+            href: `${favicon}?w=180&h=180`
+          }
+        ]}
+        />
       { domLoaded && (
-        <div id="Top" className="text-slate-800">
+        <div id="Top">
           <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-            <meta name="apple-mobile-web-app-capable" content="yes"/>
-            <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-            <meta name="google" content="nositelinkssearchbox"/>
-            <meta name="robots" content="index,follow"/>
-            <meta name="googlebot" content="index,follow"/>
-            <meta name="apple-mobile-web-app-title" content={prismicH.asText(settings.data.siteTitle)}/>
-            <meta name="application-name" content={prismicH.asText(settings.data.siteTitle)}/>
-            <meta name="theme-color" content={settings.data.theme_color} />
-            <link rel="icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=192&h=192"/>
-            <link rel="apple-touch-icon" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
-            <link rel="apple-touch-startup-image" href="https://blazed.sirv.com/logo/Beaker-Dark.png?w=180&h=180"/>
-            <link rel="me" href="mailto:hello@blazed.space"/>
-            <link rel="author" href="https://blazed.company/"/>
-            <link rel="publisher" href="https://blazed.xyz/"/>
-            <meta property="fb:app_id" content="503698127531557"/>
-            <meta property="og:url" content={pageUrl}/>
-            <meta property="og:type" content="website"/>
-            <meta property="og:image" content="https://blazed.sirv.com/logo/Lockscreen-Beaker.png"/>
-            <meta property="og:image:alt" content="We will constantly strive to innovate and stay ahead of the curve in the rapidly changing world of technology. We are dedicated to providing our customers with the best products and services available so that they can remain competitive and successful."/>
-            <meta property="og:site_name" content={prismicH.asText(settings.data.siteTitle)}/>
-            <meta property="og:locale" content="en_US"/>
-            <meta property="article:author" content="Blazed Labs LLC"/>
-            <meta name="twitter:card" content="summary"/>
-            <meta name="twitter:site" content="@BlazedLabs"/>
-            <meta name="twitter:creator" content="@TylerRuffDev"/>
-            <meta name="twitter:url" content={pageUrl}/>
-            <meta name="twitter:image" content="https://blazed.sirv.com/logo/Lockscreen-Beaker.png"/>
-            <meta name="twitter:image:alt" content="We will constantly strive to innovate and stay ahead of the curve in the rapidly changing world of technology. We are dedicated to providing our customers with the best products and services available so that they can remain competitive and successful."/>
-            <meta itemprop="image" content="https://blazed.sirv.com/logo/Lockscreen-Beaker.png"/>
+
           </Head>
           <Header navigation={navigation} settings={settings} />
-          <main>{children}</main>
-          <Footer settings={settings}></Footer>
+          <main>
+            {children}
+          </main>
+          <Footer settings={settings} />
         </div>
       )}
     </>

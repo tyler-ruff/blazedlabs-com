@@ -5,7 +5,6 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 
 import { Layout } from "../../components/Layout";
-import { Article } from "../../components/Article";
 import { Pagination } from "../../components/Pagination";
 
 const Projects = ({ projects, navigation, settings }) => {

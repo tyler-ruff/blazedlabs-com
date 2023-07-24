@@ -7,7 +7,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 
 import { Layout } from "../../components/Layout";
-import { Article } from "../../components/Article";
+import { ArticleCard } from "../../components/ArticleCard";
 import { Pagination } from "../../components/Pagination";
 
 const Blog = ({ blog, navigation, settings }) => {
@@ -87,7 +87,7 @@ const Blog = ({ blog, navigation, settings }) => {
         </p>
         <div className="p-5 lg:px-20 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
           {blog_sliced.map(post => (
-              <Article key={post.uid} article={post}/>
+              <ArticleCard key={post.uid} article={post}/>
           ))}
         </div>
         <div className="py-10 text-center">

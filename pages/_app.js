@@ -7,6 +7,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { repositoryName } from "../prismicio";
 import { Heading } from "../components/Heading";
 
+import { ThemeProvider } from "next-themes";
+
 import "../styles/globals.css";
 
 const richTextComponents = {
@@ -63,7 +65,11 @@ export default function App({ Component, pageProps }) {
       richTextComponents={richTextComponents}
     >
       <PrismicPreview repositoryName={repositoryName}>
-        <Component {...pageProps} />
+        <ThemeProvider attribute="class">
+          <div className="dark:bg-gray-800">
+          <Component {...pageProps} />
+          </div>
+        </ThemeProvider>
         <Analytics />
       </PrismicPreview>
     </PrismicProvider>

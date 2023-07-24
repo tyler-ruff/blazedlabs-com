@@ -3,41 +3,44 @@
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
+import { Logo } from "./Logo";
+import { ThemeSwitch } from "./ThemeSwitch";
+
 export const Footer = ({ settings }) => {
   const year = new Date().getFullYear().toString();
   return (
     <footer className="bg-gray-100 border-t">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="lg:flex lg:items-start lg:gap-8">
-                <div className="text-teal-600">
+                <div className="select-none">
                     <PrismicLink href="/" className="text-xl font-semibold tracking-tight">
-                        <img priority="true" className="pt-0 hover:opacity-75" title="Blazed Labs" src="https://blazed.sirv.com/logo/Beaker-Dark.png?w=45&h=45"/>
+                        <Logo />
                     </PrismicLink>
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
 
                     <div className="col-span-2 sm:col-span-1 hidden md:block">
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100 select-none">
                             Site
                         </p>
 
                         <nav className="mt-6">
                             <ul className="space-y-4 text-sm">
                                 <li>
-                                    <PrismicLink href="/"  className="text-gray-700 transition hover:opacity-75">
+                                    <PrismicLink href="/"  className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Home
                                     </PrismicLink>
                                 </li>
 
                                 <li>
-                                    <PrismicLink href="/about"  className="text-gray-700 transition hover:opacity-75">
+                                    <PrismicLink href="/about"  className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         About
                                     </PrismicLink>
                                 </li>
 
                                 <li>
-                                    <PrismicLink href="/blog" className="text-gray-700 transition hover:opacity-75">
+                                    <PrismicLink href="/blog" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Blog
                                     </PrismicLink>
                                 </li>
@@ -47,26 +50,26 @@ export const Footer = ({ settings }) => {
 
                     <div className="col-span-2 sm:col-span-1 hidden md:block">
 
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-gray-900 dark:text-gray-100 select-none">
                             Company
                         </p>
 
                         <nav className="mt-6">
                             <ul className="space-y-4 text-sm">
                                 <li>
-                                    <a href="https://blazed.company/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.company/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Corporate
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="https://blazed.contact/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.contact/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Contact Us
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="https://blazed.quest/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.quest/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Projects
                                     </a>
                                 </li>
@@ -75,26 +78,26 @@ export const Footer = ({ settings }) => {
                     </div>
 
                     <div className="col-span-2 sm:col-span-1 hidden md:block">
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-gray-900 dark:text-gray-100 select-none">
                             Divisions
                         </p>
 
                         <nav className="mt-6">
                             <ul className="space-y-4 text-sm">
                                 <li>
-                                    <a href="https://blazed.xyz/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.xyz/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Publishing
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="https://blazed.systems/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.systems/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Systems
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="https://blazed.tel/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.tel/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Telecom
                                     </a>
                                 </li>
@@ -103,26 +106,26 @@ export const Footer = ({ settings }) => {
                     </div>
 
                     <div className="col-span-2 sm:col-span-1 hidden md:block">
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-gray-900 dark:text-gray-100 select-none">
                             Products
                         </p>
 
                         <nav className="mt-6">
                             <ul className="space-y-4 text-sm">
                                 <li>
-                                    <a href="https://beez.top/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://beez.top/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Marketing
                                     </a>
                                 </li>
 
                                 <li>
-                                    <PrismicLink href="/projects" className="text-gray-700 transition hover:opacity-75">
+                                    <PrismicLink href="/projects" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Projects
                                     </PrismicLink>
                                 </li>
 
                                 <li>
-                                    <a href="https://blazed.dev/" className="text-gray-700 transition hover:opacity-75">
+                                    <a href="https://blazed.dev/" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         Development
                                     </a>
                                 </li>
@@ -131,21 +134,24 @@ export const Footer = ({ settings }) => {
                     </div>
 
                     <div className="col-span-2 sm:col-span-1">
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-gray-900 dark:text-gray-100 select-none">
                             Get in Touch
                         </p>
 
                         <nav className="mt-6">
                             <ul className="space-y-4 text-sm">
                                 <li className="inline-flex md:block">
-                                    <a title="Call Us!" href="tel:+18557882348" className="text-gray-700 transition hover:opacity-75">
-                                        1 (855) 788-2348
+                                    <a title="Call Us!" href="tel:+18557882348" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
+                                        +1 (855) 788-2348
                                     </a>
                                 </li>
                                 <li className="inline-flex md:block pl-5 md:pl-0">
-                                    <a title="Email Us!" href="mailto:hello@blazed.space" className="text-gray-700 transition hover:opacity-75">
+                                    <a title="Email Us!" href="mailto:hello@blazed.space" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         hello@blazed.space
                                     </a>
+                                </li>
+                                <li className="pt-5">
+                                    <ThemeSwitch />
                                 </li>
                             </ul>
                         </nav>
@@ -156,7 +162,8 @@ export const Footer = ({ settings }) => {
                                 href="https://www.facebook.com/blazedlabs"
                                 rel="noreferrer"
                                 target="social"
-                                className="text-gray-700 transition hover:opacity-75">
+                                title="Like us on Facebook"
+                                className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                 <span className="sr-only">Facebook</span>
 
                                 <svg
@@ -178,8 +185,8 @@ export const Footer = ({ settings }) => {
                                 href="https://www.instagram.com/blazed_labs/"
                                 rel="noreferrer"
                                 target="social"
-                                className="text-gray-700 transition hover:opacity-75"
-                                >
+                                className="text-gray-700 dark:text-gray-300 transition hover:opacity-75"
+                                title="Follow us on Instagram">
                                 <span className="sr-only">Instagram</span>
 
                                 <svg
@@ -202,8 +209,8 @@ export const Footer = ({ settings }) => {
                                 href="https://twitter.com/BlazedLabs"
                                 rel="noreferrer"
                                 target="social"
-                                className="text-gray-700 transition hover:opacity-75"
-                                >
+                                className="text-gray-700 dark:text-gray-300 transition hover:opacity-75"
+                                title="Follow us on Twitter">
                                 <span className="sr-only">Twitter</span>
 
                                 <svg
@@ -224,8 +231,8 @@ export const Footer = ({ settings }) => {
                                 href="https://github.com/blazed-labs"
                                 rel="noreferrer"
                                 target="social"
-                                className="text-gray-700 transition hover:opacity-75"
-                                >
+                                className="text-gray-700 dark:text-gray-300 transition hover:opacity-75"
+                                title="Fork us on GitHub">
                                 <span className="sr-only">GitHub</span>
 
                                 <svg
@@ -248,8 +255,8 @@ export const Footer = ({ settings }) => {
                                 href="https://www.linkedin.com/company/blazed-labs/"
                                 rel="noreferrer"
                                 target="social"
-                                className="text-gray-700 transition hover:opacity-75"
-                                >
+                                className="text-gray-700 dark:text-gray-300 transition hover:opacity-75"
+                                title="Follow us on Linkedin">
                                 <span className="sr-only">Linkedin</span>
 
                                 <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" className="w-6 h-6" viewBox="0 0 24 24">
@@ -269,29 +276,29 @@ export const Footer = ({ settings }) => {
 
             <div className="mt-8 border-t border-gray-100 pt-8">
                 <div className="sm:flex sm:justify-between">
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
                         &copy;{year}. Blazed Labs LLC. All rights reserved.
                     </p>
 
                     <nav className="mt-8 sm:mt-0">
                         <ul className="hidden md:flex flex-wrap justify-start gap-4 text-xs lg:justify-end">
                             <li>
-                                <PrismicLink href="/tos" className="text-gray-500 transition hover:opacity-75">
+                                <PrismicLink href="/tos" className="text-gray-500 dark:text-gray-400 transition hover:opacity-75">
                                     Terms & Conditions
                                 </PrismicLink>
                             </li>
                             <li>
-                                <PrismicLink href="/privacy" className="text-gray-500 transition hover:opacity-75">
+                                <PrismicLink href="/privacy" className="text-gray-500 dark:text-gray-400 transition hover:opacity-75">
                                     Privacy Policy
                                 </PrismicLink>
                             </li>
                             <li>
-                                <PrismicLink href="/dmca" className="text-gray-500 transition hover:opacity-75">
+                                <PrismicLink href="/dmca" className="text-gray-500 dark:text-gray-400 transition hover:opacity-75">
                                     DMCA Policy
                                 </PrismicLink>
                             </li>
                             <li>
-                                <a href="#Top" className="text-gray-500 transition hover:opacity-75">
+                                <a href="#Top" className="text-gray-500 dark:text-gray-400 transition hover:opacity-75">
                                     &#8593; Back To Top
                                 </a>
                             </li>
