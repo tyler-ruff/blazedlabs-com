@@ -7,9 +7,34 @@ import { components } from "../slices";
 import { Layout } from "../components/Layout";
 
 const Page = ({ page, navigation, settings }) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "type": "Article",
+    "headline": "Blazed Labs Main Website",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Tyler Ruff",
+        "url": "https://tyler-ruff.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Blazed Labs",
+        "url": "https://blazed.company/"
+      }
+    ],
+    "publisher": {
+      "name": "Blazed Publishing",
+      "url": "https://blazed.xyz/"
+    }
+  };
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <title>
           {prismicH.asText(page.data.title)} | {prismicH.asText(settings.data.siteTitle)}
         </title>
@@ -21,7 +46,9 @@ const Page = ({ page, navigation, settings }) => {
         <meta name="twitter:title" content={prismicH.asText(settings.data.siteTitle)}/>
         <meta name="twitter:description" content={prismicH.asText(settings.data.description)}/>
       </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+      <article>
+        <SliceZone slices={page.data.slices} components={components} />
+      </article>
     </Layout>
   );
 };

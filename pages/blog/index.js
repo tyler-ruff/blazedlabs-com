@@ -23,9 +23,34 @@ const Blog = ({ blog, navigation, settings }) => {
   const router = useRouter();
   let { page = 1 } = router.query;
   const blog_sliced = blog.slice((page*pageSize)-pageSize, page*pageSize);
+  const schema = {
+    "@context": "https://schema.org",
+    "type": "Article",
+    "headline": "Blazed Labs Browse Blog",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Tyler Ruff",
+        "url": "https://tyler-ruff.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Blazed Labs",
+        "url": "https://blazed.company/"
+      }
+    ],
+    "publisher": {
+      "name": "Blazed Publishing",
+      "url": "https://blazed.xyz/"
+    }
+  };
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <title>
           Browse Posts | Blog | {prismicH.asText(settings.data.siteTitle)}
         </title>
@@ -38,35 +63,37 @@ const Blog = ({ blog, navigation, settings }) => {
         <meta name="twitter:description" content="Blazed Labs company blog. Browse all posts."/>
         <link rel="archives" href="https://blazedlabs.com/blog/"/>
       </Head>
-      <div className="text-center pb-3">
-        <h2 className="text-3xl">
-            Browse Blog
-        </h2>
-        <div className="text-sm breadcrumbs inline-flex">
-            <ul>
-                <li>
-                    <PrismicLink href="/">
-                        Home
-                    </PrismicLink>
-                </li> 
-                <li>
-                    Blog
-                </li> 
-            </ul>
+      <article className="pt-10">
+        <div className="text-center pb-3">
+          <h2 className="text-3xl">
+              Browse Blog
+          </h2>
+          <div className="text-sm breadcrumbs inline-flex">
+              <ul>
+                  <li>
+                      <PrismicLink href="/">
+                          Home
+                      </PrismicLink>
+                  </li> 
+                  <li>
+                      Blog
+                  </li> 
+              </ul>
+          </div>
         </div>
-      </div>
-      <hr />
-      <p className="text-center py-5 text-gray-500 select-none">
-        Showing {pageSize} of {blog.length} posts
-      </p>
-      <div className="p-5 lg:px-20 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
-        {blog_sliced.map(post => (
-            <Article key={post.uid} article={post}/>
-        ))}
-      </div>
-      <div className="py-10 text-center">
-        <Pagination totalPages={totalPages} />
-      </div>
+        <hr />
+        <p className="text-center py-5 text-gray-500 select-none">
+          Showing {pageSize} of {blog.length} posts
+        </p>
+        <div className="p-5 lg:px-20 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+          {blog_sliced.map(post => (
+              <Article key={post.uid} article={post}/>
+          ))}
+        </div>
+        <div className="py-10 text-center">
+          <Pagination totalPages={totalPages} />
+        </div>
+      </article>
     </Layout>
   );
 };

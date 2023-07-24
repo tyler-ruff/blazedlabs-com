@@ -11,6 +11,7 @@ const nextConfig = async () => {
 
   return {
     reactStrictMode: true,
+    amp: true,
     i18n: {
       // These are all the locales you want to support in
       // your application

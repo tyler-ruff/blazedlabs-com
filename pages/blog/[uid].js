@@ -23,9 +23,36 @@ const Article = ({ article, navigation, settings }) => {
   if (!mounted) {
     return null; // return this null to avoid hydration errors
   }
+  const schema = {
+    "@context": "https://schema.org",
+    "type": "BlogPosting",
+    "headline": article.data.title,
+    "datePublished": article.data.published_on,
+    "genre": article.data.category,
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Tyler Ruff",
+        "url": "https://tyler-ruff.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Blazed Labs",
+        "url": "https://blazed.company/"
+      }
+    ],
+    "publisher": {
+      "name": "Blazed Publishing",
+      "url": "https://blazed.xyz/"
+    }
+  };
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <title>
           {prismicH.asText(article.data.title)} | Blog | {prismicH.asText(settings.data.siteTitle)}
         </title>
