@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html suppressHydrationWarning>
       <Head>
         <link rel="dns-prefetch" href="//blazed.sirv.com/" />
         <link rel="preconnect" href="https://blazed.sirv.com/" />

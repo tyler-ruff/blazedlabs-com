@@ -4,7 +4,6 @@ import { PrismicText, PrismicRichText, PrismicLink, SliceZone } from "@prismicio
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
-import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 
 import { dateFormatter } from "../../lib/dateFormatter";
@@ -26,9 +25,10 @@ const Article = ({ article, navigation, settings }) => {
   const schema = {
     "@context": "https://schema.org",
     "type": "BlogPosting",
-    "headline": article.data.title,
+    "headline": prismicH.asText(article.data.title),
     "datePublished": article.data.published_on,
     "genre": article.data.category,
+    "text": excerpt,
     "author": [
       {
         "@type": "Person",
@@ -86,7 +86,7 @@ const Article = ({ article, navigation, settings }) => {
         </div>
       </div>
       <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
-        <article className="space-y-8 dark:bg-gray-800 dark:text-gray-50">
+        <article className="space-y-8 dark:text-gray-50">
             <div className="space-y-6">
                 <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
                     <PrismicText field={article.data.title} />
@@ -96,7 +96,7 @@ const Article = ({ article, navigation, settings }) => {
                         <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
                         </svg>
-                        <p className="text-sm select-none">
+                        <p className="text-sm select-none pl-1">
                             <time>
                                 {dateFormatter.format(date)}
                             </time>

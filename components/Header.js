@@ -4,6 +4,9 @@ import * as prismicH from "@prismicio/helpers";
 import { Bounded } from "./Bounded";
 
 import { useRouter } from 'next/router';
+import { ThemeSwitch } from "./ThemeSwitch";
+
+import { Logo } from "./Logo";
 
 export const Header = ({ navigation, settings }) => {
   const router = useRouter();
@@ -20,10 +23,10 @@ export const Header = ({ navigation, settings }) => {
       <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3 leading-none">
         <div className="hidden md:flex navbar justify-between">
           <PrismicLink href="/" className="hidden md:inline-block text-xl font-semibold tracking-tight">
-            <img priority="true" className="hover:opacity-75" title="Blazed Labs" src="https://blazed.sirv.com/logo/Beaker-Dark.png?w=50&h=50"/>
+            <Logo />
           </PrismicLink>
-          <nav className="hidden md:inline-block mt-5 pt-5">
-            <ul className="flex flex-wrap gap-6 md:gap-10 mb-12">
+          <nav className="hidden md:inline-block mt-5 pt-5 dark:text-white">
+            <ul className="flex flex-wrap gap-6 md:gap-10 mb-12 pt-2">
               {navigation.data?.links.map((item) => (
                 <li key={prismicH.asText(item.label)}>
                   <PrismicLink className={router.asPath == item.uid ? "underline" : "hover:underline"} field={item.link}>
@@ -36,12 +39,15 @@ export const Header = ({ navigation, settings }) => {
                   Blog
                 </PrismicLink>
               </li>
+              <li key="theme">
+                <ThemeSwitch />
+              </li>
             </ul>
           </nav>
         </div>
-        <div className="navbar bg-gray-200/40 justify-between md:hidden pb-7">
+        <div className="navbar bg-gray-200/40 dark:bg-gray-700 justify-between md:hidden pb-7">
           <PrismicLink href="/" className="inline-block md:hidden text-xl font-semibold tracking-tight">
-            <img priority="true" className="pt-5 pl-3 hover:opacity-75" title="Blazed Labs" src="https://blazed.sirv.com/logo/Beaker-Dark.png?w=35&h=35"/>
+            <Logo />
           </PrismicLink>
           <nav className="inline-block md:hidden mt-7 mr-2">
             <label onClick={toggleBurger} className="swap swap-rotate">
@@ -56,19 +62,22 @@ export const Header = ({ navigation, settings }) => {
           </nav>
         </div>
       </div>
-      <div id="mobile-menu" className="hidden">
-        <ul className="block h-screen md:hidden menu bg-base-100 w-full border-t">
+      <div id="mobile-menu" className="hidden grid">
+        <ul className="h-screen md:hidden menu pt-10 bg-base-100 dark:bg-gray-800 dark:text-gray-300 w-full border-t">
             {navigation.data?.links.map((item) => (
-              <li key={prismicH.asText(item.label)}>
-                <PrismicLink className={router.asPath == item.uid ? "bg-gray-100" : "hover:bg-gray-100"} field={item.link}>
+              <li className="block" key={prismicH.asText(item.label)}>
+                <PrismicLink className={router.asPath == item.uid ? "px-6 bg-gray-100 dark:bg-gray-900" : "px-6 hover:bg-gray-100 dark:hover:bg-gray-900"} field={item.link}>
                   <PrismicText field={item.label} />
                 </PrismicLink>
               </li>
             ))}
-            <li key="blog">
-              <PrismicLink className={router.asPath == "/blog" ? "bg-gray-100" : "hover:bg-gray-100"} href="/blog">
+            <li className="block" key="blog">
+              <PrismicLink className={router.asPath == "/blog" ? "px-6 bg-gray-100 dark:bg-gray-900" : "px-6 hover:bg-gray-100 dark:hover:bg-gray-900"} href="/blog">
                 Blog
               </PrismicLink>
+            </li>
+            <li className="place-content-center" key="theme">
+              <ThemeSwitch />
             </li>
         </ul>
       </div>

@@ -39,7 +39,7 @@ const Project = ({ project, navigation, settings }) => {
                     </li>
                 </ul>
             </div>
-        <article className="space-y-8 dark:bg-gray-800 dark:text-gray-50">
+        <article className="space-y-8 dark:text-gray-50">
             <PrismicImage field={project.data.image} alt={project.data.name} />
             <div className="space-y-6">
                 <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
