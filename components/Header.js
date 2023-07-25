@@ -39,15 +39,15 @@ export const Header = ({ navigation, settings }) => {
           </PrismicLink>
           <nav className="hidden md:inline-block mt-5 pt-5 dark:text-white">
             <ul className="flex flex-wrap gap-6 md:gap-10 mb-12 pt-2">
-              {navigation.data?.links.map((item) => (
-                <li key={item.label}>
+              {navigation.data?.links.map((item, index) => (
+                <li key={index}>
                   <PrismicLink className={router.asPath == item.uid ? styles.active : "hover:underline"} field={item.link}>
                     <PrismicText field={item.label} />
                   </PrismicLink>
                 </li>
               ))}
-              {extendedMenu.map((item) => (
-                <li key={item.label}>
+              {extendedMenu.map((item, index) => (
+                <li key={index}>
                   <PrismicLink className={router.asPath == item.uid ? styles.active : "hover:underline"} href={item.href}>
                     {item.label}
                   </PrismicLink>
