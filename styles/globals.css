@@ -33,18 +33,16 @@ body::-webkit-scrollbar-thumb:hover{
 }
 
 ::selection{
-  background:#333;
-  background:rgba(0, 0, 0, 0.5);
-  color:#fff;
+  background:#ece937;
+  color:#000;
 }
 
 ::-moz-selection{
-  background:#333;
-  background:rgba(0, 0, 0, 0.5);
-  color:#fff;
+  background:#ece937;
+  color:#000;
 }
 
-html {
+html, body, div#__next, main {
   @apply h-full;
 }
 
@@ -60,22 +58,31 @@ html.dark, .dark #Top, .dark body, .dark main, .dark section, .dark footer{
 }
 
 body { 
-  @apply h-full;
   font-family: 'Hind Vadodara', sans-serif;
-}
-
-div#__next {
-  @apply h-full;
-}
-
-main {
-  @apply h-full;
 }
 
 h1, h3{
   font-family: 'DM Serif Text', serif;
 }
 
-header{
-  padding: 0px !important;
+h1{
+  background-image: linear-gradient(to left, #313031, #615b67);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.dark h1{
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.btn{
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+}
+
+.btn:hover{
+  background-image: linear-gradient(to left, #553c9a, #876ea0);
 }
