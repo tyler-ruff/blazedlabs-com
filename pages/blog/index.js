@@ -12,15 +12,9 @@ import { Pagination } from "../../components/Pagination";
 
 const Blog = ({ blog, navigation, settings }) => {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null; // return this null to avoid hydration errors
-  }
+  const router = useRouter();
   const pageSize = 3;
   const totalPages = Math.ceil(blog.length / pageSize);
-  const router = useRouter();
   let { page = 1 } = router.query;
   const blog_sliced = blog.slice((page*pageSize)-pageSize, page*pageSize);
   const schema = {
@@ -44,6 +38,12 @@ const Blog = ({ blog, navigation, settings }) => {
       "url": "https://blazed.xyz/"
     }
   };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null; // return this null to avoid hydration errors
+  }
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>

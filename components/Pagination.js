@@ -20,7 +20,7 @@ export const Pagination = ({ totalPages = 1 }) => {
         }
     }
     return (
-        <nav aria-label="Pagination" className="inline-flex -space-x-px rounded-md shadow-sm dark:bg-gray-800 dark:text-gray-100">
+        <nav aria-label="Pagination" className="select-none inline-flex -space-x-px rounded-md shadow-sm dark:bg-gray-800 dark:text-gray-100">
             <button 
                 type="button" 
                 className={page <= 1 ? "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md bg-gray-200 dark:bg-gray-700" : "inline-flex items-center px-2 py-2 text-sm font-semibold border rounded-l-md hover:bg-gray-50 dark:hover:bg-gray-900"}

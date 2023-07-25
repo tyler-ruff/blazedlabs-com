@@ -12,16 +12,13 @@ import { getExcerpt } from "../../lib/getExcerpt";
 
 const Article = ({ article, navigation, settings }) => {
   const [mounted, setMounted] = useState(false);
+  
+  const excerpt = getExcerpt(
+    prismicH.asText(article.data.content)
+  );
   const date = prismicH.asDate(
     article.data.published_on
   );
-  const excerpt = getExcerpt(prismicH.asText(article.data.content));
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null; // return this null to avoid hydration errors
-  }
   const schema = {
     "@context": "https://schema.org",
     "type": "BlogPosting",
@@ -46,6 +43,12 @@ const Article = ({ article, navigation, settings }) => {
       "url": "https://blazed.xyz/"
     }
   };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null; // return this null to avoid hydration errors
+  }
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
@@ -53,9 +56,6 @@ const Article = ({ article, navigation, settings }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <title>
-          {prismicH.asText(article.data.title)} | Blog | {prismicH.asText(settings.data.siteTitle)}
-        </title>
         <meta itemprop="name" content={prismicH.asText(article.data.title)}/>
         <meta itemprop="description" content={excerpt}/>
         <meta property="og:title" content={prismicH.asText(article.data.title)}/>
