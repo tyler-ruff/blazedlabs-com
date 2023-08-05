@@ -5,6 +5,8 @@ import { PrismaClient } from '@prisma/client';
 
 const client = new PrismaClient(); 
 
+export const runtime = "edge";
+
 export const authOptions = {
   adapter: PrismaAdapter(client),
   providers: [
