@@ -1,4 +1,4 @@
-export const Profile = ({ id }) => {
+export default Profile = ({ id }) => {
     return (
         <div>
             Hello World
