@@ -10,9 +10,12 @@ import { dateFormatter } from "../../lib/dateFormatter";
 import  readingTime  from "../../lib/readingTime";
 import { getExcerpt } from "../../lib/getExcerpt";
 
+import { Comments } from "../../components/Comments";
+import { Rating } from "../../components/Rating";
+
 const Article = ({ article, navigation, settings }) => {
   const [mounted, setMounted] = useState(false);
-  
+
   const excerpt = getExcerpt(
     prismicH.asText(article.data.content)
   );
@@ -49,6 +52,7 @@ const Article = ({ article, navigation, settings }) => {
   if (!mounted) {
     return null; // return this null to avoid hydration errors
   }
+
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
@@ -97,19 +101,25 @@ const Article = ({ article, navigation, settings }) => {
                             <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
                         </svg>
                         <p className="text-sm select-none pl-1">
-                            <time>
+                            <time title="Publish date" dateTime={date}>
                                 {dateFormatter.format(date)}
                             </time>
                             <span className="px-2">
                                 &bull;
                             </span>
-                            <span>
+                            <span title="Reading time">
                                 {readingTime(prismicH.asText(article.data.content))}
                             </span>
+                            <span className="px-2">
+                                &bull;
+                            </span>
+                            <a title="Skip to comments" href="#Comments">
+                              Comments
+                            </a>
                         </p>
                     </div>
-                    <p title="Category" className="select-none flex-shrink-0 mt-3 text-sm md:mt-0">
-                        <span className="badge">
+                    <p className="select-none flex-shrink-0 mt-3 text-sm md:mt-0">
+                        <span title="Category" className="badge">
                             {article.data.category}
                         </span>
                     </p>
@@ -122,23 +132,13 @@ const Article = ({ article, navigation, settings }) => {
         </article>
         <div>
             <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed dark:border-gray-400">
-
+              <Rating />
             </div>
-            <div className="space-y-2">
+            <div className="py-6 space-x-2 border-t border-dashed dark:border-gray-400">
                 <h4 className="text-lg font-semibold">
-                    Related posts
+                    Comments
                 </h4>
-                <ul className="ml-4 space-y-1 list-disc">
-                    <li>
-                        <a rel="noopener noreferrer" href="#" className="hover:underline">Nunc id magna mollis</a>
-                    </li>
-                    <li>
-                        <a rel="noopener noreferrer" href="#" className="hover:underline">Duis molestie, neque eget pretium lobortis</a>
-                    </li>
-                    <li>
-                        <a rel="noopener noreferrer" href="#" className="hover:underline">Mauris nec urna volutpat, aliquam lectus sit amet</a>
-                    </li>
-                </ul>
+                <Comments postId={article.uid} />
             </div>
         </div>
     </div>
@@ -152,6 +152,7 @@ export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
 
   const article = await client.getByUID("blog_post", params.uid);
+
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
 

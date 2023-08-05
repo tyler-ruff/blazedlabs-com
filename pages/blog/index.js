@@ -109,7 +109,6 @@ export async function getStaticProps({ locale, previewData }) {
       field: "document.published_on",
       direction: "desc"
     },
-
   });
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });

@@ -19,6 +19,9 @@ const nextConfig = async () => {
       // a non-locale prefixed path e.g. `/hello`
       defaultLocale: locales[0],
     },
+    env: {
+      SITE_URL: process.env.SITE_URL,
+    },
   };
 };
 
