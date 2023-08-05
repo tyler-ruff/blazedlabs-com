@@ -2,7 +2,7 @@ import prisma from './../../../lib/prisma.js';
 import { authOptions } from './../auth/[...nextauth]';
 import { getServerSession } from "next-auth/next";
 
-export const runtime = "edge"
+export const runtime = "experimental-edge"
 
 export async function GET(req, res) {
     const { postId } = req.query;
