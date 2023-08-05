@@ -12,7 +12,8 @@ const nextConfig = async () => {
   return {
     reactStrictMode: true,
     experimental:{
-      appDir: true
+      appDir: true,
+      serverComponentsExternalPackages: ["@prisma/client"],
     },
     i18n: {
       // These are all the locales you want to support in
