@@ -1,5 +1,5 @@
 //import prisma from './../../../lib/prisma.js';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 import { authOptions } from './../auth/[...nextauth]';
 import { getServerSession } from "next-auth/next";
 
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
             });
             return res.status(200).json({ data });
         } catch (error){
-
+            return res.status(503).json({ msg: "fail" });
         }
     } else if(req.method === 'POST') {
         const session = await getServerSession(req, res, authOptions);
