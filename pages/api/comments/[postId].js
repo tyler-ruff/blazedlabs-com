@@ -39,7 +39,7 @@ export default async function handler(req, res) {
             await prisma.comment.create(data);
             return res.redirect(303, `${process.env.SITE_URL}blog/${postId}`);
         } catch(exception){
-            return res.status(500).json({ msg: "Unknown database error" })
+            return res.status(500).json({ msg: `Unknown database error: ${exception}` })
         }
         
         return res.status(500);
