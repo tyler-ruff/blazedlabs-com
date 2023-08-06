@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import styles from '../styles/comments.module.css';
+
 export default function CommentForm({ postId }) {
 
     const [formData, setFormData] = useState("");
@@ -15,10 +17,10 @@ export default function CommentForm({ postId }) {
     return (
         <form className="flex" method="post" action={submitUrl}>
             <div className="inline-flex form-field">
-                <textarea minLength="3" maxLength="255" required name="comment" onChange={handleCommentChange} className="input input-bordered border-r-0 input-primary w-full max-w-xs rounded-l-full resize-none dark:bg-gray-500/40"></textarea>
+                <textarea required placeholder="Add a comment..." minLength="3" maxLength="255" name="comment" onChange={handleCommentChange} className={styles.CommentText}></textarea>
             </div>
             <div className="inline-flex form-field">
-                <button type="submit" disabled={formData.length === 0 ? true : false} className="btn btn-active rounded-r-full">
+                <button type="submit" disabled={formData.length === 0 ? true : false} className={styles.SubmitButton}>
                     Submit
                 </button>
             </div>

@@ -11,7 +11,6 @@ import  readingTime  from "../../lib/readingTime";
 import { getExcerpt } from "../../lib/getExcerpt";
 
 import { Comments } from "../../components/Comments";
-import { Rating } from "../../components/Rating";
 
 const Article = ({ article, navigation, settings }) => {
   const [mounted, setMounted] = useState(false);
@@ -132,12 +131,11 @@ const Article = ({ article, navigation, settings }) => {
         </article>
         <div>
             <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed dark:border-gray-400">
-              <Rating />
+              <h4 className="text-lg font-semibold pl-5">
+                    Comments
+              </h4>
             </div>
             <div className="py-6 space-x-2 border-t border-dashed dark:border-gray-400">
-                <h4 className="text-lg font-semibold">
-                    Comments
-                </h4>
                 <Comments postId={article.uid} />
             </div>
         </div>

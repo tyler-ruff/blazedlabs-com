@@ -47,9 +47,9 @@ export const Comments = ({ postId }) => {
                 }
             </div>
             <div className="flex comment-form mt-5">
-                <div className="avatar w-10 rounded-full mr-3">
+                <div className="avatar w-10 h-10 rounded-full mr-3">
                     {
-                        session ? <img className="avatar rounded-full dark:bg-white" src={session.user.image} /> : <div></div>
+                        session ? <img title={`Logged in as ${session.user.name}`} className="avatar rounded-full dark:bg-white" src={session.user.image} /> : <div></div>
                     }
                 </div>
                 <div>
