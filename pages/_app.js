@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { repositoryName } from "../prismicio";
 import { Heading } from "../components/Heading";
 
+import { SessionProvider } from "next-auth/react"
 import { ThemeProvider } from "next-themes";
 
 import "../styles/globals.css";
@@ -58,20 +59,20 @@ const richTextComponents = {
   ),
 };
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <PrismicProvider
-      internalLinkComponent={Link}
-      richTextComponents={richTextComponents}
-    >
-      <PrismicPreview repositoryName={repositoryName}>
-        <ThemeProvider attribute="class">
-          <div className="dark:bg-gray-800">
-          <Component {...pageProps} />
-          </div>
-        </ThemeProvider>
-        <Analytics />
-      </PrismicPreview>
-    </PrismicProvider>
+    <SessionProvider session={session}>
+      <PrismicProvider internalLinkComponent={Link}
+        richTextComponents={richTextComponents}>
+        <PrismicPreview repositoryName={repositoryName}>
+          <ThemeProvider attribute="class">
+            <div className="dark:bg-gray-800">
+            <Component {...pageProps} />
+            </div>
+          </ThemeProvider>
+          <Analytics />
+        </PrismicPreview>
+      </PrismicProvider>
+    </SessionProvider>
   );
 }

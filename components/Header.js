@@ -7,7 +7,12 @@ import { useRouter } from 'next/router';
 
 import { Logo } from "./Logo";
 import { Burger } from "./Burger";
-import { ThemeSwitch } from "./ThemeSwitch";
+// > ThemeSwitch (Client)
+import  ThemeSwitch from "./../app/ThemeSwitch";
+//import { ThemeSwitch } from "./ThemeSwitch";
+// > AuthMenu (SSR)
+import AuthMenu from "./../app/AuthMenu";
+//import { AuthMenu } from "./AuthMenu";
 
 import styles from "./../styles/header.module.css";
 
@@ -53,8 +58,11 @@ export const Header = ({ navigation, settings }) => {
                   </PrismicLink>
                 </li>
               ))}
-              <li key="theme">
+              <li className="p-1" key="theme-desktop">
                 <ThemeSwitch />
+              </li>
+              <li key="auth-desktop">
+                <AuthMenu />
               </li>
             </ul>
           </nav>
@@ -85,8 +93,11 @@ export const Header = ({ navigation, settings }) => {
                     </PrismicLink>
                   </li>
                 ))}
-                <li className="place-content-center" key="theme">
+                <li className="place-content-center" key="theme-mobile">
                   <ThemeSwitch />
+                </li>
+                <li key="auth-mobile">
+                  <AuthMenu />
                 </li>
             </ul>
           </div>
