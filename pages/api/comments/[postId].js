@@ -1,8 +1,10 @@
-import prisma from './../../../lib/prisma.js';
+//import prisma from './../../../lib/prisma.js';
+import { PrismaClient } from '@prisma/client'
 import { authOptions } from './../auth/[...nextauth]';
 import { getServerSession } from "next-auth/next";
 
 export default async function handler(req, res) {
+    const prisma = new PrismaClient();
     const { postId } = req.query;
     if(req.method === 'GET'){
         try{
