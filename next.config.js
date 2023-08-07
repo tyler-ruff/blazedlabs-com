@@ -15,6 +15,9 @@ const nextConfig = async () => {
 
   return withPWA({
     reactStrictMode: true,
+    pwa: {
+      buildExcludes: [/middleware-manifest\.json$/]
+    },
     experimental:{
       appDir: true,
       serverComponentsExternalPackages: ["@prisma/client"],
