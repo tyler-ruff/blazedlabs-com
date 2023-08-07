@@ -2,6 +2,10 @@ const prismic = require("@prismicio/client");
 
 const sm = require("./sm.json");
 
+const withPWA = require('next-pwa')({
+  dest: 'public'
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = async () => {
   const client = prismic.createClient(sm.apiEndpoint);
@@ -29,4 +33,4 @@ const nextConfig = async () => {
   };
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);
