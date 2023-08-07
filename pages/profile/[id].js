@@ -81,7 +81,7 @@ const Profile = ({ user, navigation, settings }) => {
 
         <div className="text-center py-3">
             <div className="avatar">
-                <div className="w-24 text-center rounded-full border">
+                <div className="w-24 dark:bg-white text-center rounded-full border">
                     <img src={user.image} />
                 </div>
             </div>
