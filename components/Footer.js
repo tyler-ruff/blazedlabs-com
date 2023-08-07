@@ -4,7 +4,6 @@ import { PrismicLink, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { Logo } from "./Logo";
-import { ThemeSwitch } from "./ThemeSwitch";
 
 export const Footer = ({ settings }) => {
   const year = new Date().getFullYear().toString();
@@ -149,9 +148,6 @@ export const Footer = ({ settings }) => {
                                     <a title="Email Us!" href="mailto:hello@blazed.space" className="text-gray-700 dark:text-gray-300 transition hover:opacity-75">
                                         hello@blazed.space
                                     </a>
-                                </li>
-                                <li className="pt-5">
-                                    <ThemeSwitch />
                                 </li>
                             </ul>
                         </nav>

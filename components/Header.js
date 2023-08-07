@@ -5,6 +5,7 @@ import * as prismicH from "@prismicio/helpers";
 import { Bounded } from "./Bounded";
 
 import { useRouter } from 'next/router';
+import { useWindowSize } from "@uidotdev/usehooks";
 
 import { Logo } from "./Logo";
 import { Burger } from "./Burger";
@@ -19,10 +20,7 @@ import styles from "./../styles/header.module.css";
 
 export const Header = ({ navigation, settings }) => {
   const router = useRouter();
-
-  useEffect(() => {
-    document.body.style.overflowY = "scroll";
-  }, [router.query]);
+  const size = useWindowSize();
 
   const toggleBurger = () =>{
     const drawer = document.querySelector('.drawer-toggle');
@@ -34,6 +32,22 @@ export const Header = ({ navigation, settings }) => {
       document.body.style.overflowY = "scroll";
     }
   };
+
+  // Fix for switching between mobile -> desktop w/ menu expanded
+  useEffect(() => {
+    if(size.width >= 767){
+      document.body.style.overflowY = "scroll";
+      document.getElementById('mobile-menu').classList.add('hidden');
+      if(document.getElementById('burger-status').checked){
+        document.getElementById('burger-status').checked = false;
+      }
+    }
+  }, [size.width])
+
+  // Prevent scroll lock on navigate
+  useEffect(() => {
+    document.body.style.overflowY = "scroll";
+  }, [router.query]);
 
   return (
     <Bounded as="header" className={styles.header} yPadding="sm">
