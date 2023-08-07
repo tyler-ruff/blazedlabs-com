@@ -33,4 +33,4 @@ const nextConfig = async () => {
   };
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = withPWA({nextConfig});
