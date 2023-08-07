@@ -3,7 +3,15 @@ const prismic = require("@prismicio/client");
 const sm = require("./sm.json");
 
 const withPWA = require('next-pwa')({
-  dest: 'public'
+  dest: 'public',
+  register: false,
+  buildExcludes: [
+    /middleware-manifest\.json$/,
+    /_middleware\.js$/,
+    /_middleware\.js\.map$/,
+    /middleware-runtime\.js$/,
+    /middleware-runtime\.js\.map$/,
+  ],
 });
 
 /** @type {import('next').NextConfig} */
