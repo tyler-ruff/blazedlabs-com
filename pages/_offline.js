@@ -1,7 +1,7 @@
-const Offline = () => {
+export const Offline = () => {
     return (
         <div>
             Site offline!
         </div>
-    )
+    );
 }
