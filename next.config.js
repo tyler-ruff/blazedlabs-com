@@ -13,7 +13,7 @@ const nextConfig = async () => {
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
 
-  return {
+  return withPWA({
     reactStrictMode: true,
     experimental:{
       appDir: true,
@@ -30,7 +30,7 @@ const nextConfig = async () => {
     env: {
       SITE_URL: process.env.SITE_URL,
     },
-  };
+  });
 };
 
-module.exports = withPWA({nextConfig});
+module.exports = nextConfig;
