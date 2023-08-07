@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
 
   const navigation = await client.getSingle("navigation", { lang: context.locale });
   const settings = await client.getSingle("settings", { lang: context.locale });
-  
+  /*
   if(session){
     if (context.params.id === session.user.id) {
         return {
@@ -29,6 +29,7 @@ export async function getServerSideProps(context) {
         }
     }
  }
+ */
  
   return {
     props: { 
@@ -72,7 +73,7 @@ const Profile = ({ user, navigation, settings }) => {
                         </PrismicLink>
                     </li> 
                     <li>
-                        {data.message.name}'s Profile
+                        {data.name}'s Profile
                     </li>
                 </ul>
             </div>
@@ -80,7 +81,7 @@ const Profile = ({ user, navigation, settings }) => {
 
         <div>
             <h1>View Profile</h1>
-            <pre>{JSON.stringify(data.message, null, 2)}</pre>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
     </Layout>
   )
