@@ -14,7 +14,6 @@ export const Layout = ({ navigation, settings, children }) => {
   useEffect(() => {
     setDomLoaded(true);
   }, []);
-  const router = useRouter();
 
   const siteTitle = prismicH.asText(settings.data.siteTitle);
   const siteDesc = "Main website for Blazed Labs."

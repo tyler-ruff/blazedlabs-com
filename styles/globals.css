@@ -58,6 +58,7 @@ html.dark, .dark #Top, .dark body, .dark main, .dark section, .dark footer{
 }
 
 body { 
+  overflow-x:hidden!important;
   font-family: 'Hind Vadodara', sans-serif;
 }
 

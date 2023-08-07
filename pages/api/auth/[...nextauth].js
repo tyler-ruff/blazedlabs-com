@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
+
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 
@@ -9,7 +10,7 @@ export const authOptions = {
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    })
+    }),
   ],
   // Include user.id on session
   // @Source = https://stackoverflow.com/questions/74147383/how-to-use-numeric-user-id-with-next-auth
@@ -26,12 +27,12 @@ export const authOptions = {
   },
   /*
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/sign-in',
     signOut: '/auth/signout',
     error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify-request', // (used for check email message)
     newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
-  }
+  },
   */
   secret: process.env.NEXTAUTH_SECRET,
 };

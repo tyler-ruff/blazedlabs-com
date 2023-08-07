@@ -4,4 +4,23 @@
 
 .active{
     text-decoration: underline;
+    display: block;
+    padding-top:8px;
+}
+
+.MobileMenu{
+    height:100vh;
+}
+
+.MenuLink{
+    display: block;
+    padding-top:8px;
+}
+
+.MenuLink:hover{
+    text-decoration: underline;
+}
+
+.MobileAuth{
+    
 }

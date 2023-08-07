@@ -1,6 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react"
 
-export default function AuthMenu(){
+export default function AuthMenuDesktop(){
     const { data: session } = useSession();
     if(session){
         return (
@@ -10,17 +10,17 @@ export default function AuthMenu(){
                 </div>
                 <ul tabIndex={0} className="dropdown-content dark:text-gray-700 z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
-                        <a href="/profile">
+                        <a title="My profile" href="/profile">
                             Profile
                         </a>
                     </li>
                     <li>
-                        <a href="/account">
+                        <a title="Account settings" href="/account">
                             Account
                         </a>
                     </li>
                     <li>
-                        <a onClick={() => signOut()} className="cursor-pointer">
+                        <a title="Logout of account" onClick={() => signOut()} className="cursor-pointer">
                             Logout
                         </a>
                     </li>
