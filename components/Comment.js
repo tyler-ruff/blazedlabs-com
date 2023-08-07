@@ -1,6 +1,8 @@
 import { dateFormatter } from "../lib/dateFormatter";
 import { useSession } from "next-auth/react";
 
+import { Loading } from "./Loading";
+
 import useSWR from 'swr';
 
 export const Comment = ({ authorId, date, body }) => {
@@ -19,7 +21,7 @@ export const Comment = ({ authorId, date, body }) => {
     if(isLoading){
         return (
             <div>
-                Loading...
+                <Loading />
             </div>
         );
     }
