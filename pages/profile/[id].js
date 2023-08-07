@@ -15,9 +15,10 @@ import useSWR from 'swr';
 export async function getServerSideProps(context) {
   const client = createClient();
   const session = await getServerSession(context.req, context.res, authOptions)
-
+  
   const navigation = await client.getSingle("navigation", { lang: context.locale });
   const settings = await client.getSingle("settings", { lang: context.locale });
+  
   /*
   if(session){
     if (context.params.id === session.user.id) {
@@ -32,7 +33,7 @@ export async function getServerSideProps(context) {
  */
  
   return {
-    props: { 
+    props: {
         user: context.params.id, 
         navigation: navigation,
         settings: settings 

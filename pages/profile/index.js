@@ -37,13 +37,7 @@ export async function getServerSideProps(context) {
 }
  
 const Profile = ({ user, navigation, settings }) => {
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        setMounted(true);
-      }, []);
-      if (!mounted) {
-        return null; // return this null to avoid hydration errors
-      }
+
   // Show the user. No loading state is required
   return (
     <Layout navigation={navigation} settings={settings}>
