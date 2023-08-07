@@ -57,9 +57,15 @@ const Profile = ({ user, navigation, settings }) => {
             </div>
         </div>
 
-        <div>
-            <h1>Your Profile</h1>
-            <pre>{JSON.stringify(user, null, 2)}</pre>
+        <div className="text-center py-3">
+            <div className="avatar">
+                <div className="w-24 text-center rounded-full border">
+                    <img src={user.image} />
+                </div>
+            </div>
+            <h1 className="text-center py-3 text-xl">
+                {user.name}
+            </h1>
         </div>
     </Layout>
   )
