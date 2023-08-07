@@ -9,6 +9,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 
 import useSWR from 'swr';
+import { Loading } from '../../components/Loading';
 
 export async function getServerSideProps(context) {
   const client = createClient();
@@ -16,7 +17,6 @@ export async function getServerSideProps(context) {
   
   const navigation = await client.getSingle("navigation", { lang: context.locale });
   const settings = await client.getSingle("settings", { lang: context.locale });
-  
   
   // Redirect user to /profile if its their profile
   if(session){
@@ -55,7 +55,7 @@ const Profile = ({ user, navigation, settings }) => {
     if(isLoading){
         return (
             <div>
-                Loading...
+                <Loading />
             </div>
         );
     }

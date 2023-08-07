@@ -29,6 +29,7 @@
     "@vercel/analytics": "^1.0.1",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.6",
+    "firebase": "^10.1.0",
     "moment": "^2.29.4",
     "next": "^13.0.3",
     "next-auth": "^4.22.3",
