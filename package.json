@@ -29,7 +29,6 @@
     "@vercel/analytics": "^1.0.1",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.6",
-    "firebase": "^10.1.0",
     "moment": "^2.29.4",
     "next": "^13.0.3",
     "next-auth": "^4.22.3",
@@ -40,7 +39,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
-    "swr": "^2.2.0"
+    "swr": "^2.2.0",
+    "webpack": "^5.88.2"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.4",

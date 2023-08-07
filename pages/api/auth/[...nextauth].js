@@ -10,7 +10,7 @@ export const authOptions = {
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    }),
+    })
   ],
   // Include user.id on session
   // @Source = https://stackoverflow.com/questions/74147383/how-to-use-numeric-user-id-with-next-auth
