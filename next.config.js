@@ -1,5 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 
+const runtimeCaching = require('next-pwa/cache');
+
 const prod = process.env.NODE_ENV === 'production';
 
 /**
@@ -13,18 +15,12 @@ const nextConfig = {
     mdxRs: true,
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  i18n: {
-    // These are all the locales you want to support in
-    // your application
-    locales: ['en-us'],
-    // This is the default locale you want to be used when visiting
-    // a non-locale prefixed path e.g. `/hello`
-    defaultLocale: 'en-us',
-  },
   env: {
     SITE_URL: process.env.SITE_URL,
   },
-    
+  poweredByHeader: false,
+  productionBrowserSourceMaps: true,
+
 };
 
 const withMDX = require('@next/mdx')({
@@ -43,7 +39,8 @@ const withMDX = require('@next/mdx')({
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: prod ? false : true,
-  register: false,
+  register: true,
+  runtimeCaching,
   buildExcludes: [
     /middleware-manifest\.json$/,
     /_middleware\.js$/,
@@ -56,14 +53,11 @@ const withPWA = require('next-pwa')({
     /middleware-runtime\.js$/,
     /_middleware\.js$/,
     /^.+\\_middleware\.js$/,
+    /manifest.json$/
   ],
 });
 
-module.exports = async (phase, { defaultConfig }) => {
-  delete defaultConfig['webpackDevMiddleware'];
-  delete defaultConfig['configOrigin'];
-  return withPlugins([
+module.exports = withPlugins([
     withMDX, 
     withPWA
-  ], phase, { defaultConfig });
-};
+], nextConfig);

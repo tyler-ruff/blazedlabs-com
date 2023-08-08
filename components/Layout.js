@@ -12,10 +12,6 @@ import { NextSeo } from "next-seo";
 export const Layout = ({ navigation, settings, children }) => {
   const [domLoaded, setDomLoaded] = useState(false);
   useEffect(() => {
-    // Register workbox for PWA
-    if(process.env.NODE_ENV !== "development"){
-      window.workbox.register();
-    }
     setDomLoaded(true);
   }, []);
 

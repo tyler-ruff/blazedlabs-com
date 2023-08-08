@@ -35,7 +35,7 @@
     "daisyui": "^2.51.6",
     "gray-matter": "^4.0.3",
     "moment": "^2.29.4",
-    "next": "^13.0.3",
+    "next": "^13.4.7",
     "next-auth": "^4.22.3",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.7",
