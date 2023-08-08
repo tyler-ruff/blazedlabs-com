@@ -6,8 +6,6 @@ const withPlugins = require('next-compose-plugins');
 
 const prod = process.env.NODE_ENV === 'production';
 
-// @ts-check
-
 /**
  * @type {import('next').NextConfig}
  **/
@@ -15,7 +13,7 @@ const nextConfig = async () => {
   const client = prismic.createClient(sm.apiEndpoint);
 
   const repository = await client.getRepository();
-  const locales = repository.languages.map((lang) => lang.id);
+  //const locales = repository.languages.map((lang) => lang.id);
 
   return {
     reactStrictMode: true,
@@ -28,10 +26,10 @@ const nextConfig = async () => {
     i18n: {
       // These are all the locales you want to support in
       // your application
-      locales,
+      locales: ['en-us'],
       // This is the default locale you want to be used when visiting
       // a non-locale prefixed path e.g. `/hello`
-      defaultLocale: locales[0],
+      defaultLocale: 'en-us',
     },
     env: {
       SITE_URL: process.env.SITE_URL,
