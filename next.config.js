@@ -65,5 +65,5 @@ module.exports = async (phase, { defaultConfig }) => {
   return withPlugins([
     withMDX, 
     withPWA
-  ], nextConfig)
+  ], phase, { defaultConfig });
 };
