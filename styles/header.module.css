@@ -1,5 +1,18 @@
 .header{
     padding: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav{
+    padding: 0px 20px;
+    transition: top 0.9s ease-in-out;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 8px 20px;
+    height: 60px!important; 
+    font-size: 14px;
+    width:100vw;
 }
 
 .active{
@@ -8,8 +21,34 @@
     padding-top:8px;
 }
 
+.MobileMenuItem, .ActiveMobile{
+    padding-left: 22px;
+    padding-right: 6px;
+}
+
+.MobileMenuItem:hover{
+    background: #8b909b;
+}
+
+.MobileMenuItem:active{
+    background: #9a9a9a;
+}
+
+.ActiveMobile{
+    background: #b6b6b6;
+    background: linear-gradient(to right, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+}
+
 .MobileMenu{
     height:100vh;
+}
+
+.navMenuMobile{
+    display: none;
+}
+
+.expanded{
+    display: block;
 }
 
 .MenuLink{

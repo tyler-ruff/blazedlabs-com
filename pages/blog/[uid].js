@@ -11,6 +11,7 @@ import  readingTime  from "../../lib/readingTime";
 import { getExcerpt } from "../../lib/getExcerpt";
 
 import { Comments } from "../../components/Comments";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 const Article = ({ article, navigation, settings }) => {
   const [mounted, setMounted] = useState(false);
@@ -69,24 +70,20 @@ const Article = ({ article, navigation, settings }) => {
         <link rel="archives" href="https://blazedlabs.com/blog/"/>
         <link rel="index" href="https://blazedlabs.com/blog/"/>
       </Head>
-      <div className=" text-center">
-        <div className="text-sm breadcrumbs inline-flex">
-            <ul>
-                <li>
-                    <PrismicLink href="/">
-                        Home
-                    </PrismicLink>
-                </li> 
-                <li>
-                    <PrismicLink href="/blog">
-                        Blog
-                    </PrismicLink>
-                </li> 
-                <li>
-                    View Post
-                </li>
-            </ul>
-        </div>
+      <div className="pt-10 text-center">
+        <Breadcrumb items={[
+            {
+              label: "Home",
+              href: "/"
+            },
+            {
+              label: "Blog",
+              href: "/blog"
+            },
+            {
+              label: "View Post"
+            }
+        ]} />
       </div>
       <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
         <article className="space-y-8 dark:text-gray-50">

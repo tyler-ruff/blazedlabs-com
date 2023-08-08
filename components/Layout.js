@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from 'next/router';
 
 import { useState, useEffect } from "react";
 
@@ -7,11 +6,16 @@ import * as prismicH from "@prismicio/helpers";
 
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+
 import { NextSeo } from "next-seo";
 
 export const Layout = ({ navigation, settings, children }) => {
   const [domLoaded, setDomLoaded] = useState(false);
   useEffect(() => {
+    // Register workbox for PWA
+    if(process.env.NODE_ENV !== "development"){
+      window.workbox.register();
+    }
     setDomLoaded(true);
   }, []);
 

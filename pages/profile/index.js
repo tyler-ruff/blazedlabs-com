@@ -10,6 +10,8 @@ import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
 
+import { Breadcrumb } from "../../components/Breadcrumb";
+
 
 export async function getServerSideProps(context) {
   const client = createClient();
@@ -41,22 +43,17 @@ const Profile = ({ user, navigation, settings }) => {
   // Show the user. No loading state is required
   return (
     <Layout navigation={navigation} settings={settings}>
-        
-        <div className=" text-center">
-            <div className="text-sm breadcrumbs inline-flex">
-                <ul>
-                    <li>
-                        <PrismicLink href="/">
-                            Home
-                        </PrismicLink>
-                    </li> 
-                    <li>
-                        My Profile
-                    </li>
-                </ul>
-            </div>
+        <div className="py-10 text-center">
+            <Breadcrumb items={[
+                {
+                  label: "Home",
+                  href: "/"
+                },
+                {
+                  label: "My Profile"
+                }
+            ]} />
         </div>
-
         <div className="text-center py-3">
             <div className="avatar">
                 <div className="w-24 dark:bg-white text-center rounded-full border">

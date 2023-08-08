@@ -7,13 +7,14 @@ import { Logo } from "./Logo";
 
 export const Footer = ({ settings }) => {
   const year = new Date().getFullYear().toString();
+  const siteName = prismicH.asText(settings.data.siteTitle);
   return (
     <footer className="bg-gray-100 border-t">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="lg:flex lg:items-start lg:gap-8">
                 <div className="select-none">
                     <PrismicLink href="/" className="text-xl font-semibold tracking-tight">
-                        <Logo />
+                        <Logo siteName={siteName} />
                     </PrismicLink>
                 </div>
 

@@ -7,6 +7,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 
 import { Layout } from "../../components/Layout";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import { ArticleCard } from "../../components/ArticleCard";
 import { Pagination } from "../../components/Pagination";
 
@@ -68,17 +69,16 @@ const Blog = ({ blog, navigation, settings }) => {
           <h2 className="text-3xl">
               Browse Blog
           </h2>
-          <div className="text-sm breadcrumbs inline-flex">
-              <ul>
-                  <li>
-                      <PrismicLink href="/">
-                          Home
-                      </PrismicLink>
-                  </li> 
-                  <li>
-                      Blog
-                  </li> 
-              </ul>
+          <div className="pt-10 text-center">
+            <Breadcrumb items={[
+                {
+                  label: "Home",
+                  href: "/"
+                },
+                {
+                  label: "Blog"
+                }
+            ]} />
           </div>
         </div>
         <hr />

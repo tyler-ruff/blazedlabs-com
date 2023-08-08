@@ -1,8 +1,6 @@
-import { useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-
-import { Bounded } from "./Bounded";
 
 import { useRouter } from 'next/router';
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -19,16 +17,25 @@ import { extendedMenu } from "../lib/extendedMenu";
 import styles from "./../styles/header.module.css";
 
 export const Header = ({ navigation, settings }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const mobileNav = useRef(null);
+
   const router = useRouter();
   const size = useWindowSize();
-
-  const toggleBurger = () =>{
-    const drawer = document.querySelector('.drawer-toggle');
-    if(document.getElementById('burger-status').checked){
-      document.getElementById('mobile-menu').classList.remove('hidden');
+  
+  const toggleBurger = async() =>{
+    //const drawer = document.querySelector('.drawer-toggle');
+    if(!isExpanded){
+      setIsExpanded(true);
+      //document.getElementById('mobile-menu').classList.remove('hidden');
+      //mobileMenuAside.current.classList.remove('hidden');
+      //mobileNav.current.style.background = "red";
+      mobileNav.current.classList.add('expanded');
       document.body.style.overflowY = "hidden";
     } else {
-      document.getElementById('mobile-menu').classList.add('hidden');
+      setIsExpanded(false);
+      //document.getElementById('mobile-menu').classList.add('hidden');
+      mobileNav.current.classList.remove('expanded');
       document.body.style.overflowY = "scroll";
     }
   };
@@ -37,24 +44,26 @@ export const Header = ({ navigation, settings }) => {
   useEffect(() => {
     if(size.width >= 767){
       document.body.style.overflowY = "scroll";
-      document.getElementById('mobile-menu').classList.add('hidden');
-      if(document.getElementById('burger-status').checked){
+      if(isExpanded){
+        setIsExpanded(false);
         document.getElementById('burger-status').checked = false;
       }
     }
-  }, [size.width])
+  }, [size.width]);
 
   // Prevent scroll lock on navigate
   useEffect(() => {
     document.body.style.overflowY = "scroll";
   }, [router.query]);
 
+  const siteName = prismicH.asText(settings.data.siteTitle);
+
   return (
-    <Bounded as="header" className={styles.header} yPadding="sm">
+    <div className={`${styles.header} sticky dark:bg-gray-900`}>
       <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3 leading-none">
-        <nav className="hidden md:flex navbar justify-between">
+        <nav className={`hidden md:flex navbar justify-between transition-all ease-in-out ${styles.nav} dark:${styles.navDark}`}>
         <PrismicLink href="/" className="hidden md:inline-block text-xl font-semibold tracking-tight">
-            <Logo />
+            <Logo siteName={siteName} />
           </PrismicLink>
           <div className="hidden md:inline-block mt-5 pt-6 dark:text-white">
             <ul className="flex flex-wrap gap-6 md:gap-10 mb-12 pt-2">
@@ -81,28 +90,28 @@ export const Header = ({ navigation, settings }) => {
             </ul>
           </div>
         </nav>
-        <nav className="navbar bg-gray-300/40 dark:bg-gray-700 justify-between md:hidden pb-7">
+        <nav ref={mobileNav} className="navbar bg-gray-300 dark:bg-gray-700 justify-between md:hidden pb-7">
           <PrismicLink href="/" className="inline-block md:hidden text-xl font-semibold tracking-tight">
             <Logo />
           </PrismicLink>
           <div onClick={toggleBurger} className="inline-block mt-7 mr-2">
-            <Burger />
+            <Burger active={isExpanded} />
           </div>
         </nav>
       </div>
-      <aside id="mobile-menu" className="hidden">
+      <aside className={`${styles.navMenuMobile} mobile-menu ${isExpanded ? styles.expanded : ''}`}>
           <div className={styles.MobileMenu}>
-            <ul className="h-screen md:hidden menu bg-base-100 dark:bg-gray-800 dark:text-gray-300 w-full border-t dark:border-gray-600">
+            <ul className="h-screen md:hidden menu dark:bg-gray-800 dark:text-gray-300 w-full border-t dark:border-gray-600">
                 {navigation.data?.links.map((item) => (
                   <li className="block" key={prismicH.asText(item.label)}>
-                    <PrismicLink className={router.asPath == item.uid ? "px-6 bg-gray-100 dark:bg-gray-900" : "px-6 hover:bg-gray-100 dark:hover:bg-gray-900"} field={item.link}>
+                    <PrismicLink className={router.asPath == item.uid ? `${styles.ActiveMobile} active-mobile dark:bg-gray-900` : `${styles.MobileMenuItem} dark:hover:bg-gray-900`} field={item.link}>
                       <PrismicText field={item.label} />
                     </PrismicLink>
                   </li>
                 ))}
                 {extendedMenu.map((item) => (
                   <li className="block" key={item.label}>
-                    <PrismicLink className={router.asPath == item.uid ? "px-6 bg-gray-100 dark:bg-gray-900" : "px-6 hover:bg-gray-100 dark:hover:bg-gray-900"} href={item.href}>
+                    <PrismicLink className={router.asPath == item.uid ? `${styles.ActiveMobile} active-mobile dark:bg-gray-900` : `${styles.MobileMenuItem} dark:hover:bg-gray-900`} href={item.href}>
                       {item.label}
                     </PrismicLink>
                   </li>
@@ -115,8 +124,7 @@ export const Header = ({ navigation, settings }) => {
                 </li>
             </ul>
           </div>
-          
         </aside>
-    </Bounded>
+    </div>
   );
 };

@@ -48,6 +48,9 @@ html, body, div#__next, main {
 
 html{
   background:#ffffff;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html.dark, .dark #Top, .dark body, .dark main, .dark section, .dark footer{
@@ -82,8 +85,63 @@ h1{
 
 .btn{
   background-image: linear-gradient(to left, #553c9a, #b393d3);
+  background-image: -webkit-linear-gradient(to left, #553c9a, #b393d3);
 }
 
 .btn:hover{
   background-image: linear-gradient(to left, #553c9a, #876ea0);
+  background-image: -webkit-linear-gradient(to left, #553c9a, #876ea0);
+}
+
+.logo svg{
+  color:#010B13;
+}
+
+.navbar {
+  background: #9ca3af;
+  background: linear-gradient(rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+  background: -webkit-linear-gradient(rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+}
+
+.dark .navbar{
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #141E30, #243B55);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #141E30, #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.expanded {
+  background: #e5e7eb;
+  background: linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+  background: -webkit-linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+}
+
+.dark .expanded {
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.active-mobile{
+  background: #b6b6b6;
+  background: linear-gradient(to right, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+  background: -webkit-linear-gradient(to right, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99));
+}
+
+.dark .active-mobile{
+  background: #111827;
+  background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+  background: -webkit-linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+}
+
+.mobile-menu{
+  background: #9ca3af;
+}
+
+.burger svg{
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  transition: all 0.25s;
+  transform: rotate(0);
+  transition: all 0.25s;
 }
