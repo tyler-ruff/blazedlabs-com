@@ -22,7 +22,6 @@ const withPWA = require('next-pwa')({
 /**
  * @type {import('next').NextConfig}
  **/
-/*
 const nextConfig = async () => {
   const client = prismic.createClient(sm.apiEndpoint);
 
@@ -40,10 +39,10 @@ const nextConfig = async () => {
     i18n: {
       // These are all the locales you want to support in
       // your application
-      locales: ['en-us'],
+      locales,
       // This is the default locale you want to be used when visiting
       // a non-locale prefixed path e.g. `/hello`
-      defaultLocale: 'en-us',
+      defaultLocale: locales[0],
     },
     env: {
       SITE_URL: process.env.SITE_URL,
@@ -51,7 +50,7 @@ const nextConfig = async () => {
     
   });
 };
-*/
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -65,26 +64,8 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-//module.exports = nextConfig;
+module.exports = nextConfig;
 
-module.exports = withMDX(withPWA({
-  reactStrictMode: true,
-  experimental:{
-    appDir: true,
-    serverComponentsExternalPackages: ["@prisma/client"],
-    mdxRs: true,
-  },
+module.exports = withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  i18n: {
-    // These are all the locales you want to support in
-    // your application
-    locales: ['en-us'],
-    // This is the default locale you want to be used when visiting
-    // a non-locale prefixed path e.g. `/hello`
-    defaultLocale: 'en-us',
-  },
-  env: {
-    SITE_URL: process.env.SITE_URL,
-  },
-  
-}));
+});
