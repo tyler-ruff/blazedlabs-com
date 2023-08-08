@@ -50,6 +50,12 @@ const withPWA = require('next-pwa')({
     /_middleware\.js\.map$/,
     /middleware-runtime\.js$/,
     /middleware-runtime\.js\.map$/,
+    /middleware.*manifest\.js$/,
+    /\/*server\/middleware-chunks\/[0-9]*[a-z]*[A-Z]*\.js$/,
+    /middleware-manifest\.json$/,
+    /middleware-runtime\.js$/,
+    /_middleware\.js$/,
+    /^.+\\_middleware\.js$/,
   ],
 });
 
