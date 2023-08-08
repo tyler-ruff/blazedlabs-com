@@ -2,20 +2,9 @@ const prismic = require("@prismicio/client");
 
 const sm = require("./sm.json");
 
-const prod = process.env.NODE_ENV === 'production';
+const withPlugins = require('next-compose-plugins');
 
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: prod ? false : true,
-  register: false,
-  buildExcludes: [
-    /middleware-manifest\.json$/,
-    /_middleware\.js$/,
-    /_middleware\.js\.map$/,
-    /middleware-runtime\.js$/,
-    /middleware-runtime\.js\.map$/,
-  ],
-});
+const prod = process.env.NODE_ENV === 'production';
 
 // @ts-check
 
@@ -28,7 +17,7 @@ const nextConfig = async () => {
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
 
-  return withPWA({
+  return {
     reactStrictMode: true,
     experimental:{
       appDir: true,
@@ -48,7 +37,7 @@ const nextConfig = async () => {
       SITE_URL: process.env.SITE_URL,
     },
     
-  });
+  };
 };
 
 const withMDX = require('@next/mdx')({
@@ -64,8 +53,20 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-module.exports = nextConfig;
-
-module.exports = withMDX({
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: prod ? false : true,
+  register: false,
+  buildExcludes: [
+    /middleware-manifest\.json$/,
+    /_middleware\.js$/,
+    /_middleware\.js\.map$/,
+    /middleware-runtime\.js$/,
+    /middleware-runtime\.js\.map$/,
+  ],
 });
+
+// Compose plugins
+module.exports = withPlugins([
+  withMDX, withPWA
+], nextConfig);
