@@ -1,7 +1,3 @@
-const prismic = require("@prismicio/client");
-
-const sm = require("./sm.json");
-
 const withPlugins = require('next-compose-plugins');
 
 const prod = process.env.NODE_ENV === 'production';
@@ -9,33 +5,26 @@ const prod = process.env.NODE_ENV === 'production';
 /**
  * @type {import('next').NextConfig}
  **/
-const nextConfig = async () => {
-  const client = prismic.createClient(sm.apiEndpoint);
-
-  const repository = await client.getRepository();
-  //const locales = repository.languages.map((lang) => lang.id);
-
-  return {
-    reactStrictMode: true,
-    experimental:{
-      appDir: true,
-      serverComponentsExternalPackages: ["@prisma/client"],
-      mdxRs: true,
-    },
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    i18n: {
-      // These are all the locales you want to support in
-      // your application
-      locales: ['en-us'],
-      // This is the default locale you want to be used when visiting
-      // a non-locale prefixed path e.g. `/hello`
-      defaultLocale: 'en-us',
-    },
-    env: {
-      SITE_URL: process.env.SITE_URL,
-    },
+const nextConfig = {
+  reactStrictMode: true,
+  experimental:{
+    appDir: true,
+    serverComponentsExternalPackages: ["@prisma/client"],
+    mdxRs: true,
+  },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  i18n: {
+    // These are all the locales you want to support in
+    // your application
+    locales: ['en-us'],
+    // This is the default locale you want to be used when visiting
+    // a non-locale prefixed path e.g. `/hello`
+    defaultLocale: 'en-us',
+  },
+  env: {
+    SITE_URL: process.env.SITE_URL,
+  },
     
-  };
 };
 
 const withMDX = require('@next/mdx')({
