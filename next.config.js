@@ -59,7 +59,11 @@ const withPWA = require('next-pwa')({
   ],
 });
 
-// Compose plugins
-module.exports = withPlugins([
-  withMDX, withPWA
-], nextConfig);
+module.exports = async (phase, { defaultConfig }) => {
+  delete defaultConfig['webpackDevMiddleware'];
+  delete defaultConfig['configOrigin'];
+  return withPlugins([
+    withMDX, 
+    withPWA
+  ], nextConfig)
+};

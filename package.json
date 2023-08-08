@@ -46,8 +46,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
     "stringify-object": "^5.0.0",
-    "swr": "^2.2.0",
-    "webpack": "^5.88.2"
+    "swr": "^2.2.0"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.4",
