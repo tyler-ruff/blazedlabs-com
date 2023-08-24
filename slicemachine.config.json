@@ -1,7 +1,0 @@
-{
-  "apiEndpoint": "https://blazedlabs.prismic.io/api/v2",
-  "repositoryName": "blazedlabs",
-  "adapter": "@slicemachine/adapter-next",
-  "libraries": ["./slices"],
-  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
-}

@@ -1,30 +1,36 @@
 # blazedlabs.com
-
 Main website of Blazed Labs LLC.
 
-- **Demo**: [Visit Blazed Labs](https://blazedlabs.com/)
-- **Development Beta**: [Test Latest Features](https://dev.blazedlabs.com/)
+## Pages
+* Home
+* Company
+  * About Us
+  * FAQ
+  * Media
+  * Blog
+* Solutions
+  * Services
+  * Products
+  * Resources
+* Contact
+  * Support
+  * Inquire
 
-## Development
+## Getting Started
 
-First, install dependencies:
-```sh
-npm install
-```
+First, run the development server:
 
-Run the following command to start the dev server:
-```
+```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-# Credits
-![Last Commit](https://img.shields.io/github/last-commit/blazed-space/fire-angular?style=for-the-badge "Last Commit")
-## Development Team
-* Maintained by: [The Blazed Development Group](https://www.facebook.com/groups/blzdev)
-* Published by: [Blazed Publishing](https://blazed.xyz/)
-- Lead Developer, Project Management: [Tyler Ruff](https://github.com/tyler-ruff)
-- UX Testing, Project Advising: Star Dom
-## Special Thanks
-- [Vercel](https://vercel.com/) and [Next.js](https://nextjs.org/)
-- [HTML Head](https://htmlhead.dev/)
-- [TailwindCSS](https://tailwindcss.com/)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
