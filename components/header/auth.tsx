@@ -5,6 +5,7 @@
  * Usage: <Auth />
  * @function
  */
+import Link from "next/link";
 
 import { useSession } from "next-auth/react";
 
@@ -14,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { authMenu } from '@/config/menu';
-import Link from "next/link";
+
 
 export default function Auth(){
     const { data: session } = useSession();

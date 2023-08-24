@@ -13,12 +13,12 @@ const mainMenu = {
             href: "/"
         } as MenuItem,
         {
+            label: "About",
+            href: "/about"
+        } as MenuItem,
+        {
             label: "Company",
             submenu: [
-                {
-                    label: "About Us",
-                    href: "/about"
-                },
                 {
                     label: "FAQ",
                     href: "/faq"
@@ -51,18 +51,9 @@ const mainMenu = {
             ] as MenuItem[]
         },
         {
-          label: "Contact",
-          submenu: [
-            {
-                label: "Support",
-                href: "/support"
-            },
-            {
-                label: "Inquire",
-                href: "https://blazed.contact/"
-            }
-          ] as MenuItem[] 
-        }
+            label: "Contact",
+            href: "https://blazed.contact/"
+        } as MenuItem,
     ]
 } as Menu;
 

@@ -47,8 +47,8 @@ export default function Header() {
                         );
                     } else {
                         return (
-                            <li key={index}>
-                                <div className="block p-0 md:pt-4">
+                            <li className="flex" key={index}>
+                                <div className="hidden md:block p-0 md:pt-4">
                                     <Dropdown inline label={item.label}>
                                         {
                                             item.submenu.map((subitem, sindex) => {
