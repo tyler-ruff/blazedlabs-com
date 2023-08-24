@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://blazedlabs.com/sitemap.xml

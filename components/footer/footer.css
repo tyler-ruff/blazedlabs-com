@@ -1,0 +1,25 @@
+footer{
+    border-top:1px solid rgba(0,0,0,0.1);
+    background: linear-gradient(to right, rgb(243, 244, 246), rgb(209, 213, 219));
+}
+
+.dark footer{
+    border-top:1px solid rgba(255,255,255,0.1);
+    background: linear-gradient(rgb(17, 24, 39), rgb(49, 53, 60));
+}
+
+.footer-icons svg:hover{
+    color: #1a1a1a;
+}
+
+.dark .footer-icons svg:hover{
+    color: #aeaeae;
+}
+
+a.footer-logo:hover{
+    text-decoration: none;
+}
+
+.footer-contact p{
+    padding-bottom:5px;
+}
