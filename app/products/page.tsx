@@ -1,7 +1,7 @@
-export default async function Page() {
+export default function Page(){
     return (
-      <>
-        Products
-      </>
-    )
+        <p>
+            Products
+        </p>
+    );
 }

@@ -3,5 +3,7 @@
     "next/core-web-vitals",
     "plugin:storybook/recommended"
   ],
-  "rules": { "react/no-unescaped-entities": 0 }
+  "rules": {
+    "react/no-unescaped-entities": 0
+  }
 }
