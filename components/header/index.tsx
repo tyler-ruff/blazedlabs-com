@@ -1,79 +1,74 @@
-'use client'
+"use client"
 
-import React from 'react'
+import { useState, useEffect } from "react";
 
-import { usePathname } from 'next/navigation' 
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from 'next/navigation';
+import { useWindowSize } from "@uidotdev/usehooks";
 
-import { Navbar, Dropdown } from "flowbite-react";
-
-import { config, brand } from "@/config/site"
 import { mainMenu } from '@/config/menu';
+import { config } from '@/config/app';
 
-import Logo from './logo';
-import Auth from './auth';
-import Theme from './theme';
+import Logo from "./logo";
+import { Cta } from './cta';
+import Burger from "./burger";
+import { MobileNav, Nav } from "./nav";
 
-import './header.css';
 
-export default function Header() {
+/**
+ * Header component
+ * @example <Header />
+ * @returns JSX Component
+ */
+export default function Header(){
+    const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const size = useWindowSize();
+    
+    const toggleBurger = async() =>{
+        if(!isOpen){
+          setIsOpen(true);
+          document.body.style.overflowY = "hidden";
+        } else {
+          setIsOpen(false);
+          document.body.style.overflowY = "scroll";
+        }
+    };
+
+    useEffect(() => {
+        if(size.width !== null){
+            if(size.width >= 767){
+                document.body.style.overflowY = "scroll";
+                if(isOpen){
+                    setIsOpen(false);
+                    document.body.style.overflowY = "scroll";
+                }
+            }
+        }
+    }, [size.width]);
 
     return (
-        <Navbar className="select-none shadow-sm main" fluid={true} rounded={false}>
-            <Navbar.Brand href="/">
-                <span title={config.name} className="hover:opacity-75">
-                    <Logo />
-                </span>
-                <span className="sr-only">
-                    {config.name}
-                </span>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse>
-                {mainMenu.nav.map((item, index) => {
-                    if(!item.submenu){
-                        return (
-                            <Navbar.Link
-                                href={item.href}
-                                active={pathname === item.href ? true : false}
-                                className="flex"
-                                key={index}
-                            >
-                                <span className="block py-4">
-                                    {item.label}
-                                </span>
-                            </Navbar.Link>
-                        );
-                    } else {
-                        return (
-                            <li className="flex" key={index}>
-                                <div className="hidden md:block p-0 md:pt-4">
-                                    <Dropdown inline label={item.label}>
-                                        {
-                                            item.submenu.map((subitem, sindex) => {
-                                                return (
-                                                    <Dropdown.Item 
-                                                        key={sindex} 
-                                                        as={Link} 
-                                                        className={`nav-dropdown-item ${pathname === subitem.href ? 'active' : ''}`} 
-                                                        href={subitem.href}>
-                                                        {subitem.label}
-                                                    </Dropdown.Item>
-                                                );
-                                            })
-                                        }
-                                    </Dropdown>
-                                </div>
-                            </li>
-                        );
-                    }
-                })}
-                <Theme />
-                <Auth />
-            </Navbar.Collapse>
-        </Navbar>
+        <header role="banner">
+            <nav id={`nav-${mainMenu._id}`} role="navigation" className="p-4 bg-gray-100 text-gray-800 border-b">
+                <div className="container flex justify-between h-16 mx-auto">
+                    <Logo title={config.name} />
+                    <div className="flex space-x-5 pt-1">
+                        <Nav pathname={pathname} />
+                        {mainMenu.cta !== undefined && (<Cta label={mainMenu.cta.label} url={mainMenu.cta.href || ``} />)}
+                    </div>
+                    <a className="lg:hidden" onClick={() => toggleBurger()}>
+                        <Burger active={isOpen} />
+                    </a>
+                </div>
+                {
+                    isOpen && (
+                        <div className="h-screen">
+                            <MobileNav pathname={pathname} />
+                        </div>
+                    )
+                }
+            </nav>
+        </header>
     );
-
 }
-

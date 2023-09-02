@@ -1,30 +1,50 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { NextAuthProvider, NextThemeProvider } from "./providers";
-
 import Header from '@/components/header';
-import BlzFooter from '@/components/footer';
+import Footer from '@/components/footer';
 
-import { config } from '@/config/site';
-
-import './styles/globals.css';
+import './globals.css';
+import { config } from '@/config/app';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
     template: `%s | ${config.name}`,
-    default: config.name, // a default is required when creating a template
+    default: config.name, 
   },
   applicationName: config.name,
-  description: 'Main website of Blazed Labs LLC.',
+  description: 'Ice is a framework for Next.js',
   keywords: ['blazed', 'labs', 'software', 'solutions', 'company'],
   publisher: 'Blazed Labs LLC',
   icons: {
-    icon: '/icons/favicon-32x32.png',
+    icon: [
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/'},
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
+      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png'}
+    ],
     shortcut: '/icons/mstile-150x150.png',
-    apple: '/icons/apple-touch-icon.png',
+    apple: [
+      { url: '/icons/apple-touch-icon.png', type: 'image/png' },
+      { url: '/icons/apple-touch-icon-60x60.png', sizes: '60x60', type: 'image/png' },
+      { url: '/icons/apple-touch-icon-76x76.png', sizes: '76x76', type: 'image/png' },
+      { url: '/icons/apple-touch-icon-120x120.png', sizes: '120x120', type: 'image/png' },
+      { url: '/icons/apple-touch-icon-152x152.png', sizes: '152x152', type: 'image/png' },
+      { url: '/icons/apple-touch-icon-180x180.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/icons/safari-pinned-tab.svg",
+        color: "#992323"
+      },
+      {
+        rel: "shortcut icon",
+        url: "/icons/favicon.ico"
+      }
+    ]
   },
   manifest: '/manifest.json',
 }
@@ -34,21 +54,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
-    <html suppressHydrationWarning lang="en">
+    <html lang="en">
       <body className={inter.className}>
-        <NextAuthProvider>
-          <NextThemeProvider>
-            <header>
-              <Header />
-            </header>
-            <main>
-              {children}
-            </main>
-            <BlzFooter />
-          </NextThemeProvider>
-        </NextAuthProvider>
+        <Header />
+        <main role="main">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

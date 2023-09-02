@@ -1,13 +1,11 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './ui/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    "./node_modules/flowbite-react/**/*.js",
   ],
   theme: {
     extend: {
@@ -20,10 +18,8 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
-    require("daisyui"),
-    require("flowbite/plugin")
+    require("daisyui")
   ],
 }
 export default config

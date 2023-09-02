@@ -1,75 +1,37 @@
 {
-  "name": "blazedlabs-com",
-  "version": "2.0.0",
-  "description": "The main website of Blazed Labs LLC.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tyler-ruff/blazedlabs-com.git"
-  },
-  "keywords": [
-    "blazed",
-    "labs",
-    "talwind",
-    "trpc",
-    "typescript"
-  ],
-  "author": "blazed-labs",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tyler-ruff/blazedlabs-com/issues"
-  },
-  "homepage": "https://github.com/tyler-ruff/blazedlabs-com#readme",
+  "name": "ice-next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@coreui/react": "^5.0.0-alpha.0",
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.5",
     "@tailwindcss/typography": "^0.5.9",
-    "@trpc/client": "^10.37.1",
-    "@trpc/server": "^10.37.1",
-    "@types/node": "20.4.9",
-    "@types/react": "18.2.20",
+    "@types/node": "20.5.6",
+    "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.14",
-    "date-fns": "^2.30.0",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
-    "flowbite": "^1.8.1",
-    "flowbite-react": "^0.5.0",
-    "next": "13.4.13",
-    "next-auth": "^4.23.1",
-    "next-seo": "^6.1.0",
-    "next-sitemap": "^4.2.2",
-    "next-themes": "^0.2.1",
-    "postcss": "8.4.27",
+    "@uidotdev/usehooks": "^2.1.1",
+    "autoprefixer": "10.4.15",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "next": "13.4.19",
+    "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.2.2",
-    "@storybook/addon-interactions": "^7.2.2",
-    "@storybook/addon-links": "^7.2.2",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.2.2",
-    "@storybook/nextjs": "^7.2.2",
-    "@storybook/react": "^7.2.2",
-    "@storybook/testing-library": "^0.2.0",
-    "daisyui": "^3.5.1",
+    "daisyui": "^3.6.3",
     "eslint-plugin-storybook": "^0.6.13",
-    "slice-machine-ui": "^1.8.0",
-    "storybook": "^7.2.2"
+    "storybook": "^7.4.0"
   }
 }
