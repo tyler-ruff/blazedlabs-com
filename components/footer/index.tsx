@@ -1,12 +1,14 @@
 import { brand, config, social } from "@/config/app";
 
+import { linksFooter } from './data';
+
 export default function Footer(){
     const year = new Date().getFullYear();
     const date = new Date().toISOString();
     return (
         <footer className="px-4 divide-y bg-gray-100 text-gray-800 border-t">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-                <div className="lg:w-1/3">
+                <div className="lg:w-1/3 select-none">
                     <a rel="noopener noreferrer" href="/" title={config.name} className="group inline-flex justify-center lg:justify-start">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full">
                             <img src="/images/beaker-cobalt.png" className="group-hover:opacity-75" alt="Beaker" width={32} height={32} />
@@ -17,50 +19,34 @@ export default function Footer(){
                     </a>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+                    {
+                        linksFooter.map((footerItem, findex) => {
+                            return (
+                                <div key={findex} className="space-y-3">
+                                    <h3 className="tracki uppercase text-gray-900 select-none">
+                                        {footerItem.title}
+                                    </h3>
+                                    <ul className="space-y-1">
+                                        {
+                                            footerItem.items.map((item, index) => {
+                                                return (
+                                                    <li key={index}>
+                                                        <a rel="noopener noreferrer" className="hover:underline" href={item.href}>
+                                                            {item.label}
+                                                        </a>
+                                                    </li>
+                                                );
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            );
+                        })
+                    }
                     <div className="space-y-3">
-                        <h3 className="tracki uppercase text-gray-900">Product</h3>
-                        <ul className="space-y-1">
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Features</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Integrations</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Pricing</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="space-y-3">
-                        <h3 className="tracki uppercase text-gray-900">Company</h3>
-                        <ul className="space-y-1">
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Privacy</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Terms of Service</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="space-y-3">
-                        <h3 className="uppercase text-gray-900">Developers</h3>
-                        <ul className="space-y-1">
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Public API</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Documentation</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Guides</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="space-y-3">
-                        <div className="uppercase text-gray-900">Social media</div>
+                        <h3 className="uppercase text-gray-900 select-none">
+                            Connect
+                        </h3>
                         <div className="flex justify-start space-x-3">
                             <a rel="noopener noreferrer" href={social.facebook} target="social" title="Facebook" className="flex items-center p-1 hover:opacity-75">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -81,7 +67,7 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-gray-600">
+            <div className="py-6 text-sm text-center text-gray-600 select-none">
                 &copy;<time dateTime={date}>{year}</time> {brand.company}. All rights reserved.
             </div>
         </footer>

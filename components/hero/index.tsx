@@ -14,7 +14,7 @@ export default function Hero(props: IHero){
                         {props.body}
                     </p>
                     <Link target={props.action.target || ``} href={props.action.url}>
-                        <button className="self-center px-8 py-3 uppercase font-semibold rounded-full bg-blue-600 hover:bg-blue-800 active:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-400 text-gray-50">
+                        <button className="self-center px-8 py-3 uppercase font-semibold rounded-full bg-primary hover:bg-blue-800 active:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-400 text-gray-50">
                             {props.action.label}
                         </button>
                     </Link>

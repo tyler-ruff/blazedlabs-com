@@ -55,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr" data-theme="blz">
       <body className={inter.className}>
         <Header />
         <main role="main" className="bg-white">

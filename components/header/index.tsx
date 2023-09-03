@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { useWindowSize } from "@uidotdev/usehooks";
 
@@ -14,7 +12,6 @@ import Logo from "./logo";
 import { Cta } from './cta';
 import Burger from "./burger";
 import { MobileNav, Nav } from "./nav";
-
 
 /**
  * Header component
@@ -50,7 +47,7 @@ export default function Header(){
 
     return (
         <header role="banner">
-            <nav id={`nav-${mainMenu._id}`} role="navigation" className="p-4 bg-gray-100 text-gray-800 border-b">
+            <nav id={`nav-${mainMenu._id}`} role="navigation" className="p-4 bg-gray-100 text-gray-800 border-b shadow-lg">
                 <div className="container flex justify-between h-16 mx-auto">
                     <Logo title={config.name} />
                     <div className="flex space-x-5 pt-1">
