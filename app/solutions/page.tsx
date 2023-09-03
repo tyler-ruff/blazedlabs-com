@@ -1,10 +1,16 @@
+import { Metadata } from "next";
+
 import SolutionCard from "@/components/card/solution";
 
 import { HiCloud, HiPhone, HiPencil } from 'react-icons/hi';
 
+export const metadata: Metadata = {
+    title: 'Our Solutions',
+}
+
 export default function Page(){
     return (
-        <div className="grid grid-cols-3 space-x-5 py-10 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-4">
             <SolutionCard 
                 title="Telecom" 
                 description="We build call centers and engineer telecom solutions. Learn how we can help your business communications." 

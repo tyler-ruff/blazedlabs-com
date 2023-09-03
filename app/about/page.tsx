@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+    title: 'About Us',
+}
 
 export default function Page(){
     return (
@@ -18,9 +23,8 @@ export default function Page(){
                         <a
                             href="https://blazed.company/about"
                             target="_blank"
-                            className="inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400"
-                        >
-                         Learn More
+                            className="inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400">
+                         Discover More
                         </a>
                     </div>
                 </div>
