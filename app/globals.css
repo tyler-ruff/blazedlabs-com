@@ -36,6 +36,14 @@
   background-color:#5b626e;
 }
 
+::selection{
+  background:rgba(91, 55, 236, 0.4);
+}
+
+::-moz-selection{
+  background:rgba(91, 55, 236, 0.4);
+}
+
 body {
   font-family: 'Hind Vadodara', sans-serif;
   color: rgb(var(--foreground-rgb));
@@ -49,4 +57,10 @@ body {
 
 h1, h2, h3{
   font-family: 'DM Serif Text', serif;
+}
+
+h1.bold-title{
+  background: -webkit-linear-gradient(#666666, #343434);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
