@@ -58,7 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main role="main">
+        <main role="main" className="bg-white">
           {children}
         </main>
         <Footer />

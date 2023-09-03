@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div>
       <Hero
-        title="Welcome to Blazed Labs"
-        body="Your Source for Innovative Solutions."
+        title="Welcome to the Lab"
+        body="Blazed is your Source for Innovative Solutions."
         action={{
           label: "Learn More",
           url: "/about"
