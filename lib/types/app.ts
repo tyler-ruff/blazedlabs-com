@@ -1,5 +1,3 @@
-
-
 /**
  * Social config settings
  * @interface
