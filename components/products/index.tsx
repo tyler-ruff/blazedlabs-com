@@ -4,7 +4,11 @@ import { useEffect, useState } from 'react';
 import { db } from '@/config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
+import ProductCard from "@/components/card/product";
+import Loading from '@/app/loading';
+
 export default function Products(){
+    const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     useEffect(() => {
         const fetchData = async () => {
@@ -15,6 +19,7 @@ export default function Products(){
               ...doc.data(),
             }));
             setData(documents);
+            setLoading(false);
           } catch (error) {
             console.error('Error fetching data from Firestore:', error);
           }
@@ -22,15 +27,18 @@ export default function Products(){
     
         fetchData();
       }, []);
+
+      if(loading){
+        return (
+          <Loading />
+        );
+      }
     
       return (
-        <div>
-          <h1>Data from Firestore</h1>
-          <ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
             {data?.map((item: any) => (
-              <li key={item.id}>{item.title}</li>
+              <ProductCard key={item.id} title={item.title} subtitle={item.subtitle} tags={item.tags} url={item.url} target="_blank" />
             ))}
-          </ul>
         </div>
       );
     }
