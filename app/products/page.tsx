@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import ProductCard from "@/components/card/product";
+import Products from '@/components/products';
 
 export const metadata: Metadata = {
   title: 'Our Products',
@@ -14,6 +15,7 @@ export default function Page(){
             <ProductCard title="Blazed Quest" subtitle="Project Management" tags={["Task", "Manage"]} url="https://blazed.quest/" target="_blank" />
             <ProductCard title="Blazed Development" subtitle="Project Management" tags={["Developers", "Open Source"]} url="https://blazed.dev/" target="_blank" />
             <ProductCard title="Blazed City" subtitle="Community" tags={["Resources", "Open Source"]} url="https://blazed.city/" target="_blank" />
+            <Products />
         </div>
     );
 }
