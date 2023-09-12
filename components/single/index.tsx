@@ -9,6 +9,11 @@ import html from 'remark-html';
 
 import Loading from '@/app/loading';
 import Error from '@/components/error';
+import { estimateReadTime } from '@/lib/functions';
+
+import './blog.css';
+import { Breadcrumb } from 'flowbite-react';
+import { HiHome } from 'react-icons/hi';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -67,6 +72,24 @@ export default function SinglePost(props: any){
 
     return (
         <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
+            <div className="mb-5">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border dark:bg-gray-900">
+                    <Breadcrumb.Item
+                        href="/"
+                        icon={HiHome}
+                    >
+                        <span>
+                        Home
+                        </span>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item href="/blog">
+                        Blog
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        View Post
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+            </div>
             <article className="space-y-8 text-gray-900">
                 <div className="space-y-6">
                     <h1 className="text-4xl font-bold md:tracki md:text-5xl">
@@ -90,12 +113,24 @@ export default function SinglePost(props: any){
                                 }
                             </p>
                         </div>
-                        <p className="flex-shrink-0 mt-3 text-sm md:mt-0">4 min read • 1,570 views</p>
+                        <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
+                            <span title="Estimated read time">
+                                {estimateReadTime(mdxHtml || '')} read 
+                            </span>
+                            {documentData.categories.map((category: string, index: number) => {
+                                return (
+                                    <span key={index} title={`Published in ${category}`} className="capitalize px-2">
+                                        &bull;&nbsp;&nbsp;
+                                        {category}
+                                    </span>
+                                )
+                            })}
+                        </p>
                     </div>
                 </div>
                 <div className="text-gray-800">
                     {mdxHtml && (
-                        <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
+                        <div className="prose blog-content" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                     )}
                 </div>
             </article>
