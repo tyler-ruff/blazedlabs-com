@@ -1,0 +1,12 @@
+div.blog-content h1{
+    font-size: 32px;
+}
+div.blog-content h2{
+    font-size: 24px;
+}
+div.blog-content h3{
+    font-size: 18px;
+}
+div.blog-content p{
+    padding:5px;
+}
