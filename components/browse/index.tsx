@@ -1,20 +1,22 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+
+import Loading from '@/app/loading';
+
 import { db } from '@/config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
-import ProductCard from "@/components/card/product";
-import Loading from '@/app/loading';
-import { Product } from '@/lib/types/product';
+import BlogCard from "./card";
+import { Post } from '@/lib/types/blog';
 
-export default function Products(){
+export default function BrowseBlog(){
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const querySnapshot = await getDocs(collection(db, 'products'));
+            const querySnapshot = await getDocs(collection(db, 'posts'));
             const documents = querySnapshot.docs.map((doc) => ({
               id: doc.id,
               ...doc.data(),
@@ -34,12 +36,18 @@ export default function Products(){
           <Loading />
         );
       }
-    
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
-            {data?.map((item: Product) => (
-              <ProductCard key={item.id} title={item.title} subtitle={item.subtitle} tags={item.tags} url={item.url} target="_blank" />
+    return (
+        <div className="grid grid-cols-2">
+            {data?.map((item: Post) => (
+              <BlogCard 
+                key={item.id} 
+                itemId={item.id} 
+                title={item.title} 
+                description={item.description} 
+                categories={item.categories} 
+                created={item.created_on}
+            /> 
             ))}
         </div>
-      );
-    }
+    );
+}
