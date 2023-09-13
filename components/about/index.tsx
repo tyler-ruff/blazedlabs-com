@@ -1,13 +1,14 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 import { Breadcrumb } from 'flowbite-react';
 import { HiQuestionMarkCircle, HiHome } from "react-icons/hi";
 
 export default function About(){
     return (
         <div>
-            <div className="mb-5">
+            <div>
                 <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
@@ -22,34 +23,33 @@ export default function About(){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-32">
-                <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+            <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-24">
+                <div className="p-8 md:p-12 lg:px-16 lg:py-24 hidden sm:block">
                     <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                    <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20">
-                        About Blazed Labs
-                    </h1>
+                        <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20">
+                            About Blazed Labs
+                        </h1>
 
-                    <p className="hidden text-gray-500 md:mt-4 md:block">
-                        We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
-                    </p>
+                        <p className="hidden text-gray-500 md:mt-4 md:block">
+                            We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
+                        </p>
 
-                    <div className="mt-4 md:mt-8">
-                        <a
-                            href="/faq"
-                            className="inline-block rounded bg-error px-12 py-3 text-sm font-medium text-white transition hover:bg-red-900 focus:outline-none focus:ring focus:ring-red-400">
-                         FAQs
-                        </a>
+                        <div className="mt-4 md:mt-8">
+                            <Link
+                                href="/faq"
+                                className="inline-block rounded bg-error px-12 py-3 text-sm font-medium text-white transition hover:bg-red-900 focus:outline-none focus:ring focus:ring-red-400">
+                            FAQs
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <Image
-                alt="Arena"
-                width={1500}
-                height={1500}
-                src="/images/blazed-arena.jpg"
-                className="h-56 w-full object-cover sm:h-full"
-            />
+                <Image
+                    alt="Arena"
+                    width={1500}
+                    height={1500}
+                    src="/images/blazed-arena.jpg"
+                    className="h-56 w-full object-cover sm:h-full"
+                />
             </div>
             <hr />
             <div>
