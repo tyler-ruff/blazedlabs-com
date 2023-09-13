@@ -60,7 +60,7 @@ export default function BrowseBlog(){
     return (
         <div>
             <div className="mb-5">
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}

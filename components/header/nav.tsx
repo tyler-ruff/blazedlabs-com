@@ -11,7 +11,7 @@ const Nav = (props: INav) => {
                         <li className="flex" key={index}>
                             <a aria-label={item.label}
                                 href={item.href}
-                                className={`menu-item flex items-center px-4 hover:text-primary mb-1 border-b-2 font-bold border-transparent ${props.pathname === item.href && `text-primary border-blue-500`}`}>
+                                className={`menu-item flex items-center px-4 hover:text-primary dark:hover:text-blue-400 mb-1 border-b-2 font-bold border-transparent ${props.pathname === item.href && `text-primary underline dark:text-blue-400 border-blue-500`}`}>
                                 {item.label}
                             </a>
                         </li>

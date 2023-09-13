@@ -1,29 +1,35 @@
 import { brand, config, social } from "@/config/app";
 
 import { linksFooter } from './data';
+import ThemeSwitcher from "../theme";
+import Image from "next/image";
 
 export default function Footer(){
     const year = new Date().getFullYear();
     const date = new Date().toISOString();
     return (
-        <footer className="px-4 divide-y bg-gray-100 text-gray-800 border-t">
+        <footer className="px-4 divide-y bg-gray-100 dark:bg-gray-800 text-gray-800 border-t">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 select-none">
                     <a rel="noopener noreferrer" href="/" title={config.name} className="group inline-flex justify-center lg:justify-start">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full">
-                            <img src="/images/beaker-cobalt.png" className="group-hover:opacity-75" alt="Beaker" width={32} height={32} />
+                            <Image src="/images/beaker-cobalt.png" className="group-hover:opacity-75 dark:hidden" alt="Beaker" width={32} height={32} />
+                            <Image src="/images/beaker-white.png" className="group-hover:opacity-75 hidden dark:block" alt="Beaker" width={32} height={32} />
                         </div>
-                        <span className="self-center text-2xl font-semibold group-hover:text-gray-500">
+                        <span className="self-center text-2xl font-semibold group-hover:text-gray-500 dark:text-gray-100">
                             {config.name}
                         </span>
                     </a>
+                    <div className="pt-2">
+                    <ThemeSwitcher />
+                    </div>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     {
                         linksFooter.map((footerItem, findex) => {
                             return (
                                 <div key={findex} className="space-y-3">
-                                    <h3 className="tracki uppercase text-gray-900 select-none">
+                                    <h3 className="tracki uppercase text-gray-900 dark:text-gray-300 select-none">
                                         {footerItem.title}
                                     </h3>
                                     <ul className="space-y-1">
@@ -31,7 +37,7 @@ export default function Footer(){
                                             footerItem.items.map((item, index) => {
                                                 return (
                                                     <li key={index}>
-                                                        <a rel="noopener noreferrer" className="hover:underline" href={item.href}>
+                                                        <a rel="noopener noreferrer" className="hover:underline dark:text-gray-100" href={item.href}>
                                                             {item.label}
                                                         </a>
                                                     </li>
@@ -44,10 +50,10 @@ export default function Footer(){
                         })
                     }
                     <div className="space-y-3">
-                        <h3 className="uppercase text-gray-900 select-none">
+                        <h3 className="uppercase text-gray-900 dark:text-gray-300 select-none">
                             Connect
                         </h3>
-                        <div className="flex justify-start space-x-3">
+                        <div className="flex justify-start space-x-3 dark:text-gray-100">
                             <a rel="noopener noreferrer" href={social.facebook} target="social" title="Facebook" className="flex items-center p-1 hover:opacity-75">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
                                     <path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
@@ -67,7 +73,7 @@ export default function Footer(){
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-gray-600 select-none">
+            <div className="py-6 text-sm text-center text-gray-600 dark:text-gray-200 select-none">
                 &copy;<time dateTime={date}>{year}</time> {brand.company}. All rights reserved.
             </div>
         </footer>

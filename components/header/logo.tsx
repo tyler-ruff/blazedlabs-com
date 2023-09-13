@@ -19,7 +19,15 @@ const Logo = (props: ILogo) => {
                 src="/images/beaker-cobalt.png" 
                 width={40} 
                 height={40} 
+                alt="Logo"
+                className="dark:hidden"
+            />
+            <Image 
+                src="/images/beaker-white.png" 
+                width={40} 
+                height={40} 
                 alt="Logo" 
+                className="hidden dark:block"
             />
         </Link>
     );

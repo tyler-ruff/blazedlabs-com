@@ -9,7 +9,7 @@ export default function About(){
     return (
         <div>
             <div>
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}
@@ -26,18 +26,16 @@ export default function About(){
             <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-24">
                 <div className="p-8 md:p-12 lg:px-16 lg:py-24 hidden sm:block">
                     <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                        <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20">
+                        <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20 dark:text-gray-200">
                             About Blazed Labs
                         </h1>
-
-                        <p className="hidden text-gray-500 md:mt-4 md:block">
+                        <p className="hidden text-gray-500 md:mt-4 md:block dark:text-gray-200">
                             We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
                         </p>
-
                         <div className="mt-4 md:mt-8">
                             <Link
                                 href="/faq"
-                                className="inline-block rounded bg-error px-12 py-3 text-sm font-medium text-white transition hover:bg-red-900 focus:outline-none focus:ring focus:ring-red-400">
+                                className="inline-block rounded bg-error dark:bg-white px-12 py-3 text-sm font-medium text-white dark:text-black transition hover:bg-red-900 dark:hover:bg-gray-300 focus:outline-none focus:ring focus:ring-red-400 dark:focus:ring-gray-800">
                             FAQs
                             </Link>
                         </div>
@@ -67,7 +65,7 @@ export default function About(){
                         </div>
 
                         <div className="lg:py-16">
-                            <article className="space-y-4 text-gray-600">
+                            <article className="space-y-4 text-gray-600 dark:text-gray-200">
                                 <h2 className="text-3xl font-bold">
                                     How are we Unleashing Innovation?
                                 </h2>

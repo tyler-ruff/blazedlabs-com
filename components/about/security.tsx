@@ -7,7 +7,7 @@ export default function Security(){
     return (
         <div>
             <div className="mb-5">
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}

@@ -17,10 +17,10 @@ export default function BasicHero(props: any){
                     <i className="mb-8 text-red-600">
                         <HiOutlineCode className="w-10 h-10" />
                     </i>
-                    <h2 className="text-3xl font-semibold leadi">
+                    <h2 className="text-3xl font-semibold leadi dark:text-gray-300">
                         {props.title}
                     </h2>
-                    <p className="mt-4 mb-8 text-sm">
+                    <p className="mt-4 mb-8 text-sm dark:text-gray-300">
                         {props.body}
                     </p>
                     <div>

@@ -73,7 +73,7 @@ export default function SinglePost(props: any){
     return (
         <div>
             <div className="mb-5">
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}
@@ -91,12 +91,12 @@ export default function SinglePost(props: any){
                 </Breadcrumb>
             </div>
             <div className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
-                <article className="space-y-8 text-gray-900">
+                <article className="space-y-8 text-gray-900 dark:text-gray-200">
                     <div className="space-y-6">
                         <h1 className="text-4xl font-bold md:tracki md:text-5xl">
                             {documentData.title}
                         </h1>
-                        <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center p-3 text-gray-600 bg-gray-100">
+                        <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center p-3 text-gray-600 bg-gray-100 dark:bg-gray-800">
                             <div className="flex items-center md:space-x-2">
                                 <p className="text-sm">
                                     {
@@ -129,9 +129,9 @@ export default function SinglePost(props: any){
                             </p>
                         </div>
                     </div>
-                    <div className="text-gray-800">
+                    <div>
                         {mdxHtml && (
-                            <div className="prose blog-content" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
+                            <div className="prose blog-content dark:text-gray-200" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         )}
                     </div>
                 </article>

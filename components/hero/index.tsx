@@ -4,13 +4,13 @@ import { IHero } from "./data";
 
 export default function Hero(props: IHero){
     return (
-        <div className="hero min-h-screen bg-base-200 bg-gradient-to-r from-gray-100 to-gray-300">
+        <div className="hero min-h-screen bg-base-200 bg-gradient-to-r from-gray-100 to-gray-300 dark:from-gray-700 dark:via-gray-900 dark:to-black">
             <div className="hero-content text-center">
                 <div className="max-w-md">
                     <h1 className="text-5xl font-bold bold-title">
                         {props.title}
                     </h1>
-                    <p className="py-6">
+                    <p className="py-6 dark:text-gray-200">
                         {props.body}
                     </p>
                     <Link target={props.action.target || ``} href={props.action.url}>
