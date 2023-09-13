@@ -13,12 +13,15 @@ import { Pagination, Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
 import { itemsPerPage } from '@/config/blog';
+import { Categories } from './data';
 
 export default function BrowseBlog(){
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
+    const categoriesValues = Object.values(Categories);
+
     const calculatePages = (localData: any[]) => {
         if(localData.length > 0){
             setTotalPages(Math.ceil(localData.length / itemsPerPage));
@@ -38,14 +41,15 @@ export default function BrowseBlog(){
         } catch (error) {
           console.error('Error fetching data from Firestore:', error);
         }
-      };
+    };
+
     useEffect(() => {
         fetchData();
-      }, []);
+    }, []);
 
-      useEffect(() => {
+    useEffect(() => {
         fetchData();
-      }, [page]);
+    }, [page]);
 
     if(loading){
         return (
@@ -56,7 +60,7 @@ export default function BrowseBlog(){
     return (
         <div>
             <div className="mb-5">
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}

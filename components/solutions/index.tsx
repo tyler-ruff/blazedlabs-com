@@ -3,6 +3,8 @@
 import { Breadcrumb } from 'flowbite-react';
 import SolutionCard from "@/components/card/solution";
 import { HiCloud, HiPhone, HiPencil, HiHome } from 'react-icons/hi';
+import BasicHero from '../hero/basic';
+import { MenuItem } from '@/lib/types/site';
 
 export default function Solutions(){
     return (
@@ -45,6 +47,15 @@ export default function Solutions(){
                 icon={(<HiPencil className="h-8 w-8" />)} 
             />
         </div>
+        <BasicHero 
+            image="/images/ibis.jpg"
+            title="Discover our software solutions"
+            body="We build open source software and manage decentralized development teams."
+            action={{
+                label: "Learn More",
+                href: "https://blazed.dev/"
+            } as MenuItem}
+        />
     </div>
     )
 }

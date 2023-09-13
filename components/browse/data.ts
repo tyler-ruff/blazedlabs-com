@@ -7,3 +7,12 @@ export interface IBlogCard{
     created: Timestamp;
     description: string;
 }
+
+export enum Categories{
+    electronics = "Electronics",
+    books = "Books",
+    furniture = "Furniture",
+    clothing = "Clothing",
+    food = "Food",
+    footwear = "Footwear",
+}

@@ -3,10 +3,12 @@
  * @interface
  * @prop label Text label          <string>
  * @prop href URL to open          <string>     [optional]
+ * @prop target link target        <string>     [optional]
  */
 export interface MenuItem{
     label: string;
     href?: string;
+    target?: string;
 }
 
 /**
