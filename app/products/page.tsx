@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 
 export default function Page(){
     return (
-        <article>
-            <Products />
-        </article>
+        <Products />
     );
 }
