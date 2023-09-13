@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from 'flowbite-react';
-import { HiQuestionMarkCircle, HiHome } from "react-icons/hi";
+import { HiOutlineCheck, HiHome } from "react-icons/hi";
 
 export default function About(){
     return (
@@ -77,15 +77,14 @@ export default function About(){
                                     Whether you are a small business owner looking to streamline your operations or an individual looking to improve your online presence, we have the tools and expertise to help you succeed. 
                                     Thank you for considering Blazed Labs as your partner in technology. We look forward to working with you.
                                 </p>
-                                <a
-                                    href="https://blazed.company/about"
-                                    target="_blank"
-                                    className="inline-block rounded bg-gray-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring focus:ring-red-400">
-                                    <HiQuestionMarkCircle className="inline-flex w-4 h-4 mr-1" />
+                                <Link
+                                    href="/solutions"
+                                    className="inline-block rounded bg-gray-600 px-8 py-3 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring focus:ring-red-400">
+                                    <HiOutlineCheck className="inline-flex w-4 h-4 mr-1" />
                                     <span>
-                                        Learn More
+                                        Explore Solutions
                                     </span>
-                                </a>
+                                </Link>
                             </article>
                         </div>
                     </div>

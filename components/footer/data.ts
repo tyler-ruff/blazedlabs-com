@@ -54,6 +54,10 @@ export const linksFooter = [
             {
                 label: "FAQ",
                 href: "/faq"
+            },
+            {
+                label: "Privacy",
+                href: "/privacy"
             }
         ]
     }

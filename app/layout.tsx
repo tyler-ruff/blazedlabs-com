@@ -1,16 +1,15 @@
-
 import type { Metadata } from 'next';
+
 import { Inter } from 'next/font/google';
+import { config } from '@/config/app';
+import { Providers } from './providers';
 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
-import { Providers } from './providers';
-
 import './globals.css';
-import { config } from '@/config/app';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
     default: config.name, 
   },
   applicationName: config.name,
-  description: 'Ice is a framework for Next.js',
+  description: config.description,
   keywords: ['blazed', 'labs', 'software', 'solutions', 'company'],
   publisher: 'Blazed Labs LLC',
   icons: {
