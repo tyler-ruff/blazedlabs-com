@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 import { db } from '@/config/firebase';
 import { Timestamp, collection, doc, getDoc } from 'firebase/firestore';
 
@@ -8,12 +9,12 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import Loading from '@/app/loading';
-import Error from '@/components/error';
 import { estimateReadTime } from '@/lib/functions';
 
-import './blog.css';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
+
+import './blog.css';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -65,9 +66,7 @@ export default function SinglePost(props: any){
     }
 
     if(notFound){
-        return (
-            <Error />
-        );
+        redirect('/blog');
     }
 
     return (
