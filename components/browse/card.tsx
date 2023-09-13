@@ -10,24 +10,24 @@ export default function BlogCard(props: IBlogCard){
         day: 'numeric',
     });
     return (
-        <Link href={`/blog/${props.itemId}`} className="group mx-2 p-4 shadow-md bg-gray-50 text-gray-800">
+        <Link href={`/blog/${props.itemId}`} className="group mx-2 p-4 shadow-md bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800">
             <div className="flex justify-between pb-4 border-bottom">
                 <span className="block">
-                    <h3 className="text-xl font-semibold text-violet-600 group-hover:underline">
+                    <h3 className="text-xl font-semibold text-violet-600 dark:text-white group-hover:underline">
                         {props.title}
                     </h3>
                 </span>
             </div>
             <div className="space-y-4">
                 <div className="space-y-2">
-                    <div className="flex items-center text-xs">
+                    <div className="flex items-center text-xs dark:text-gray-200">
                         <time dateTime={date.toISOString()}>
                             {formattedDate}
                         </time>
                     </div>
                 </div>
                 <div className="space-y-2">
-                    <p className="leadi text-gray-600">
+                    <p className="leadi text-gray-600 dark:text-gray-300">
                         {props.description}
                     </p>
                 </div>

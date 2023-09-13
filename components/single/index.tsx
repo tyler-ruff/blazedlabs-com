@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 import { db } from '@/config/firebase';
 import { Timestamp, collection, doc, getDoc } from 'firebase/firestore';
 
@@ -8,12 +9,12 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import Loading from '@/app/loading';
-import Error from '@/components/error';
 import { estimateReadTime } from '@/lib/functions';
 
-import './blog.css';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
+
+import './blog.css';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -65,15 +66,13 @@ export default function SinglePost(props: any){
     }
 
     if(notFound){
-        return (
-            <Error />
-        );
+        redirect('/blog');
     }
 
     return (
-        <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
+        <div>
             <div className="mb-5">
-                <Breadcrumb className="bg-gray-50 px-5 py-3 border dark:bg-gray-900">
+                <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
                         href="/"
                         icon={HiHome}
@@ -90,61 +89,63 @@ export default function SinglePost(props: any){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <article className="space-y-8 text-gray-900">
-                <div className="space-y-6">
-                    <h1 className="text-4xl font-bold md:tracki md:text-5xl">
-                        {documentData.title}
-                    </h1>
-                    <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center text-gray-600">
-                        <div className="flex items-center md:space-x-2">
-                            <p className="text-sm">
-                                {
-                                    date && (
-                                        <time title="Published Date" dateTime={date.toUTCString()}>
-                                            {
-                                                date.toLocaleDateString('en-US', {
-                                                    year: 'numeric',
-                                                    month: 'long',
-                                                    day: 'numeric',
-                                                })
-                                            }
-                                        </time>
+            <div className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
+                <article className="space-y-8 text-gray-900 dark:text-gray-200">
+                    <div className="space-y-6">
+                        <h1 className="text-4xl font-bold md:tracki md:text-5xl">
+                            {documentData.title}
+                        </h1>
+                        <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center p-3 text-gray-600 bg-gray-100 dark:bg-gray-800">
+                            <div className="flex items-center md:space-x-2">
+                                <p className="text-sm">
+                                    {
+                                        date && (
+                                            <time title="Published Date" dateTime={date.toUTCString()}>
+                                                {
+                                                    date.toLocaleDateString('en-US', {
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric',
+                                                    })
+                                                }
+                                            </time>
+                                        )
+                                    }
+                                </p>
+                            </div>
+                            <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
+                                <span title="Estimated read time">
+                                    {estimateReadTime(mdxHtml || '')} read 
+                                </span>
+                                {documentData.categories.map((category: string, index: number) => {
+                                    return (
+                                        <span key={index} title={`Published in ${category}`} className="capitalize px-2">
+                                            &bull;&nbsp;&nbsp;
+                                            {category}
+                                        </span>
                                     )
-                                }
+                                })}
                             </p>
                         </div>
-                        <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
-                            <span title="Estimated read time">
-                                {estimateReadTime(mdxHtml || '')} read 
-                            </span>
-                            {documentData.categories.map((category: string, index: number) => {
-                                return (
-                                    <span key={index} title={`Published in ${category}`} className="capitalize px-2">
-                                        &bull;&nbsp;&nbsp;
-                                        {category}
-                                    </span>
-                                )
-                            })}
-                        </p>
                     </div>
-                </div>
-                <div className="text-gray-800">
-                    {mdxHtml && (
-                        <div className="prose blog-content" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
-                    )}
-                </div>
-            </article>
-            <div>
-                <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed border-gray-600">
-                    {
-                        documentData.tags.map((tag: string, index: number) => {
-                            return (
-                                <a key={index} rel="noopener noreferrer" href="#" className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
-                                    #{tag}
-                                </a>
-                            )
-                        })
-                    }
+                    <div>
+                        {mdxHtml && (
+                            <div className="prose blog-content dark:text-gray-200" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
+                        )}
+                    </div>
+                </article>
+                <div>
+                    <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed border-gray-600">
+                        {
+                            documentData.tags.map((tag: string, index: number) => {
+                                return (
+                                    <a key={index} rel="noopener noreferrer" href="#" className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
+                                        #{tag}
+                                    </a>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>

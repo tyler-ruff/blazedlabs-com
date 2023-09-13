@@ -47,7 +47,7 @@ export default function Header(){
 
     return (
         <header role="banner">
-            <nav id={`nav-${mainMenu._id}`} role="navigation" className="p-4 bg-gray-100 text-gray-800 border-b shadow-lg">
+            <nav id={`nav-${mainMenu._id}`} role="navigation" className="p-4 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-b shadow-lg">
                 <div className="container flex justify-between h-16 mx-auto">
                     <Logo title={config.name} />
                     <div className="flex space-x-5 pt-1">

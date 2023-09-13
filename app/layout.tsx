@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
+import { Providers } from './providers';
+
 import './globals.css';
 import { config } from '@/config/app';
 
@@ -55,13 +57,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" dir="ltr" data-theme="blz">
+    <html lang="en" dir="ltr" data-theme="blz" suppressHydrationWarning>
       <body className={inter.className}>
-        <Header />
-        <main role="main" className="bg-white">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main role="main" className="bg-white dark:bg-gray-900">
+              {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
