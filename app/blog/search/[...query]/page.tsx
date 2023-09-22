@@ -3,13 +3,13 @@ import { Metadata } from 'next';
 import BrowseBlog from "@/components/browse";
 
 export const metadata: Metadata = {
-    title: 'Browse Blog',
+    title: `Search Blog`,
 }
 
-export default function Page(){
+export default function Page({ params }: { params: { query: string } }) {
     return (
         <div>
-            <BrowseBlog />
+            <BrowseBlog searchTerm={params.query} />
         </div>
     );
 }
