@@ -12,10 +12,12 @@ import { Post } from '@/lib/types/blog';
 import { Pagination, Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
-import { itemsPerPage } from '@/config/blog';
-import { Categories } from './data';
+import SearchForm from '@/components/search/form';
 
-export default function BrowseBlog(){
+import { itemsPerPage } from '@/config/blog';
+import { Categories, IBrowseBlog } from './data';
+
+export default function BrowseBlog(props: IBrowseBlog){
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     const [page, setPage] = useState<number>(1);
@@ -29,17 +31,32 @@ export default function BrowseBlog(){
     };
     
     const fetchData = async () => {
-        try {
-          const querySnapshot = await getDocs(collection(db, 'posts'));
-          const documents = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setData(documents);
-          calculatePages(documents);
-          setLoading(false);
-        } catch (error) {
-          console.error('Error fetching data from Firestore:', error);
+        if(props.searchTerm === undefined){
+            try {
+            const querySnapshot = await getDocs(collection(db, 'posts'));
+            const documents = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setData(documents);
+            calculatePages(documents);
+            setLoading(false);
+            } catch (error) {
+            console.error('Error fetching data from Firestore:', error);
+            }
+        } else {
+            const searchCall = await fetch(`/api/search?query=${props.searchTerm}`);
+            const results = await searchCall.json();
+            if(results.results){
+                console.log(results.results);
+                const documents = results.results.map((result: any) => ({
+                    id: result.path.split('/')[1],
+                    ...result,
+                }));
+                setData(documents);
+                calculatePages(documents);
+                setLoading(false);
+            }
         }
     };
 
@@ -74,9 +91,19 @@ export default function BrowseBlog(){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
+            {
+                props.searchTerm && (
+                    <h2 className="px-10">
+                        Showing results for: {props.searchTerm}
+                    </h2>
+                )
+            }
+            <div>
+                <SearchForm searchTerm={props.searchTerm} />
+            </div>
             <div className="px-3 md:px-10 py-5">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    {data.slice((page-1)*itemsPerPage,page*itemsPerPage)?.map((item: Post) => (
+                    {data.slice((page-1)*itemsPerPage,page*itemsPerPage)?.map((item: Post, index: number) => (
                     <BlogCard 
                         key={item.id} 
                         itemId={item.id} 

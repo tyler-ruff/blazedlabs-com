@@ -8,6 +8,10 @@ export interface IBlogCard{
     description: string;
 }
 
+export interface IBrowseBlog{
+    searchTerm?: string;
+}
+
 export enum Categories{
     electronics = "Electronics",
     books = "Books",

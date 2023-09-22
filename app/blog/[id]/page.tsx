@@ -7,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page({ params }: { params: { id: string } }) {
-    return <SinglePost postId={params.id} />
+    return (
+        <div>
+            <SinglePost postId={params.id} />
+        </div>
+    );
 }
