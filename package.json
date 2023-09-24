@@ -1,6 +1,6 @@
 {
-  "name": "ice-next",
-  "version": "0.1.0",
+  "name": "blazedlabs-com",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,9 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
@@ -43,9 +41,6 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "daisyui": "^3.6.3",
-    "eslint-plugin-storybook": "^0.6.13",
-    "storybook": "^7.4.0",
-    "react-instantsearch-dom": "^6.40.4"
+    "daisyui": "^3.6.3"
   }
 }

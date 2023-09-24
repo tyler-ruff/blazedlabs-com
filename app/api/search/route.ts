@@ -7,7 +7,8 @@ export async function GET(request: Request) {
 
   if(hasQuery){
     try{
-        const searchQuery = searchParams.get('query')?.slice(0, 255)
+        const urlParam: string = searchParams.get('query')?.slice(0, 255) || ``;
+        const searchQuery = decodeURIComponent(urlParam);
         const { hits } = await blogSearchIndex.search(searchQuery || "");
         return NextResponse.json(
             {
