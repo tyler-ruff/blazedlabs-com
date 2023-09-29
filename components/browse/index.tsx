@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Loading from '@/app/loading';
 
-import { db } from '@/config/firebase';
+import { db } from '@/lib/firebase';
 import { collection, getDocs, where } from 'firebase/firestore';
 
 import BlogCard from "./card";
