@@ -2,9 +2,9 @@
 
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
-import Privacy from '@/content/privacy.mdx';
+import Terms from '@/content/terms.mdx';
 
-export default function PrivacyPolicy(){
+export default function TermsOfService(){
     return (
         <div>
             <div className="mb-5">
@@ -18,12 +18,12 @@ export default function PrivacyPolicy(){
                         </span>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        Privacy Policy
+                        Terms and Conditions
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <div className="max-w-3xl relative mx-auto mb-5 px-10 py-5 dark:text-white prose">
-                <Privacy />
+            <div className="max-w-3xl relative mx-auto px-10 py-5 mb-5 dark:text-white prose">
+                <Terms />
             </div>
         </div>
     )

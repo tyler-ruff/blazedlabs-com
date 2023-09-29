@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
-import { db } from '@/config/firebase';
-import { Timestamp, collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import { Timestamp, doc, getDoc } from 'firebase/firestore';
 
 import { remark } from 'remark';
 import html from 'remark-html';
