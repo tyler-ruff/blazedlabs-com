@@ -69,9 +69,9 @@ export default function CommentsMenu() {
                     <Checkbox id="remember" />
                     <Label htmlFor="remember">Remember me</Label>
                 </div>
-                <a href="/modal" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
+                <Link href="https://blz.one/forgot" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
                     Lost Password?
-                </a>
+                </Link>
                 </div>
                 <div className="w-full">
                 <Button onClick={handleLogin}>Log in to your account</Button>

@@ -2,7 +2,8 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import Loading from '@/app/loading';
+
+import { Spinner } from 'flowbite-react';
 
 // Create the authentication context
 export const AuthContext = createContext( {} );
@@ -18,6 +19,14 @@ export function AuthContextProvider( { children }: AuthContextProviderProps ): J
   // Set up state to track the authenticated user and loading status
   const [ user, setUser ] = useState<User | null>( null );
   const [ loading, setLoading ] = useState( true );
+
+  const LoadingSpinner = () => {
+    return (
+      <div className="text-center">
+        <Spinner color="failure" size="xl" aria-label="Loading website..." />
+      </div>
+    )
+  }
 
   useEffect( () => {
     // Subscribe to the authentication state changes
@@ -40,7 +49,7 @@ export function AuthContextProvider( { children }: AuthContextProviderProps ): J
   // Provide the authentication context to child components
   return (
     <AuthContext.Provider value={{ user }}>
-      {loading ? <div><Loading /></div> : children}
+      {loading ? <div className="py-20"><LoadingSpinner /></div> : children}
     </AuthContext.Provider>
   );
 }

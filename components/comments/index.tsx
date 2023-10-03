@@ -9,7 +9,7 @@ export default function Comments(){
 	const { user } = useAuthContext() as { user: any };
 	const Comment = (props: IComment) => {
 		return (
-            <div className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+            <div className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
 						<div>
@@ -42,7 +42,7 @@ export default function Comments(){
 	const CommentForm = () => {
 		return (
 			<form>
-				<div className="flex flex-col items-center w-full">
+				<div className="flex flex-col items-center w-full dark:bg-gray-800">
 					<h2 className="text-2xl my-5 font-semibold text-center">
 						Leave a Comment
 					</h2>
@@ -68,7 +68,7 @@ export default function Comments(){
 					picture: "https://blazed.sirv.com/logo/john-mcmahon-ljjcoULkxL8-unsplash_black.png"
 				} as IAuthor} body="Hello World" postDate={undefined} />
 			</div>
-			<div className="flex flex-col max-w-2xl p-8 lg:p-12 bg-gray-50 border-t text-gray-800">
+			<div className="flex flex-col max-w-2xl p-8 lg:p-12 bg-gray-50 dark:bg-gray-800 border-t text-gray-800">
 				<CommentForm />
 			</div>
         </div>
