@@ -1,7 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+      domains: [
+        'blazed.sirv.com',
+        'lh3.googleusercontent.com'
+      ],
+    },
     experimental: {
       mdxRs: true,
+    },
+    async rewrites() {
+      return [
+        {
+          source: '/auth',
+          destination: 'https://blz.one/api/me',
+        },
+      ]
     },
 }
 

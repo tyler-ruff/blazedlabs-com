@@ -12,6 +12,10 @@ export interface IBrowseBlog{
     searchTerm?: string;
 }
 
+export interface IBrowseBlogTag{
+    tag: string;
+}
+
 export enum Categories{
     electronics = "Electronics",
     books = "Books",

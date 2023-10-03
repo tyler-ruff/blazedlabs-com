@@ -15,6 +15,8 @@ import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
 import './blog.css';
+import Comments from '../comments';
+import Link from 'next/link';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -135,17 +137,20 @@ export default function SinglePost(props: any){
                     </div>
                 </article>
                 <div>
-                    <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed border-gray-600">
+                    <div className="flex flex-wrap py-6 space-x-2 border-b border-dashed border-gray-600">
                         {
                             documentData.tags.map((tag: string, index: number) => {
                                 return (
-                                    <a key={index} rel="noopener noreferrer" href="#" className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
+                                    <Link key={index} rel="noopener noreferrer" href={`/blog/tag/${encodeURI(tag.toLowerCase())}`} className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
                                         #{tag}
-                                    </a>
+                                    </Link>
                                 )
                             })
                         }
                     </div>
+                </div>
+                <div>
+                    <Comments />
                 </div>
             </div>
         </div>
