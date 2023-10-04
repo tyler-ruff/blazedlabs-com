@@ -12,3 +12,7 @@ export interface IComment{
     body: string;
     postDate: Timestamp | undefined;
 }
+
+export interface IComments{
+    postId: string;
+}

@@ -126,7 +126,7 @@ export default function CommentsMenu() {
             Settings
           </Dropdown.Item>
           <Dropdown.Item>
-            Earnings
+            Feed
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item onClick={() => signOut(auth)}>

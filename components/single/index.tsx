@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
-import { db } from '@/lib/firebase';
-import { Timestamp, doc, getDoc } from 'firebase/firestore';
+import Link from 'next/link';
+import { Timestamp } from 'firebase/firestore';
+
+import { getSinglePost } from '@/lib/hooks/blog';
 
 import { remark } from 'remark';
 import html from 'remark-html';
@@ -11,12 +13,12 @@ import html from 'remark-html';
 import Loading from '@/app/loading';
 import { estimateReadTime } from '@/lib/functions';
 
+import Comments from '../comments';
+
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
 import './blog.css';
-import Comments from '../comments';
-import Link from 'next/link';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -39,14 +41,13 @@ export default function SinglePost(props: any){
     useEffect(() => {
         const fetchDocument = async () => {
           try {
-            const docRef = doc(db, 'posts', props.postId);
-            const docSnapshot = await getDoc(docRef);
-    
-            if (docSnapshot.exists()) {
-              setDocumentData(docSnapshot.data());
+            
+            const document = await getSinglePost(props.postId);
+            if (document !== undefined) {
+              setDocumentData(document);
               setLoading(false);
-              processedContent(docSnapshot.data().text);
-              processedDate(docSnapshot.data().created_on);
+              processedContent(document.text);
+              processedDate(document.created_on);
             } else {
               console.log('404 Error: Post does not exist');
               setNotFound(true);
@@ -150,7 +151,7 @@ export default function SinglePost(props: any){
                     </div>
                 </div>
                 <div>
-                    <Comments />
+                    <Comments postId={props.id} />
                 </div>
             </div>
         </div>

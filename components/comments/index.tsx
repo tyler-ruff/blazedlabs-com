@@ -1,11 +1,33 @@
+"use client"
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import "./comments.css";
-import { IAuthor, IComment } from "./data";
+import { IAuthor, IComment, IComments } from "./data";
 import CommentsMenu from "./menu";
 
 import { useAuthContext } from "@/context/AuthContext";
 
-export default function Comments(){
+import { getDatabase, ref, push, set, onValue } from "firebase/database";
+import { realtime } from "@/lib/firebase";
+import { collection } from "firebase/firestore";
+
+export default function Comments(props: IComments){
+	/*
+	const [comments, setComments] = useState([]);
+  	const [newComment, setNewComment] = useState("");
+	const database = getDatabase();
+	  useEffect(() => {
+		const commentsRef = ref(realtime, `comments/${props.postId}`);
+		onValue(commentsRef, (snapshot) => {
+			const data = snapshot.val();
+			setComments(data);
+		});
+	  }, []);
+
+	  const handleSubmit = (e: { preventDefault: () => void; }) => {
+		e.preventDefault();
+	  };
+	*/
 	const { user } = useAuthContext() as { user: any };
 	const Comment = (props: IComment) => {
 		return (

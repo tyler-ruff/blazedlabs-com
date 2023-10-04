@@ -16,13 +16,14 @@ import SearchForm from '@/components/search/form';
 
 import { itemsPerPage } from '@/config/blog';
 import { Categories, IBrowseBlog } from './data';
+import { getBlogPosts } from '@/lib/hooks/blog';
 
 export default function BrowseBlog(props: IBrowseBlog){
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
-    const categoriesValues = Object.values(Categories);
+    //const categoriesValues = Object.values(Categories);
 
     const calculatePages = (localData: any[]) => {
         if(localData.length > 0){
@@ -32,18 +33,12 @@ export default function BrowseBlog(props: IBrowseBlog){
     
     const fetchData = async () => {
         if(props.searchTerm === undefined){
-            try {
-                const querySnapshot = await getDocs(collection(db, 'posts'));
-                const documents = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setData(documents);
-                calculatePages(documents);
-                setLoading(false);
-            } catch (error) {
-            console.error('Error fetching data from Firestore:', error);
-            }
+                const documents = await getBlogPosts();
+                if(documents !== undefined){
+                    setData(documents);
+                    calculatePages(documents);
+                    setLoading(false);
+                }
         } else {
             const searchCall = await fetch(`/api/search?query=${props.searchTerm}`);
             const results = await searchCall.json();
