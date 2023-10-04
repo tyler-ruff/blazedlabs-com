@@ -4,9 +4,6 @@ import { useEffect, useState } from 'react';
 
 import Loading from '@/app/loading';
 
-import { db } from '@/lib/firebase';
-import { collection, getDocs, where } from 'firebase/firestore';
-
 import BlogCard from "./card";
 import { Post } from '@/lib/types/blog';
 import { Pagination, Breadcrumb } from 'flowbite-react';
@@ -15,7 +12,7 @@ import { HiHome } from 'react-icons/hi';
 import SearchForm from '@/components/search/form';
 
 import { itemsPerPage } from '@/config/blog';
-import { Categories, IBrowseBlog } from './data';
+import { IBrowseBlog } from './data';
 import { getBlogPosts } from '@/lib/hooks/blog';
 
 export default function BrowseBlog(props: IBrowseBlog){
@@ -43,7 +40,6 @@ export default function BrowseBlog(props: IBrowseBlog){
             const searchCall = await fetch(`/api/search?query=${props.searchTerm}`);
             const results = await searchCall.json();
             if(results.results){
-                console.log(results.results);
                 const documents = results.results.map((result: any) => ({
                     id: result.path.split('/')[1],
                     ...result,
@@ -59,7 +55,7 @@ export default function BrowseBlog(props: IBrowseBlog){
         return (
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    {data.slice((page-1)*itemsPerPage,page*itemsPerPage)?.map((item: Post, index: number) => (
+                    {data.slice((page-(itemsPerPage-1))*itemsPerPage,page*itemsPerPage)?.map((item: Post, index: number) => (
                         <BlogCard 
                             key={item.id} 
                             itemId={item.id} 

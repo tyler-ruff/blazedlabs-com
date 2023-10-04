@@ -1,14 +1,13 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
 
 import ProductCard from "@/components/card/product";
 import Loading from '@/app/loading';
 import { Product } from '@/lib/types/product';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
+import { getProducts } from '@/lib/hooks/products';
 
 export default function Products(){
     const [loading, setLoading] = useState<boolean>(true);
@@ -16,11 +15,7 @@ export default function Products(){
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const querySnapshot = await getDocs(collection(db, 'products'));
-            const documents = querySnapshot.docs.map((doc) => ({
-              id: doc.id,
-              ...doc.data(),
-            }));
+            const documents = await getProducts();
             setData(documents);
             setLoading(false);
           } catch (error) {

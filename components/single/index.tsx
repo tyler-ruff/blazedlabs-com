@@ -12,13 +12,13 @@ import html from 'remark-html';
 
 import Loading from '@/app/loading';
 import { estimateReadTime } from '@/lib/functions';
-
-import Comments from '../comments';
-
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
+import Comments from '../comments';
+
 import './blog.css';
+import SocialShare from '../share';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -41,7 +41,6 @@ export default function SinglePost(props: any){
     useEffect(() => {
         const fetchDocument = async () => {
           try {
-            
             const document = await getSinglePost(props.postId);
             if (document !== undefined) {
               setDocumentData(document);
@@ -92,8 +91,8 @@ export default function SinglePost(props: any){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <div className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
-                <article className="space-y-8 text-gray-900 dark:text-gray-200">
+            <article className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
+                <div aria-label="Blog Post" className="space-y-8 text-gray-900 dark:text-gray-200">
                     <div className="space-y-6">
                         <h1 className="text-4xl font-bold md:tracki md:text-5xl">
                             {documentData.title}
@@ -115,7 +114,7 @@ export default function SinglePost(props: any){
                                         )
                                     }
                                 </p>
-                            </div>
+                             </div>
                             <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
                                 <span title="Estimated read time">
                                     {estimateReadTime(mdxHtml || '')} read 
@@ -136,24 +135,27 @@ export default function SinglePost(props: any){
                             <div className="prose blog-content dark:text-gray-200" dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         )}
                     </div>
-                </article>
-                <div>
-                    <div className="flex flex-wrap py-6 space-x-2 border-b border-dashed border-gray-600">
+                </div>
+                <div className="flex justify-between my-6 border-b border-dashed border-gray-600">
+                    <div aria-label="Tags" className="inline-flex flex-wrap py-6 space-x-2">
                         {
                             documentData.tags.map((tag: string, index: number) => {
                                 return (
-                                    <Link key={index} rel="noopener noreferrer" href={`/blog/tag/${encodeURI(tag.toLowerCase())}`} className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
+                                    <Link key={index} rel="noopener noreferrer" href={`/blog/search/${encodeURI(tag.toLowerCase())}`} className="capitalize px-3 py-1 rounded-sm hover:underline bg-violet-600 text-gray-50">
                                         #{tag}
                                     </Link>
                                 )
                             })
                         }
                     </div>
+                    <div aria-label="Share Post" className="inline-flex pt-4">
+                        <SocialShare />
+                    </div>
                 </div>
-                <div>
+                <div aria-label="Post Comments">
                     <Comments postId={props.id} />
                 </div>
-            </div>
+            </article>
         </div>
     );
 }
