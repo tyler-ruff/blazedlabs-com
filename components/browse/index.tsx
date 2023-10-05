@@ -4,9 +4,6 @@ import { useEffect, useState } from 'react';
 
 import Loading from '@/app/loading';
 
-import { db } from '@/lib/firebase';
-import { collection, getDocs, where } from 'firebase/firestore';
-
 import BlogCard from "./card";
 import { Post } from '@/lib/types/blog';
 import { Pagination, Breadcrumb } from 'flowbite-react';
@@ -15,14 +12,15 @@ import { HiHome } from 'react-icons/hi';
 import SearchForm from '@/components/search/form';
 
 import { itemsPerPage } from '@/config/blog';
-import { Categories, IBrowseBlog } from './data';
+import { IBrowseBlog } from './data';
+import { getBlogPosts } from '@/lib/hooks/blog';
 
 export default function BrowseBlog(props: IBrowseBlog){
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any | null>(null);
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
-    const categoriesValues = Object.values(Categories);
+    //const categoriesValues = Object.values(Categories);
 
     const calculatePages = (localData: any[]) => {
         if(localData.length > 0){
@@ -32,23 +30,16 @@ export default function BrowseBlog(props: IBrowseBlog){
     
     const fetchData = async () => {
         if(props.searchTerm === undefined){
-            try {
-                const querySnapshot = await getDocs(collection(db, 'posts'));
-                const documents = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setData(documents);
-                calculatePages(documents);
-                setLoading(false);
-            } catch (error) {
-            console.error('Error fetching data from Firestore:', error);
-            }
+                const documents = await getBlogPosts();
+                if(documents !== undefined){
+                    setData(documents);
+                    calculatePages(documents);
+                    setLoading(false);
+                }
         } else {
             const searchCall = await fetch(`/api/search?query=${props.searchTerm}`);
             const results = await searchCall.json();
             if(results.results){
-                console.log(results.results);
                 const documents = results.results.map((result: any) => ({
                     id: result.path.split('/')[1],
                     ...result,
@@ -64,7 +55,7 @@ export default function BrowseBlog(props: IBrowseBlog){
         return (
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    {data.slice((page-1)*itemsPerPage,page*itemsPerPage)?.map((item: Post, index: number) => (
+                    {data.slice((page-(itemsPerPage-1))*itemsPerPage,page*itemsPerPage)?.map((item: Post, index: number) => (
                         <BlogCard 
                             key={item.id} 
                             itemId={item.id} 

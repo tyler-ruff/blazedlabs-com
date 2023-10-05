@@ -1,6 +1,7 @@
 import { mainMenu } from '@/config/menu';
 
 import { INav } from './data';
+import Link from 'next/link';
 
 const Nav = (props: INav) => {
     return (
@@ -9,11 +10,11 @@ const Nav = (props: INav) => {
                 mainMenu.nav.map((item, index) => {
                     return (
                         <li className="flex" key={index}>
-                            <a aria-label={item.label}
-                                href={item.href}
+                            <Link aria-label={item.label}
+                                href={item.href || ""}
                                 className={`menu-item flex items-center px-4 hover:text-primary dark:hover:text-blue-400 mb-1 border-b-2 font-bold border-transparent ${props.pathname === item.href && `text-primary underline dark:text-blue-400 border-blue-500`}`}>
                                 {item.label}
-                            </a>
+                            </Link>
                         </li>
                     );
                 })

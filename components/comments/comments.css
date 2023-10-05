@@ -1,0 +1,8 @@
+textarea{
+    min-height:80px;
+    max-height:250px;
+}
+
+.dark textarea{
+    background:rgba(0,0,0,0.7);
+}
