@@ -1,8 +1,8 @@
 'use client';
 
-import { Button, Modal } from 'flowbite-react';
+import { Button, Modal, Label, TextInput } from 'flowbite-react';
 import { useState } from 'react';
-import { HiShare } from 'react-icons/hi';
+import { HiOutlineClipboard, HiShare } from 'react-icons/hi';
 
 import {
     EmailIcon,
@@ -31,6 +31,7 @@ export default function SocialShare() {
   const [openModal, setOpenModal] = useState<string | undefined>();
   const props = { openModal, setOpenModal };
   const permalink = window.location.href;
+  const handleFocus = (event: any) => event.target.select();
   return (
     <>
       <Button onClick={() => props.setOpenModal('dismissible')}>
@@ -42,17 +43,32 @@ export default function SocialShare() {
             Share on Social
         </Modal.Header>
         <Modal.Body>
-          <div className="space-x-4 text-center">
-            <EmailShareButton subject='' body='' separator='' children={<EmailIcon size={32} round={true} />} url={permalink} />
-            <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={permalink} />
-            <LinkedinShareButton children={<LinkedinIcon size={32} round={true} />} url={permalink} />
-            <RedditShareButton children={<RedditIcon size={32} round={true} />} url={permalink} />
-            <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={permalink} />
-            <TumblrShareButton children={<TumblrIcon size={32} round={true} />} url={permalink} />
-            <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={permalink} />
-            <VKShareButton children={<VKIcon size={32} round={true} />} url={permalink} />
-            <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={permalink} />
-            <WorkplaceShareButton children={<WorkplaceIcon size={32} round={true} />} url={permalink} />
+          <div className="pt-5 space-x-4 text-center">
+            <EmailShareButton className="hover:opacity-75 active:opacity-50" subject='' body='' separator='' children={<EmailIcon size={32} round={true} />} url={permalink} />
+            <FacebookShareButton className="hover:opacity-75 active:opacity-50" children={<FacebookIcon size={32} round={true} />} url={permalink} />
+            <LinkedinShareButton className="hover:opacity-75 active:opacity-50" children={<LinkedinIcon size={32} round={true} />} url={permalink} />
+            <RedditShareButton className="hover:opacity-75 active:opacity-50" children={<RedditIcon size={32} round={true} />} url={permalink} />
+            <TelegramShareButton className="hover:opacity-75 active:opacity-50" children={<TelegramIcon size={32} round={true} />} url={permalink} />
+            <TumblrShareButton className="hover:opacity-75 active:opacity-50" children={<TumblrIcon size={32} round={true} />} url={permalink} />
+            <TwitterShareButton className="hover:opacity-75 active:opacity-50" children={<TwitterIcon size={32} round={true} />} url={permalink} />
+            <VKShareButton className="hover:opacity-75 active:opacity-50" children={<VKIcon size={32} round={true} />} url={permalink} />
+            <WhatsappShareButton className="hover:opacity-75 active:opacity-50" children={<WhatsappIcon size={32} round={true} />} url={permalink} />
+            <WorkplaceShareButton className="hover:opacity-75 active:opacity-50" children={<WorkplaceIcon size={32} round={true} />} url={permalink} />
+          </div>
+          <div className="mt-10">
+            <div className="mb-2 block">
+                <Label
+                htmlFor="permalink"
+                value="Share URL"
+                />
+            </div>
+            <TextInput
+                id="permalink"
+                value={permalink}
+                readOnly
+                className="select-all"
+                onClick={handleFocus}
+            />
           </div>
         </Modal.Body>
       </Modal>

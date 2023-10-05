@@ -111,6 +111,7 @@ export default function CommentsMenu() {
             arrowIcon={false}
             inline
             label={<Avatar alt="User settings" img={user.photoURL} rounded/>}
+            placement="bottom-end"
           ><Dropdown.Header>
             <span className="block text-sm">
               {user.displayName}
@@ -135,7 +136,8 @@ export default function CommentsMenu() {
             <Dropdown
             arrowIcon={false}
             inline
-            label={<HiUser className="w-6 h-6" />}>
+            label={<HiUser className="w-6 h-6" />}
+            placement="bottom-end">
             <Dropdown.Header>
             <span className="block text-sm">
               Not logged in.

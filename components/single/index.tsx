@@ -153,7 +153,7 @@ export default function SinglePost(props: any){
                     </div>
                 </div>
                 <div aria-label="Post Comments">
-                    <Comments postId={props.id} />
+                    <Comments postId={props.postId} />
                 </div>
             </article>
         </div>

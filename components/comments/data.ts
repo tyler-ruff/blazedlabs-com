@@ -10,7 +10,7 @@ export interface IComment{
     id: string;
     author: IAuthor;
     body: string;
-    postDate: Timestamp | undefined;
+    postDate: string;
 }
 
 export interface IComments{
