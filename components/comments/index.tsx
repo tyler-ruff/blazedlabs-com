@@ -119,11 +119,7 @@ export default function Comments(props: IComments){
 					Leave a Comment
 				</h2>
 				<div className="flex flex-col w-full">
-					{!user ? (
-						<div className="block">
-							<textarea disabled placeholder="You must be logged in to comment..." className="p-4 rounded-md w-full resize-y text-gray-800 bg-gray-50"></textarea>
-						</div>
-					) : (
+					{user ? (
 						<form onSubmit={handleSubmit} className="flex flex-col w-full">
 							<textarea required name="body" placeholder="Enter comment..." className="p-4 rounded-md resize-y text-gray-800 bg-gray-50"></textarea>
 							<input name="postId" type="hidden" value={props.postId} />
@@ -132,6 +128,10 @@ export default function Comments(props: IComments){
 								Submit Comment
 							</button>
 						</form>
+					) : (
+						<div className="block">
+							<textarea disabled placeholder="You must be logged in to comment..." className="p-4 rounded-md w-full resize-y text-gray-800 bg-gray-50"></textarea>
+						</div>
 					)}
 				</div>
 			</div>
