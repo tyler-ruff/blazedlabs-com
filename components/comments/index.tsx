@@ -5,16 +5,15 @@ import Link from "next/link";
 import { Dropdown } from 'flowbite-react';
 import { v4 as uuidv4 } from 'uuid';
 import { IAuthor, IComment, IComments } from "./data";
-import CommentsMenu from "./menu";
-
+import { HiDotsVertical } from "react-icons/hi";
 import { CommentSchema } from '@/lib/types/blog';
 
 import { useAuthContext } from "@/context/AuthContext";
 
-import { getDatabase, ref, push, set, onValue, onChildAdded } from "firebase/database";
+import { getDatabase, ref, push, set, onValue } from "firebase/database";
 import { realtime } from "@/lib/firebase";
+import CommentsMenu from "./menu";
 import "./comments.css";
-import { HiDotsVertical } from "react-icons/hi";
 
 export default function Comments(props: IComments){
 	const [loading, setLoading] = useState<boolean>(true);
@@ -45,7 +44,7 @@ export default function Comments(props: IComments){
 			posted: new Date().toISOString()
 		})));
 	};
-	
+
 	const Comment = (props: IComment) => {
 		const Item = (props: any) => {
 			return (
@@ -54,6 +53,37 @@ export default function Comments(props: IComments){
 				</Link>
 			)
 		};
+		const DropDown = () => {
+			return props.author === user.uid ? (
+				<Dropdown
+					inline
+					label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
+					arrowIcon={false}
+					placement="bottom-end"
+				>
+					<Item>
+						
+					</Item>
+					<Item>
+						Report Comment
+					</Item>
+				</Dropdown>
+			) : (
+				<Dropdown
+					inline
+					label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
+					arrowIcon={false}
+					placement="bottom-end"
+				>
+					<Item>
+						Edit
+					</Item>
+					<Item>
+						Delete
+					</Item>
+				</Dropdown>
+			);
+		}
 		return (
             <div id={props.id} className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
 				<div className="flex justify-between p-4">
@@ -72,35 +102,7 @@ export default function Comments(props: IComments){
 					</div>
 					<div className="flex items-center space-x-2 text-yellow-500">
 						{
-							props.author === user.uid ? (
-								<Dropdown
-									inline
-									label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
-									arrowIcon={false}
-									placement="bottom-end"
-								>
-									<Item>
-										
-									</Item>
-									<Item>
-										Report Comment
-									</Item>
-								</Dropdown>
-							) : (
-								<Dropdown
-									inline
-									label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
-									arrowIcon={false}
-									placement="bottom-end"
-								>
-									<Item>
-										Edit
-									</Item>
-									<Item>
-										Delete
-									</Item>
-								</Dropdown>
-							)
+							user && <DropDown />
 						}
 					</div>
 				</div>
@@ -130,7 +132,7 @@ export default function Comments(props: IComments){
 						</form>
 					) : (
 						<div className="block">
-							<textarea disabled placeholder="You must be logged in to comment..." className="p-4 rounded-md w-full resize-y text-gray-800 bg-gray-50"></textarea>
+							<textarea disabled placeholder="You must be logged in to comment..." className="p-4 rounded-md w-full resize-none text-gray-800 bg-gray-50"></textarea>
 						</div>
 					)}
 				</div>
@@ -174,7 +176,7 @@ export default function Comments(props: IComments){
 	};
 
     return (
-        <div>
+        <div aria-label="Comment" id="comments">
 			<CommentsMenu />
 			<div className="py-5">
 				<CommentList />
