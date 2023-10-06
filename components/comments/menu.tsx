@@ -101,9 +101,9 @@ export default function CommentsMenu() {
       rounded
     >
       <Navbar.Brand>
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+        <Link href="#comments" className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           Comments
-        </span>
+        </Link>
       </Navbar.Brand>
       <div className="flex md:order-2">
         {user ?
