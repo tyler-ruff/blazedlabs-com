@@ -34,9 +34,9 @@ export default function SocialShare() {
   const handleFocus = (event: any) => event.target.select();
   return (
     <>
-      <Button onClick={() => props.setOpenModal('dismissible')}>
+      <Button color="purple" onClick={() => props.setOpenModal('dismissible')}>
         <HiShare className="w-4 h-4 pt-1" /> 
-        <span className="pl-1">Share</span>
+        <p className="pl-1">Share</p>
       </Button>
       <Modal dismissible show={props.openModal === 'dismissible'} onClose={() => props.setOpenModal(undefined)}>
         <Modal.Header>

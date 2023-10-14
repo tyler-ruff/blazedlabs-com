@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { Dropdown } from 'flowbite-react';
+import { Button, Dropdown, Modal, Textarea } from 'flowbite-react';
 import { v4 as uuidv4 } from 'uuid';
 import { IAuthor, IComment, IComments } from "./data";
 import { HiDotsVertical } from "react-icons/hi";
@@ -10,7 +10,7 @@ import { CommentSchema } from '@/lib/types/blog';
 
 import { useAuthContext } from "@/context/AuthContext";
 
-import { getDatabase, ref, push, set, onValue } from "firebase/database";
+import { getDatabase, ref, push, set, onValue, remove, update } from "firebase/database";
 import { realtime } from "@/lib/firebase";
 import CommentsMenu from "./menu";
 import "./comments.css";
@@ -20,17 +20,24 @@ export default function Comments(props: IComments){
 	const [comments, setComments] = useState<CommentSchema[]>();
 	const { user } = useAuthContext() as { user: any };
 	const database = getDatabase();
-	useEffect(() => {
+	const loadComments = async() => {
+		setLoading(true);
 		const commentList = [] as CommentSchema[];
 		const commentsRef = ref(realtime, `comments/${props.postId}`);
 		onValue(commentsRef, (snapshot) => {
-			const data = snapshot.val();
 			snapshot.forEach((childSnapshot) => {
-				commentList.push(childSnapshot.val());
+				const prepData = {
+					...childSnapshot.val(),
+					key: childSnapshot.ref.key
+				} as CommentSchema;
+				commentList.push(prepData);
 			});
 			setComments(commentList);
 			setLoading(false);
 		});
+	};
+	useEffect(() => {
+		loadComments();
 	}, []);
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
@@ -42,46 +49,86 @@ export default function Comments(props: IComments){
 			author: form_values.userId,
 			body: form_values.body,
 			posted: new Date().toISOString()
-		})));
+		}))).then(() => {
+			loadComments();
+		});
 	};
 
 	const Comment = (props: IComment) => {
+		const [editComment, setEditComment] = useState<boolean>(false);
+		const [commentText, setCommentText] = useState(props.body);
+		const handleDelete = async() => {
+			if(user.uid === props.author.id){
+				remove(ref(database, props.refString || ``)).then(() => {
+					loadComments();
+				});
+			}
+		};
+		const handleCommentEdit = async() => {
+			if(user.uid === props.author.id){
+				update(ref(database, props.refString || ``), {
+					body: commentText
+				}).then(() => {
+					loadComments();
+				});
+			}
+		};
 		const Item = (props: any) => {
 			return (
-				<Link href={'#'} className="block py-2 px-5 hover:bg-gray-100">
+				<span className="block py-2 px-5 hover:bg-gray-100">
 					{props.children}
-				</Link>
+				</span>
 			)
 		};
 		const DropDown = () => {
-			return props.author === user.uid ? (
+			const [openDeleteModal, setOpenDeleteModal] = useState<string | undefined>();
+			return props.author.id !== user.uid ? (
 				<Dropdown
 					inline
 					label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
 					arrowIcon={false}
 					placement="bottom-end"
 				>
-					<Item>
-						
-					</Item>
-					<Item>
+					<span className="block py-2 px-5 hover:bg-gray-100 cursor-pointer">
 						Report Comment
-					</Item>
+					</span>
 				</Dropdown>
 			) : (
-				<Dropdown
-					inline
-					label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
-					arrowIcon={false}
-					placement="bottom-end"
-				>
-					<Item>
-						Edit
-					</Item>
-					<Item>
+				<>
+					<Dropdown
+						inline
+						label={<HiDotsVertical className="text-gray-800 w-5 h-5" />}
+						arrowIcon={false}
+						placement="bottom-end"
+					>
+						<span className="block py-2 px-5 hover:bg-gray-100 cursor-pointer" onClick={() => setEditComment(true)}>
+							Edit
+						</span>
+						<span className="block py-2 px-5 hover:bg-gray-100 cursor-pointer" onClick={() => setOpenDeleteModal('dismissible')}>
+							Delete
+						</span>
+					</Dropdown>
+					<Modal dismissible show={openDeleteModal === 'dismissible'} onClose={() => setOpenDeleteModal(undefined)}>
+					<Modal.Header>
+						Delete Comment
+					</Modal.Header>
+					<Modal.Body>
+					<div className="space-y-6">
+						<p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							Are you sure you want to delete this comment?
+						</p>
+					</div>
+					</Modal.Body>
+					<Modal.Footer>
+					<Button color="failure" onClick={() => { setOpenDeleteModal(undefined); handleDelete() }}>
 						Delete
-					</Item>
-				</Dropdown>
+					</Button>
+					<Button color="gray" onClick={() => setOpenDeleteModal(undefined)}>
+						Cancel
+					</Button>
+					</Modal.Footer>
+				</Modal>
+				</>
 			);
 		}
 		return (
@@ -108,7 +155,23 @@ export default function Comments(props: IComments){
 				</div>
 				<div className="p-4 space-y-2 text-sm text-gray-600">
 					<p>
-						{props.body}
+						{
+							!editComment ? props.body : (
+								<form>
+									<Textarea onChange={e => setCommentText(e.target.value)}>
+										{commentText}
+									</Textarea>
+									<div className="mt-2 space-x-2">
+										<Button onClick={() => handleCommentEdit()} className="inline-flex">
+											Update
+										</Button>
+										<Button onClick={() => setEditComment(false)} color="failure" className="inline-flex">
+											Cancel
+										</Button>
+									</div>
+								</form>
+							)
+						}
 					</p>
 				</div>
 			</div>
@@ -164,11 +227,18 @@ export default function Comments(props: IComments){
 		return (
 			comments && comments.map((comment: CommentSchema, index: number) => {
 				return (
-					<Comment key={index} id={comment.id} author={{
-						id: comment.author,
-						name: "Blazed Labs",
-						picture: "https://blazed.sirv.com/logo/john-mcmahon-ljjcoULkxL8-unsplash_black.png"
-					} as IAuthor} body={comment.body} postDate={new Date(comment.posted).toISOString()} />
+					<Comment 
+						key={index}
+						refString={`comments/${props.postId}/${comment.key}`}
+						id={comment.id}
+						author={{
+							id: comment.author,
+							name: "Blazed Labs",
+							picture: "https://blazed.sirv.com/logo/john-mcmahon-ljjcoULkxL8-unsplash_black.png"
+						} as IAuthor} 
+						body={comment.body} 
+						postDate={new Date(comment.posted).toISOString()} 
+					/>
 				);
 			})
 		)
