@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
 export interface IAuthor{
     id: string;
     name: string;
@@ -11,6 +9,7 @@ export interface IComment{
     author: IAuthor;
     body: string;
     postDate: string;
+    refString: string;
 }
 
 export interface IComments{

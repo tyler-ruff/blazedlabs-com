@@ -11,6 +11,7 @@ export interface Post {
 }
 
 export interface CommentSchema {
+    key: string;
     id: string;
     author: string;
     posted: string;

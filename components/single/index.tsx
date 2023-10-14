@@ -137,7 +137,10 @@ export default function SinglePost(props: any){
                     </div>
                 </div>
                 <div className="flex justify-between my-6 border-b border-dashed border-gray-600">
-                    <div aria-label="Tags" className="inline-flex flex-wrap py-6 space-x-2">
+                    <div aria-label="Tags" className="inline-flex flex-wrap py-6 space-x-2 space-y-1 select-none">
+                        <span className="text-sm pt-3 pl-2">
+                            Tags: 
+                        </span>
                         {
                             documentData.tags.map((tag: string, index: number) => {
                                 return (
@@ -148,7 +151,7 @@ export default function SinglePost(props: any){
                             })
                         }
                     </div>
-                    <div aria-label="Share Post" className="inline-flex pt-4">
+                    <div aria-label="Share Post" className="inline-flex pt-4 select-none">
                         <SocialShare />
                     </div>
                 </div>
