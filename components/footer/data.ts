@@ -32,14 +32,17 @@ export const linksFooter = [
         items: [
             {
                 label: "Developers",
+                target: "_blank",
                 href: "https://blazed.dev/"
             },
             {
-                label: "City",
-                href: "https://blazed.city/"
+                label: "Company",
+                target: "_blank",
+                href: "https://blazed.company/"
             },
             {
                 label: "R&D",
+                target: "_blank",
                 href: "https://blazed-space.github.io/"
             }
         ]
