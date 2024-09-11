@@ -22,7 +22,7 @@ const mainMenu = {
     ] as MenuItem[],
     cta: {
         label: "Contact",
-        href: "https://blazed.contact/"
+        href: "/contact"
     } as MenuItem
 } as Menu;
 

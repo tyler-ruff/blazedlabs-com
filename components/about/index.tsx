@@ -34,9 +34,9 @@ export default function About(){
                         </p>
                         <div className="mt-4 md:mt-8">
                             <Link
-                                href="/faq"
+                                href="/solutions"
                                 className="inline-block rounded bg-error dark:bg-white px-12 py-3 text-sm font-medium text-white dark:text-black transition hover:bg-red-900 dark:hover:bg-gray-300 focus:outline-none focus:ring focus:ring-red-400 dark:focus:ring-gray-800">
-                            FAQs
+                             Solutions
                             </Link>
                         </div>
                     </div>
@@ -78,11 +78,11 @@ export default function About(){
                                     Thank you for considering Blazed Labs as your partner in technology. We look forward to working with you.
                                 </p>
                                 <Link
-                                    href="/solutions"
+                                    href="/faq"
                                     className="inline-block rounded bg-gray-600 px-8 py-3 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring focus:ring-red-400">
                                     <HiOutlineCheck className="inline-flex w-4 h-4 mr-1" />
                                     <span>
-                                        Explore Solutions
+                                        Frequently Asked Questions
                                     </span>
                                 </Link>
                             </article>

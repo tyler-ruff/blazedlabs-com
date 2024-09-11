@@ -49,7 +49,7 @@ export default function FaqAccordion(){
             <p className="mb-2 text-gray-500 dark:text-gray-400">
             Yes, we work with businesses of all sizes. Whether you're a startup looking to build your first app or a large enterprise in need of a complex software solution, we have the expertise to assist you.
             </p>
-            <Link href="https://blazed.contact/" className="inline-flex mt-5 hover:no-underline">
+            <Link href="/contact/" className="inline-flex mt-5 hover:no-underline">
               <Button gradientMonochrome="teal">
                 <HiOutlineChat className="mr-2 h-5 w-5" />
                 <p>
@@ -67,7 +67,7 @@ export default function FaqAccordion(){
             <p className="mb-2 text-gray-500 dark:text-gray-400">
               Absolutely! We specialize in cloud migration and can help your business seamlessly transition to cloud-based solutions. Our team will ensure a smooth migration process while optimizing costs and performance.
             </p>
-            <Link href="https://blazed.contact/" className="inline-flex mt-5 hover:no-underline">
+            <Link href="/contact/" className="inline-flex mt-5 hover:no-underline">
               <Button gradientMonochrome="teal">
                 <HiOutlineChat className="mr-2 h-5 w-5" />
                 <p>
@@ -125,7 +125,7 @@ export default function FaqAccordion(){
               <br /><br />
               You can also sign up for an account to interact with the community.
             </p>
-            <Link href="https://blazed.contact/" className="inline-flex mt-5 hover:no-underline">
+            <Link href="/contact/" className="inline-flex mt-5 hover:no-underline">
               <Button gradientMonochrome="teal">
                 <HiOutlineChat className="mr-2 h-5 w-5" />
                 <p>

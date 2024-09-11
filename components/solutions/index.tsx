@@ -3,8 +3,7 @@
 import { Breadcrumb } from 'flowbite-react';
 import SolutionCard from "@/components/card/solution";
 import { HiCloud, HiPhone, HiPencil, HiHome } from 'react-icons/hi';
-import BasicHero from '../hero/basic';
-import { MenuItem } from '@/lib/types/site';
+import AdvancedHero from '../hero/advanced';
 
 export default function Solutions(){
     return (
@@ -33,9 +32,9 @@ export default function Solutions(){
                 icon={(<HiPhone className="h-8 w-8" />)} 
             />
             <SolutionCard 
-                title="Cloud Systems" 
-                description="Discover how Blazed can help your business build a cloud or on-prem network. "
-                url="https://blazed.systems/" 
+                title="Software Development" 
+                description="Discover how Blazed can help your business build software and websites. "
+                url="https://blazed.dev/" 
                 target="_blank"
                 icon={(<HiCloud className="h-8 w-8" />)} 
             />
@@ -47,14 +46,12 @@ export default function Solutions(){
                 icon={(<HiPencil className="h-8 w-8" />)} 
             />
         </div>
-        <BasicHero 
-            image="/images/ibis.jpg"
-            title="Discover our software solutions"
-            body="We build open source software and manage decentralized development teams."
-            action={{
-                label: "Learn More",
-                href: "https://blazed.dev/"
-            } as MenuItem}
+        <AdvancedHero
+            headline="Sleep peacefully knowing that your website is performing at it’s best."
+            description="We can help your business thrive with software development, network administrative services, and publishing. Drop us a line today to see how we can turn your dreams into reality."
+            url="/contact"
+            ctaText="Get in Touch"
+            imageURL="/images/beaker-cobalt.png"
         />
     </div>
     )

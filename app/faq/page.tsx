@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 
-import FaqAccordion from '@/components/accordion/faq';
 import AboutFaq from '@/components/about/faq';
 
 export const metadata: Metadata = {

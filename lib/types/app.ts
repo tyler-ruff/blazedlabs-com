@@ -4,6 +4,7 @@
  * @prop facebook URL
  * @prop instagram URL
  * @prop github URL
+ * @prop linkedin URL
  * @prop twitter URL
  * @prop youtube URL
  */
@@ -11,6 +12,7 @@ export interface Social {
     facebook?: string;
     instagram?: string;
     github?: string;
+    linkedin?: string;
     twitter?: string;
     youtube?: string;
 }
@@ -30,6 +32,7 @@ export interface Brand {
     twitter?: string;
     email?: string;
     telephone?: string;
+    address?: string;
 }
 
 /**
