@@ -8,6 +8,7 @@ const nextConfig = {
     },
     experimental: {
       mdxRs: true,
+      serverActions: true,
     },
     async rewrites() {
       return [

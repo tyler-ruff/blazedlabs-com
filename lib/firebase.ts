@@ -14,7 +14,6 @@ const provider = new GoogleAuthProvider();
 provider.addScope('profile');
 provider.addScope('email');
 
-
 export { 
     firebaseApp,
     db,
