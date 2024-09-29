@@ -25,9 +25,9 @@ export default function Solutions(){
             </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 pt-4 px-4">
             <SolutionCard 
-                title="Telecom" 
-                description="We build call centers and engineer telecom solutions. Learn how we can help your business communications." 
-                url="https://blazed.tel/" 
+                title="Innovation" 
+                description="We build computer networks, computer systems, and we design platforms." 
+                url="https://blazed.space/" 
                 target="_blank"
                 icon={(<HiPhone className="h-8 w-8" />)} 
             />

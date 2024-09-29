@@ -1,4 +1,4 @@
-# Ice Next
+# blazedlabs.com
 
 ## Getting Started
 
