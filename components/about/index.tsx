@@ -23,13 +23,13 @@ export default function About(){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-24">
-                <div className="p-8 md:p-12 lg:px-16 lg:py-24 hidden sm:block">
-                    <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-24 hidden sm:block">
+                <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+                    <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right space-y-10">
                         <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20 dark:text-gray-200">
                             About Blazed Labs
                         </h1>
-                        <p className="hidden text-gray-500 md:mt-4 md:block dark:text-gray-200">
+                        <p className="text-gray-500 md:mt-4 dark:text-gray-200">
                             We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
                         </p>
                         <div className="mt-4 md:mt-8">
@@ -51,7 +51,7 @@ export default function About(){
             </div>
             <hr />
             <div>
-                <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+                <div className="mx-auto max-w-screen-xl px-4 md:py-16 sm:py-5 lg:px-8">
 
                     <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                         <div className="relative h-64 overflow-hidden sm:h-80 lg:h-full">
@@ -64,8 +64,8 @@ export default function About(){
                             />
                         </div>
 
-                        <div className="lg:py-16">
-                            <article className="space-y-4 text-gray-600 dark:text-gray-200">
+                        <div className="py-10 lg:py-16">
+                            <article className="space-y-6 text-gray-600 dark:text-gray-200">
                                 <h2 className="text-3xl font-bold">
                                     How are we Unleashing Innovation?
                                 </h2>

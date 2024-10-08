@@ -1,0 +1,23 @@
+.accordion{
+    width: 50%;
+    position: relative;
+    margin-left:auto;
+    margin-right: auto;
+}
+@media screen and (max-width: 1214px) {
+    .accordion{
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .accordion{
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .accordion{
+        width: 95%;
+    }
+}

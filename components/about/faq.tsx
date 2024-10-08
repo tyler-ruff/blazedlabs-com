@@ -5,9 +5,11 @@ import { HiHome } from 'react-icons/hi';
 
 import FaqAccordion from "@/components/accordion/faq";
 
+import styles from "./faq.module.css";
+
 export default function AboutFaq(){
     return (
-        <div>
+        <div className={styles.accordion}>
             <div>
                 <Breadcrumb className="bg-gray-50 px-5 py-3 border border-t-0 dark:border-transparent dark:bg-gray-900">
                     <Breadcrumb.Item
