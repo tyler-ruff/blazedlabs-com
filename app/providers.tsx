@@ -9,10 +9,10 @@ export function Providers({
     children: React.ReactNode
   }) {
   return (
-    <AuthContextProvider>
-      <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class">
+      <AuthContextProvider>
         {children}
-      </ThemeProvider>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </ThemeProvider>
     );
 }

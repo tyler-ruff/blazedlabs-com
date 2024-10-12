@@ -37,11 +37,31 @@
 }
 
 ::selection{
-  background:rgba(91, 55, 236, 0.4);
+  background:#1f2937;
+  background:rgba(31, 41, 55, 0.9);
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 ::-moz-selection{
-  background:rgba(91, 55, 236, 0.4);
+  background:#1f2937;
+  background:rgba(31, 41, 55, 0.8);
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark ::-moz-selection{
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dark ::selection{
+  background:#fff;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -57,16 +77,37 @@ body {
     overflow-x:hidden;
 }
 
+html.dark, html.dark body{
+  background: #1f2937;
+}
+
 h1, h2, h3{
   font-family: 'DM Serif Text', serif;
 }
 
-.dark h1, .dark h2, .dark h3{
+.dark h1, .dark h2, .dark h3, 
+.dark h4, .dark h5, .dark h6 
+.dark b, .dark i, .dark code,
+.dark strong {
   color:#fff;
+}
+
+.dark p {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .dark a{
   color: #fff;
+}
+
+.dark a:hover{
+  color: #acacac;
+  text-decoration: none;
+}
+
+.dark blockquote{
+  color: #fff;
+  border-color: #fff;
 }
 
 h1.bold-title{

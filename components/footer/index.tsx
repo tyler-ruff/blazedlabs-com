@@ -1,17 +1,30 @@
 import { brand, config, social } from "@/config/app";
 
+import ThemeSwitcher from "@/components/theme";
+
 import { linksFooter } from './data';
-import ThemeSwitcher from "../theme";
+
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer(){
-    const year = new Date().getFullYear();
-    const date = new Date().toISOString();
+    const CopyrightAttribute = () => {
+        const year = new Date().getFullYear();
+        const date = new Date().toISOString();
+        return (
+            <span>
+                &copy;<time dateTime={date}>{year}</time> {brand.company}. All rights reserved.
+            </span>
+        );
+    };
+    const ReturnToTop = () => {
+        return (<Link className="text-xs hover:text-gray-800" href={`#top`} title={`Return to the top of the page.`}>(Back to Top &uarr;)</Link>);
+    }
     return (
         <footer className="px-4 divide-y bg-gray-100 dark:bg-gray-800 text-gray-800 border-t">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3 select-none">
-                    <a rel="noopener noreferrer" href="/" title={config.name} className="group inline-flex justify-center lg:justify-start">
+                    <Link rel="noopener noreferrer" href="/" title={config.name} className="group inline-flex justify-center lg:justify-start">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full">
                             <Image src="/images/beaker-cobalt.png" className="group-hover:opacity-75 dark:hidden" alt="Beaker" width={32} height={32} />
                             <Image src="/images/beaker-white.png" className="group-hover:opacity-75 hidden dark:block" alt="Beaker" width={32} height={32} />
@@ -19,9 +32,9 @@ export default function Footer(){
                         <span className="self-center text-2xl font-semibold group-hover:text-gray-500 dark:text-gray-100">
                             {config.name}
                         </span>
-                    </a>
+                    </Link>
                     <div className="pt-2">
-                    <ThemeSwitcher />
+                        <ThemeSwitcher />
                     </div>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
@@ -74,7 +87,7 @@ export default function Footer(){
                 </div>
             </div>
             <div className="py-6 text-sm text-center text-gray-600 dark:text-gray-200 select-none">
-                &copy;<time dateTime={date}>{year}</time> {brand.company}. All rights reserved.
+                <CopyrightAttribute /> <ReturnToTop />
             </div>
         </footer>
     );

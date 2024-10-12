@@ -1,7 +1,8 @@
 import { mainMenu } from '@/config/menu';
 
-import { INav } from './data';
 import Link from 'next/link';
+
+import { INav } from './data';
 
 const Nav = (props: INav) => {
     return (

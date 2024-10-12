@@ -59,11 +59,13 @@ export default function RootLayout({
     <html lang="en" dir="ltr" data-theme="blz" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <Header />
-          <main role="main" className="bg-white dark:bg-gray-900">
-              {children}
-          </main>
-          <Footer />
+          <section id="blz-app">
+            <Header />
+            <main role="main" id="blz-content" className="bg-white dark:bg-gray-900">
+                {children}
+            </main>
+            <Footer />
+          </section>
         </Providers>
       </body>
     </html>

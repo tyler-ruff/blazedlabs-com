@@ -27,6 +27,7 @@ export default function SearchForm(props: ISearchForm){
             <div className="py-3 pb-0 px-11">
                 <div className="mb-2 block">
                     <TextInput
+                        role="searchbox"
                         id="search-term"
                         name="query"
                         placeholder="Search blog..."
