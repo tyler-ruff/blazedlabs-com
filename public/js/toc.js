@@ -1,19 +1,21 @@
 function buildToc(){
     const tocRoot = document.getElementById('toc-root');
     const content = document.getElementById('blz-content');
-    //const tocContainer = document.getElementById('toc-container');
 
     var headingTree = content.querySelectorAll("h1,h2,h3");
 
-    const tocContainer = document.createElement('div');
-    tocContainer.id = 'toc-container';
-
+    const tocContainer = document.getElementById('toc-container');
+    //const tocContainer = document.createElement('div');
+    //tocContainer.id = 'toc-container';
+    if(tocContainer.innerHTML !== null && tocContainer.innerHTML !== undefined){
+        tocContainer.innerHTML = "";
+    }
 
     //Create TOC List
     var tocList = document.createElement('ul');
     tocList.classList.add('py-5');
     tocList.role = "tree";
-    var tocTree = [], cur;
+    //var tocTree = [], cur;
 
     // Add Title Item
     var tocTitle = document.createElement('h4');
@@ -28,8 +30,6 @@ function buildToc(){
 
     for (var i = 0; i < headingTree.length; i++) {
         var e = headingTree[i];
-        tocTree.push({text:e.textContent, id: e.id, type: e.tagName, children:(cur=[])});
-
         var tocListItem = document.createElement('li');
         var tocItemLink = document.createElement('a');
 
@@ -39,13 +39,12 @@ function buildToc(){
         tocItemLink.href = `#${e.id}`;
 
         if(e.tagName === "H1"){
-            tocItemLink.classList.add('pl-0');
+            tocListItem.classList.add('pl-0');
         } else if(e.tagName === "H2"){
-            tocItemLink.classList.add('pl-3');
+            tocListItem.classList.add('pl-4', 'list-none');
         } else if(e.tagName === "H3"){
-            tocItemLink.classList.add('pl-6');
+            tocListItem.classList.add('pl-8', 'list-none');
         } else if(e.tagName === "H4"){
-            tocItemLink.classList.add('pl-12');
         }
         
         tocListItem.appendChild(tocItemLink);
@@ -61,6 +60,14 @@ function buildToc(){
     tocRoot.append(tocContainer);
 }
 
-( function(){
+( async function(){
     buildToc();
 } )();
+
+(function(){
+    window.addEventListener("DOMContentLoaded", (window, event) => {
+        buildToc();
+    })
+})();
+
+

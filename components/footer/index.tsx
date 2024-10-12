@@ -19,7 +19,7 @@ export default function Footer(){
     };
     const ReturnToTop = () => {
         return (<Link className="text-xs hover:text-gray-800" href={`#top`} title={`Return to the top of the page.`}>(Back to Top &uarr;)</Link>);
-    }
+    };
     return (
         <footer className="px-4 divide-y bg-gray-100 dark:bg-gray-800 text-gray-800 border-t">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">

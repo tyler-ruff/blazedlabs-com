@@ -2,56 +2,34 @@ import type { MDXComponents } from 'mdx/types';
 
 import Link from 'next/link';
 
-//import { v4 as uuidv4 } from 'uuid';
-import slugify from 'slugify';
-import { IHeading } from './lib/types/mdx';
+import { HiLink } from "react-icons/hi";
 
-/*
-const CustomHeadingH1: any = ({ id, ...props }) => {
-  if(id){
-    return (
-      <Link href={`#${id}`}>
-        <h1 key={id} id={id} {...props} />
-      </Link>
-    );
-  }
-  return <h1 {...props} />;
-};
-const generateUUID = () => {
-  return uuidv4();
-};
-*/
-//id = generateUUID();
+import slugify from 'slugify';
+import { v4 as uuidv4 } from 'uuid';
+
+import { IHeading } from './lib/types/mdx';
 
 function reverseSlugify(slug: string){
     // Replace hyphens with spaces
     let str = slug.replace(/-/g, ' ');
-
     // Capitalize the first letter of each word
     str = str.replace(/\b\w/g, (match: string) => match.toUpperCase());
-  
     return str;
 }
 
-let idList = ['blz-app', 'top'];
+//let idList = ['blz-app', 'top'];
 
-let createId = (input: any | any[]) => {
+let createUniqueId = () => {
+  let id = uuidv4();
+  return id;
+};
+let createReadableId = (input: any | any[]) => {
   let id = slugify(input, {
     lower: true,
     strict: true
   });
-  /*
-  if(idList.indexOf(id) === -1){
-    idList.push(id);
-    return id;
-  }
-  id = uuidv4();
-  idList.push(id);
-  */
   return id;
 };
-
-
 
 const CustomHeading = (props: IHeading) => {
   return (
@@ -62,11 +40,11 @@ const CustomHeading = (props: IHeading) => {
 };
 
 const Heading1 = ({ ...props }) => {
-  const id = createId(props.children);
+  const id = createReadableId(props.children);
   const text = props.children;
   return (
     <CustomHeading size={1} id={id}>
-      <h1 id={id}>
+      <h1 id={id} role="heading" aria-level={1}>
         {text}
       </h1>
     </CustomHeading>
@@ -74,11 +52,11 @@ const Heading1 = ({ ...props }) => {
 };
 
 const Heading2 = ({ ...props }) => {
-  const id = createId(props.children);
+  const id = createReadableId(props.children);
   const text = props.children;
   return (
     <CustomHeading size={2} id={id}>
-      <h2 id={id}>
+      <h2 id={id} role="heading" aria-level={2}>
         {text}
       </h2>
     </CustomHeading>
@@ -86,13 +64,26 @@ const Heading2 = ({ ...props }) => {
 };
 
 const Heading3 = ({ ...props }) => {
-  const id = createId(props.children);
+  const id = createReadableId(props.children);
   const text = props.children;
   return (
     <CustomHeading size={3} id={id}>
-      <h3 id={id}>
+      <h3 id={id} role="heading" aria-level={3}>
         {text}
       </h3>
+    </CustomHeading>
+  );
+};
+
+const Heading4 = ({ ...props }) => {
+  //const id = createReadableId(props.children);
+  const id = createUniqueId();
+  const text = props.children;
+  return (
+    <CustomHeading size={4} id={id}>
+      <h4 id={id} role="heading" aria-level={4}>
+        {text}
+      </h4>
     </CustomHeading>
   );
 };
@@ -110,7 +101,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: Heading1,
     h2: Heading2,
     h3: Heading3,
-
+    h4: Heading4,
     ...components,
   }
 }

@@ -2,9 +2,9 @@
 
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
-import SMSTerms from '@/content/sms.mdx';
+import UsePolicy from '@/content/use.mdx';
 
-export default function SMSTermsOfService(){
+export default function AcceptableUsePolicy(){
     return (
         <div>
             <div className="mb-5">
@@ -25,12 +25,12 @@ export default function SMSTermsOfService(){
                         </span>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        SMS Terms and Conditions
+                        Acceptable Use Policy
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <div className="max-w-3xl relative mx-auto px-10 py-5 mb-5 dark:text-white prose">
-                <SMSTerms />
+            <div className="max-w-3xl relative mx-auto mb-5 px-10 py-5 dark:text-white prose">
+                <UsePolicy />
             </div>
         </div>
     )

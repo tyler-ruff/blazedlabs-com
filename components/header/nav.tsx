@@ -6,7 +6,7 @@ import { INav } from './data';
 
 const Nav = (props: INav) => {
     return (
-        <ul className="items-stretch hidden lg:flex select-none">
+        <ul role="menu" aria-label="Desktop Main Menu" className="items-stretch hidden lg:flex select-none">
             {
                 mainMenu.nav.map((item, index) => {
                     return (
@@ -26,7 +26,7 @@ const Nav = (props: INav) => {
 
 const MobileNav = (props: INav) => {
     return (
-        <ul className="items-stretch block mt-20 ml-10 space-y-6">
+        <ul role="menu" aria-label="Mobile Main Menu" className="items-stretch block mt-20 ml-10 space-y-6">
             {
                 mainMenu.nav.map((item, index) => {
                     return (

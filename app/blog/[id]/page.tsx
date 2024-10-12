@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Page({ params }: { params: { id: string } }) {
     return (
-        <div>
+        <article role="article">
             <SinglePost postId={params.id} />
-        </div>
+        </article>
     );
 }
