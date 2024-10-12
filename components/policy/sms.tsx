@@ -25,7 +25,7 @@ export default function SMSTermsOfService(){
                         </span>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        SMS Terms and Conditions
+                        SMS Terms
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
