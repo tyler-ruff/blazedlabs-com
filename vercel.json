@@ -9,6 +9,18 @@
           { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
         ]
       }
+    ],
+    "redirects": [
+      { 
+        "source": "/brand", 
+        "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/PDF/BlazedBrandBook/1-3.pdf", 
+        "permanent": false 
+      },
+      { 
+        "source": "/humans", 
+        "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/TXT/humans.txt", 
+        "permanent": true 
+      }
     ]
   }
   

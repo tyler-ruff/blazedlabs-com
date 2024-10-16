@@ -44,6 +44,11 @@ export const metadata: Metadata = {
       {
         rel: "shortcut icon",
         url: "/favicon.ico"
+      },
+      {
+        type: "text/plain",
+        rel: "author",
+        url: "/humans"
       }
     ]
   },
