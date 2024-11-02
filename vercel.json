@@ -20,6 +20,11 @@
         "source": "/humans", 
         "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/TXT/humans.txt", 
         "permanent": true 
+      },
+      {
+        "source": "/license",
+        "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/TXT/LICENSE.txt",
+        "permanent": true 
       }
     ]
   }

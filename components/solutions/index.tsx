@@ -46,13 +46,15 @@ export default function Solutions(){
                 icon={(<HiPencil className="h-8 w-8" />)} 
             />
         </div>
-        <AdvancedHero
-            headline="Sleep peacefully knowing that your website is performing at it’s best."
-            description="We can help your business thrive with software development, network administrative services, and publishing. Drop us a line today to see how we can turn your dreams into reality."
-            url="/contact"
-            ctaText="Get in Touch"
-            imageURL="/images/beaker-cobalt.png"
-        />
+        <div className='px-5'>
+            <AdvancedHero
+                headline="Sleep peacefully knowing your website is performing at it’s best."
+                description="We can help your business thrive with software development, network administrative services, and publishing. Drop us a line today to see how we can turn your dreams into reality."
+                url="/contact"
+                ctaText="Get in Touch"
+                imageURL="/images/beaker-cobalt.png"
+            />
+        </div>
     </div>
     )
 }
