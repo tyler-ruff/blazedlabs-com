@@ -46,7 +46,7 @@ export default function Solutions(){
                 icon={(<HiPencil className="h-8 w-8" />)} 
             />
         </div>
-        <div className='px-5'>
+        <div className="px-5">
             <AdvancedHero
                 headline="Sleep peacefully knowing your website is performing at it’s best."
                 description="We can help your business thrive with software development, network administrative services, and publishing. Drop us a line today to see how we can turn your dreams into reality."

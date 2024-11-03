@@ -68,16 +68,16 @@ export default function BrowseBlog(props: IBrowseBlog){
                 </div>
                 <div className="py-5 grid">
                     <div className="flex">
-                    <Pagination 
-                        currentPage={page} 
-                        onPageChange={function (newPage: number): void {
-                            setPage(newPage);
-                        } } 
-                        totalPages={totalPages} 
-                    />
+                        <Pagination 
+                            currentPage={page} 
+                            onPageChange={function (newPage: number): void {
+                                setPage(newPage);
+                            } } 
+                            totalPages={totalPages} 
+                        />
                     </div>
-                    <p className="flex">
-                    Page 2 of 4.
+                    <p className="flex p-3">
+                        Page {page} of {totalPages}.
                     </p>
                 </div>
             </div>
