@@ -1,11 +1,11 @@
 {
   "name": "blazedlabs-com",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && cd .next && npx jampack ./.next",
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build"
@@ -48,6 +48,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@divriots/jampack": "^0.30.0",
     "@types/uuid": "^9.0.4",
     "daisyui": "^3.6.3"
   }

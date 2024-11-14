@@ -52,7 +52,6 @@ export default function About(){
             <hr />
             <div>
                 <div className="mx-auto max-w-screen-xl px-4 md:py-16 sm:py-5 lg:px-8">
-
                     <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                         <div className="relative h-64 overflow-hidden sm:h-80 lg:h-full">
                             <Image
@@ -63,7 +62,6 @@ export default function About(){
                             className="absolute inset-0 h-full w-full object-cover rounded-md"
                             />
                         </div>
-
                         <div className="py-10 lg:py-16">
                             <article className="space-y-6 text-gray-600 dark:text-gray-200">
                                 <h2 className="text-3xl font-bold">
