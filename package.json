@@ -1,6 +1,6 @@
 {
   "name": "blazedlabs-com",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -23,6 +23,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@uidotdev/usehooks": "^2.1.1",
+    "@vercel/og": "^0.6.3",
     "algoliasearch": "^4.20.0",
     "autoprefixer": "10.4.15",
     "encoding": "^0.1.13",

@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /blog/*
-Disallow: /*/search
-Disallow: /success
-Disallow: /api/*
-
-Sitemap: https://blazedlabs.com/sitemap.xml

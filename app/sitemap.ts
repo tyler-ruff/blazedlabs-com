@@ -93,6 +93,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.1
         },
         {
+            url: 'https://blazedlabs.com/register',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+        },
+        {
+            url: 'https://blazedlabs.com/forgot',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+        },
+        {
             url: 'https://blazedlabs.com/humans',
             lastModified: new Date(),
             changeFrequency: 'yearly'

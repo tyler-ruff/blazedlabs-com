@@ -34,3 +34,10 @@ export function formatTelephone(phoneNumber: string){
     // Return the formatted number including the country code
     return `(${areaCode}) ${centralOfficeCode}-${lineNumber}`;
 }
+
+export function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase())
+    .join('');
+}

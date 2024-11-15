@@ -14,6 +14,7 @@ import { getDatabase, ref, push, set, onValue, remove, update } from "firebase/d
 import { realtime } from "@/lib/firebase";
 import CommentsMenu from "./menu";
 import "./comments.css";
+import { getInitials } from "@/lib/functions";
 
 export default function Comments(props: IComments){
 	const [loading, setLoading] = useState<boolean>(true);
@@ -136,10 +137,10 @@ export default function Comments(props: IComments){
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
 						<div>
-							<img src={props.author.picture} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+							<img src={props.author.picture || `/api/og/avatar?title=${getInitials(props.author.name)}`} alt="User Avatar" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
 						</div>
 						<div>
-							<Link href={`https://blz.ome/usr/${props.author.id}`}>
+							<Link href={`/profile/${props.author.id}`}>
 								<h4 className="font-bold">
 									{props.author.name}
 								</h4>
