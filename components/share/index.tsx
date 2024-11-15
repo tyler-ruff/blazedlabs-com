@@ -44,16 +44,16 @@ export default function SocialShare() {
         </Modal.Header>
         <Modal.Body>
           <div className="pt-5 space-x-4 text-center">
-            <EmailShareButton className="hover:opacity-75 active:opacity-50" subject='' body='' separator='' children={<EmailIcon size={32} round={true} />} url={permalink} />
-            <FacebookShareButton className="hover:opacity-75 active:opacity-50" children={<FacebookIcon size={32} round={true} />} url={permalink} />
-            <LinkedinShareButton className="hover:opacity-75 active:opacity-50" children={<LinkedinIcon size={32} round={true} />} url={permalink} />
-            <RedditShareButton className="hover:opacity-75 active:opacity-50" children={<RedditIcon size={32} round={true} />} url={permalink} />
-            <TelegramShareButton className="hover:opacity-75 active:opacity-50" children={<TelegramIcon size={32} round={true} />} url={permalink} />
-            <TumblrShareButton className="hover:opacity-75 active:opacity-50" children={<TumblrIcon size={32} round={true} />} url={permalink} />
-            <TwitterShareButton className="hover:opacity-75 active:opacity-50" children={<TwitterIcon size={32} round={true} />} url={permalink} />
-            <VKShareButton className="hover:opacity-75 active:opacity-50" children={<VKIcon size={32} round={true} />} url={permalink} />
-            <WhatsappShareButton className="hover:opacity-75 active:opacity-50" children={<WhatsappIcon size={32} round={true} />} url={permalink} />
-            <WorkplaceShareButton className="hover:opacity-75 active:opacity-50" children={<WorkplaceIcon size={32} round={true} />} url={permalink} />
+            <EmailShareButton className="hover:opacity-75 active:opacity-50" subject='' body='' separator='' url={permalink}><EmailIcon size={32} round={true} /></EmailShareButton>
+            <FacebookShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><FacebookIcon size={32} round={true} /></FacebookShareButton>
+            <LinkedinShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><LinkedinIcon size={32} round={true} /></LinkedinShareButton>
+            <RedditShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><RedditIcon size={32} round={true} /></RedditShareButton>
+            <TelegramShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><TelegramIcon size={32} round={true} /></TelegramShareButton>
+            <TumblrShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><TumblrIcon size={32} round={true} /></TumblrShareButton>
+            <TwitterShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><TwitterIcon size={32} round={true} /></TwitterShareButton>
+            <VKShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><VKIcon size={32} round={true} /></VKShareButton>
+            <WhatsappShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
+            <WorkplaceShareButton className="hover:opacity-75 active:opacity-50" url={permalink}><WorkplaceIcon size={32} round={true} /></WorkplaceShareButton>
           </div>
           <div className="mt-10">
             <div className="mb-2 block">
