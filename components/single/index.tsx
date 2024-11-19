@@ -37,7 +37,6 @@ export default function SinglePost(props: any){
         const date = new Date(created.seconds * 1000);
         setDate(date);
     }
-
     useEffect(() => {
         const fetchDocument = async () => {
           try {

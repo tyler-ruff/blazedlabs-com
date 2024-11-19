@@ -19,8 +19,8 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
         openGraph: {
             title: document.title,
             type: "article",
-            url: `/blog/${id}`,
-            images: [{url: `/api/og/blog?title=${document.title}`}],
+            url: `https://blazedlabs.com/blog/${id}`,
+            images: [{url: `https://blazedlabs.com/api/og/blog?title=${document.title}`}],
         }
     }
 }

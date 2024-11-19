@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
-import { Inter } from 'next/font/google';
+//import { Inter } from 'next/font/google';
+import { Hind_Vadodara, DM_Serif_Display } from 'next/font/google';
+
 import { config } from '@/config/app';
 import { Providers } from './providers';
 
@@ -9,7 +11,9 @@ import Footer from '@/components/footer';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+//const inter = Inter({ subsets: ['latin'] });
+const hind = Hind_Vadodara({variable: '--font-hind', subsets: ["latin"], weight: '400', display: 'swap' });
+const dm = DM_Serif_Display({variable: '--font-dm', subsets: ["latin"], weight: '400', display: 'swap'});
 
 export const metadata: Metadata = {
   title: {
@@ -55,14 +59,27 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest'
 }
 
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: "https://blazedlabs.com",
+  name: config.name,
+  description: config.description,
+  license: "https://blazedlabs.com/license"
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" dir="ltr" data-theme="blz" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" dir="ltr" data-theme="blz" className={`${dm.variable} ${hind.variable}`} suppressHydrationWarning>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
         <Providers>
           <section id="blz-app">
             <Header />
