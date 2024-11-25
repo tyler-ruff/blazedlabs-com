@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-//import { Inter } from 'next/font/google';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { Hind_Vadodara, DM_Serif_Display } from 'next/font/google';
 
 import { config } from '@/config/app';
@@ -11,9 +12,19 @@ import Footer from '@/components/footer';
 
 import './globals.css';
 
-//const inter = Inter({ subsets: ['latin'] });
-const hind = Hind_Vadodara({variable: '--font-hind', subsets: ["latin"], weight: '400', display: 'swap' });
-const dm = DM_Serif_Display({variable: '--font-dm', subsets: ["latin"], weight: '400', display: 'swap'});
+const hind = Hind_Vadodara({
+  variable: '--font-hind', 
+  subsets: ["latin"], 
+  weight: '400', 
+  display: 'swap' 
+});
+
+const dm = DM_Serif_Display({
+  variable: '--font-dm', 
+  subsets: ["latin"], 
+  weight: '400', 
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
   title: {
@@ -76,6 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" data-theme="blz" className={`${dm.variable} ${hind.variable}`} suppressHydrationWarning>
       <body>
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}

@@ -1,5 +1,3 @@
-/*@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Hind+Vadodara&display=swap');*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -65,7 +63,6 @@
 }
 
 body {
-  /*font-family: 'Hind Vadodara', sans-serif;*/
   font-family: var(--font-hind);
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -83,7 +80,6 @@ html.dark, html.dark body{
 }
 
 h1, h2, h3{
-  /*font-family: 'DM Serif Text', serif;*/
   font-family: var(--font-dm);
 }
 
