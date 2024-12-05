@@ -6,5 +6,9 @@ import { useAuthContext } from '@/context/AuthContext';
 
 export default function Register(){
     const { user } = useAuthContext() as { user: any };
-    console.log("hello world!");
+    return (
+        <p>
+            Register
+        </p>
+    )
 }
