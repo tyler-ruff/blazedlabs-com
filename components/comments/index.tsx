@@ -16,9 +16,7 @@ import CommentsMenu from "./menu";
 import "./comments.css";
 import { timeAgo } from "@/lib/functions";
 import Loading from "@/app/loading";
-import { Profile } from "@/lib/types/user";
 import { getUserProfile } from "@/lib/hooks/users";
-import { getComments } from "@/lib/hooks/comments";
 
 export default function Comments(props: IComments){
 	const [loading, setLoading] = useState<boolean>(true);
