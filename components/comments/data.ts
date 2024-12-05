@@ -1,4 +1,3 @@
-import { Settings } from "@/context/AuthContext";
 import { CommentSchema } from "@/lib/types/blog";
 
 export interface IComment{
