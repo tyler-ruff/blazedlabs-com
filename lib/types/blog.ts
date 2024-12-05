@@ -1,4 +1,3 @@
-import { Settings } from '@/context/AuthContext';
 import { Timestamp } from 'firebase/firestore';
 
 export interface Post {
@@ -15,7 +14,6 @@ export interface CommentSchema {
     key: string;
     id: string;
     author: string;
-    profile: Settings;
     posted: string;
     body: string;
 }

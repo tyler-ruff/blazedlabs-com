@@ -6,10 +6,16 @@ import { useAuthContext } from "@/context/AuthContext";
 import { useEffect, useState } from 'react';
 import { auth, provider } from '@/lib/firebase';
 import { onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { getUserProfile } from '@/lib/hooks/users';
 
 export default function CommentsMenu() {
   const { user, settings } = useAuthContext() as { user: any, settings: any };
   const [openModal, setOpenModal] = useState<string | undefined>();
+ 
+  const [profileData, setProfileData] = useState<any | null>(null);
+	const [loadingComment, setLoadingComment] = useState<boolean>(true);
+	const [commentError, setCommentError] = useState<string | null>(null);
+
   useEffect( () => {
     // Subscribe to the authentication state changes
     const unsubscribe = onAuthStateChanged( auth, ( user ) => {
@@ -22,6 +28,30 @@ export default function CommentsMenu() {
     // Unsubscribe from the authentication state changes when the component is unmounted
     return () => unsubscribe();
   }, [] );
+  useEffect(() => {
+			
+    const fetchDocument = async () => {
+      try{
+        const userProfile: any = getUserProfile(user.uid).then((data) => {
+          setProfileData(data);
+          setLoadingComment(false);
+        });
+        /*
+        if(userProfile !== undefined){
+          setProfileData(userProfile);
+          setLoadingComment(false);
+          console.log(userProfile);
+          return true;
+        }
+        */
+      } catch(e: any){
+        setCommentError(e.message);
+      }
+    }
+    fetchDocument();
+    
+    //loadComments();
+  }, []);
   const LoginModal = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -92,13 +122,8 @@ export default function CommentsMenu() {
       </Modal>
     )
   }
-  const Item = (props: any) => {
-    return (
-        <Link href="#">
-            <slot />
-        </Link>
-    );
-  };
+ 
+  let profile = profileData;
 
   return (
     <>
@@ -113,7 +138,7 @@ export default function CommentsMenu() {
             (<Dropdown
               arrowIcon={false}
               inline
-              label={<Avatar alt="Avatar" img={settings?.avatar} rounded/>}
+              label={<Avatar alt="Avatar" img={profile?.avatar} rounded/>}
               placement="bottom-end"
             ><Dropdown.Header>
               <span className="block text-sm">

@@ -107,3 +107,7 @@ export function timeAgo(date: Date | string): string {
 
   return 'just now';
 }
+
+export function generateRandomHex(): string{
+  return String('#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'));
+}

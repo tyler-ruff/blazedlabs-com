@@ -1,9 +1,9 @@
-export default function Register() {
+import Register from "@/components/register";
+
+export default function RegisterPage() {
   return (
     <div>
-      <p>
-        Register for Blazed Labs
-      </p>
+      <Register />
     </div>
-  )
+  );
 }

@@ -23,7 +23,7 @@ export default function SearchForm(props: ISearchForm){
     };
 
     return (
-        <form method="get" onSubmit={handleSubmit} className="flex max-w-md flex-col gap-4">
+        <form method="get" role="search" onSubmit={handleSubmit} className="flex max-w-md flex-col gap-4">
             <div className="py-3 pb-0 px-11">
                 <div className="mb-2 block">
                     <TextInput

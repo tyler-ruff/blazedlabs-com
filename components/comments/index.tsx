@@ -8,7 +8,7 @@ import { IComment, IComments } from "./data";
 import { HiDotsVertical } from "react-icons/hi";
 import { CommentSchema } from '@/lib/types/blog';
 
-import { Settings, useAuthContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
 
 import { ref, get, push, set, onValue, remove, update } from "firebase/database";
 import { db, realtime } from "@/lib/firebase";
@@ -16,7 +16,9 @@ import CommentsMenu from "./menu";
 import "./comments.css";
 import { timeAgo } from "@/lib/functions";
 import Loading from "@/app/loading";
-import { comment } from "postcss";
+import { Profile } from "@/lib/types/user";
+import { getUserProfile } from "@/lib/hooks/users";
+import { getComments } from "@/lib/hooks/comments";
 
 export default function Comments(props: IComments){
 	const [loading, setLoading] = useState<boolean>(true);
@@ -43,6 +45,11 @@ export default function Comments(props: IComments){
 	};
 
 	useEffect(() => {
+		/*
+		const loadComments = async() => {
+			const commentList = await getComments(props.postId);
+		}
+		*/
 		loadComments();
 	}, []);
 
@@ -62,10 +69,35 @@ export default function Comments(props: IComments){
 	};
 
 	const Comment = (props: IComment) => {
-		const [profileData, setProfileData] = useState<Settings | null>(null);
+		const [profileData, setProfileData] = useState<any | null>(null);
 		const [loadingComment, setLoadingComment] = useState<boolean>(true);
-		const [error, setError] = useState<string | null>(null);
+		const [commentError, setCommentError] = useState<string | null>(null);
 
+		useEffect(() => {
+			
+			const fetchDocument = async () => {
+				try{
+					const userProfile: any = getUserProfile(props.author).then((data) => {
+						setProfileData(data);
+						setLoadingComment(false);
+					});
+					/*
+					if(userProfile !== undefined){
+						setProfileData(userProfile);
+						setLoadingComment(false);
+						console.log(userProfile);
+						return true;
+					}
+					*/
+				} catch(e: any){
+					setCommentError(e.message);
+				}
+			}
+			fetchDocument();
+			
+			//loadComments();
+		}, []);
+		/*
 		const loadProfile = async (uid: string) => {
 				if(!uid) return;
 				const fetchData = async() => {
@@ -89,6 +121,7 @@ export default function Comments(props: IComments){
 		useEffect(() => {
 			loadProfile(props.author);
 		}, [])
+		*/
 		
 		const [editComment, setEditComment] = useState<boolean>(false);
 		const [commentText, setCommentText] = useState(props.body);
@@ -109,15 +142,7 @@ export default function Comments(props: IComments){
 				});
 			}
 		};
-		/*
-		const Item = (props: any) => {
-			return (
-				<span className="block py-2 px-5 hover:bg-gray-100">
-					{props.children}
-				</span>
-			)
-		};
-		*/
+
 		const DropDown = () => {
 			const [openDeleteModal, setOpenDeleteModal] = useState<string | undefined>();
 			return props.author !== user.uid ? (
@@ -170,75 +195,77 @@ export default function Comments(props: IComments){
 			);
 		}
 
-		if(loadingComment){
-			return (
-				<div role="status" className="w-full max-w-2xl p-6 mx-auto bg-gray-50 dark:bg-gray-800 text-gray-800 animate-pulse">
-					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
-					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
-					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
-					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
-					<span className="sr-only">Loading...</span>
-				</div>
-			);
-		}
+	if(loadingComment){
+		return (
+			<div role="status" className="w-full max-w-2xl p-6 mx-auto bg-gray-50 dark:bg-gray-800 text-gray-800 animate-pulse">
+				<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
+				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
+				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+				<span className="sr-only">Loading...</span>
+			</div>
+		);
+	}
 
-		const profile = profileData;
-		return profile !== null && (
-				<div id={props.id} className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
-					<div className="flex justify-between p-4">
-						<div className="flex space-x-4">
-							<div>
-								<img src={`${profile.avatar}`} 
-									 alt="User Avatar" 
-									 className="object-cover w-12 h-12 rounded-full bg-gray-500" 
-								/>
-							</div>
-							<div>
-								<Link href={`/profile/${profile.uid}`}>
-									<h4 className="font-bold">
-										{profile.displayName}
-									</h4>
-								</Link>
-								<span className="text-xs text-gray-600" title="Last Online">
-									<time dateTime={props.postDate}>
-										{timeAgo(String(props.postDate))}
-									</time>
-								</span>
-							</div>
+	const profile = profileData;
+
+	return commentError == null && (
+			<div role="comment" id={props.id} className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
+				<div className="flex justify-between p-4">
+					<div className="flex space-x-4">
+						<div>
+							<img src={`${profile.avatar}`} 
+									alt="User Avatar" 
+									className="object-cover w-12 h-12 rounded-full bg-gray-500" 
+							/>
 						</div>
-						<div className="flex items-center space-x-2 text-yellow-500">
-							{
-								user && <DropDown />
-							}
+						<div>
+							<Link href={`/profile/${profile.uid}`}>
+								<h4 className="font-bold">
+									{profile.displayName}
+								</h4>
+							</Link>
+							<span className="text-xs text-gray-600" title="Last Online">
+								<time dateTime={props.postDate}>
+									{timeAgo(String(props.postDate))}
+								</time>
+							</span>
 						</div>
 					</div>
-					<div className="p-4 space-y-2 text-sm text-gray-600">
-						<div>
-							{
-								!editComment ? props.body : (
-									<form>
-										<Textarea 
-											defaultValue={commentText} 
-											onChange={e => setCommentText(e.target.value)}>
-										</Textarea>
-										<div className="mt-2 space-x-2">
-											<Button onClick={() => handleCommentEdit()} className="inline-flex">
-												Update
-											</Button>
-											<Button onClick={() => setEditComment(false)} color="failure" className="inline-flex">
-												Cancel
-											</Button>
-										</div>
-									</form>
-								)
-							}
-						</div>
+					<div className="flex items-center space-x-2 text-yellow-500">
+						{
+							user && <DropDown />
+						}
 					</div>
 				</div>
-				)
-			}
+				<div className="p-4 space-y-2 text-sm text-gray-600">
+					<div>
+						{
+							!editComment ? props.body : (
+								<form>
+									<Textarea 
+										defaultValue={commentText} 
+										onChange={e => setCommentText(e.target.value)}>
+									</Textarea>
+									<div className="mt-2 space-x-2">
+										<Button onClick={() => handleCommentEdit()} className="inline-flex">
+											Update
+										</Button>
+										<Button onClick={() => setEditComment(false)} color="failure" className="inline-flex">
+											Cancel
+										</Button>
+									</div>
+								</form>
+							)
+						}
+					</div>
+				</div>
+			</div>
+		)
+	}
+
 	const CommentForm = () => {
 		return (
 			<div className="flex flex-col items-center w-full dark:bg-gray-800">
