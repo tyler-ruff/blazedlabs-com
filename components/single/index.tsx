@@ -90,7 +90,7 @@ export default function SinglePost(props: any){
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-            <article className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
+            <article role="article" className="max-w-2xl px-6 py-5 lg:py-16 mx-auto space-y-12">
                 <div aria-label="Blog Post" className="space-y-8 text-gray-900 dark:text-gray-200">
                     <div className="space-y-6">
                         <h1 className="text-4xl font-bold md:tracki md:text-5xl">
@@ -114,7 +114,7 @@ export default function SinglePost(props: any){
                                     }
                                 </p>
                              </div>
-                            <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
+                            <div className="flex-shrink-0 mt-3 text-sm md:mt-0">
                                 <span title="Estimated read time">
                                     {estimateReadTime(mdxHtml || '')} read 
                                 </span>
@@ -126,7 +126,7 @@ export default function SinglePost(props: any){
                                         </span>
                                     )
                                 })}
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div>

@@ -2,24 +2,16 @@ import { NextResponse } from 'next/server';
 
 import { auth } from '@/lib/firebase';
 
+//import { useAuthContext } from "@/context/AuthContext";
+
 export async function GET(request: Request) {
-if(auth.currentUser){
+    //const { user } = useAuthContext() as { user: any };
     return NextResponse.json(
         { 
-            loggedIn: true 
+            loggedIn: auth.currentUser
         },
         {
-            status: 400
+            status: 200
         }
     );
-} else {
-    return NextResponse.json(
-        { 
-            loggedIn: false 
-        },
-        {
-            status: 400
-        }
-    );
-}
 }

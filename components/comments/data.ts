@@ -1,12 +1,9 @@
-export interface IAuthor{
-    id: string;
-    name: string;
-    picture: string;
-}
+import { Settings } from "@/context/AuthContext";
+import { CommentSchema } from "@/lib/types/blog";
 
 export interface IComment{
     id: string;
-    author: IAuthor;
+    author: string;
     body: string;
     postDate: string;
     refString: string;

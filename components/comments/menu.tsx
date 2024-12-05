@@ -8,7 +8,7 @@ import { auth, provider } from '@/lib/firebase';
 import { onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 
 export default function CommentsMenu() {
-  const { user } = useAuthContext() as { user: any };
+  const { user, settings } = useAuthContext() as { user: any, settings: any };
   const [openModal, setOpenModal] = useState<string | undefined>();
   useEffect( () => {
     // Subscribe to the authentication state changes
@@ -98,67 +98,62 @@ export default function CommentsMenu() {
             <slot />
         </Link>
     );
-  }
+  };
+
   return (
     <>
-    <Navbar
-      fluid
-      rounded
-    >
-      <Navbar.Brand>
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white select-none">
-          Comments
-        </span>
-      </Navbar.Brand>
-      <div className="flex md:order-2">
-        {user ?
-          (<Dropdown
-            arrowIcon={false}
-            inline
-            label={<Avatar alt="User settings" img={user.photoURL} rounded/>}
-            placement="bottom-end"
-          ><Dropdown.Header>
-            <span className="block text-sm">
-              {user.displayName}
-            </span>
-            <span className="block truncate text-sm font-medium">
-              {user.email}
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item>
-            Dashboard
-          </Dropdown.Item>
-          <Dropdown.Item>
-            Settings
-          </Dropdown.Item>
-          <Dropdown.Item>
-            Feed
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item onClick={() => signOut(auth)}>
-            Sign out
-          </Dropdown.Item></Dropdown>) : (
-            <Dropdown
-            arrowIcon={false}
-            inline
-            label={<HiUser className="w-6 h-6" />}
-            placement="bottom-end">
-            <Dropdown.Header>
-            <span className="block text-sm">
-              Not logged in.
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item onClick={() => setOpenModal('form-elements')}>
-            Login
-          </Dropdown.Item>
-          <Dropdown.Item href="/register">
-            Sign Up
-          </Dropdown.Item>
-          </Dropdown>
-          )}
-      </div>
-    </Navbar>
-    <LoginModal />
+      <Navbar fluid rounded>
+        <Navbar.Brand>
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white select-none">
+            Comments
+          </span>
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          {user ?
+            (<Dropdown
+              arrowIcon={false}
+              inline
+              label={<Avatar alt="Avatar" img={settings?.avatar} rounded/>}
+              placement="bottom-end"
+            ><Dropdown.Header>
+              <span className="block text-sm">
+                {user.displayName}
+              </span>
+              <span className="block truncate text-sm font-medium">
+                {user.email}
+              </span>
+            </Dropdown.Header>
+            <Dropdown.Item href="/dash">
+              Dashboard
+            </Dropdown.Item>
+            <Dropdown.Item href="/settings">
+              Settings
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={() => signOut(auth)}>
+              Sign out
+            </Dropdown.Item></Dropdown>) : (
+              <Dropdown
+              arrowIcon={false}
+              inline
+              label={<HiUser className="w-6 h-6" />}
+              placement="bottom-end">
+              <Dropdown.Header>
+              <span className="block text-sm">
+                Not logged in.
+              </span>
+            </Dropdown.Header>
+            <Dropdown.Item onClick={() => setOpenModal('form-elements')}>
+              Login
+            </Dropdown.Item>
+            <Dropdown.Item href="/register">
+              Sign Up
+            </Dropdown.Item>
+            </Dropdown>
+            )}
+        </div>
+      </Navbar>
+      <LoginModal />
     </>
   )
 }

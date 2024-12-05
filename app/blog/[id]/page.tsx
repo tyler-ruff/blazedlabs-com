@@ -27,8 +27,8 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 
 export default function Page({ params }: { params: { id: string } }) {
     return (
-        <article role="article">
+        <div role="article">
             <SinglePost postId={params.id} />
-        </article>
+        </div>
     );
 }

@@ -41,3 +41,69 @@ export function getInitials(name: string) {
     .map(word => word.charAt(0).toUpperCase())
     .join('');
 }
+
+/**
+ * Formats a date into a human-readable string.
+ * @param date - The date to format (can be a Date object or a valid date string).
+ * @param format - The format string (e.g., 'YYYY-MM-DD', 'MM/DD/YYYY', 'DD MMM, YYYY').
+ * @returns The formatted date string.
+ */
+export function formatDate(date: Date | string, format: string): string {
+  const d = typeof date === 'string' ? new Date(date) : date;
+
+  if (isNaN(d.getTime())) {
+    throw new Error('Invalid date');
+  }
+
+  const padZero = (num: number) => (num < 10 ? `0${num}` : num);
+
+  const replacements: { [key: string]: string } = {
+    YYYY: d.getFullYear().toString(),
+    MM: String(padZero(d.getMonth() + 1)),
+    DD: String(padZero(d.getDate())),
+    HH: String(padZero(d.getHours())),
+    mm: String(padZero(d.getMinutes())),
+    ss: String(padZero(d.getSeconds())),
+    'MMM': d.toLocaleString('default', { month: 'short' }), // Short month name
+    'MMMM': d.toLocaleString('default', { month: 'long' }), // Full month name
+  };
+
+  return format.replace(/YYYY|MM|DD|HH|mm|ss|MMM|MMMM/g, (match) => replacements[match] || match);
+}
+
+/**
+ * Formats a date into a "time ago" string.
+ * @param date - The date to compare (can be a Date object or a valid date string).
+ * @returns The formatted "time ago" string.
+ */
+export function timeAgo(date: Date | string): string {
+  const now = new Date();
+  const inputDate = typeof date === 'string' ? new Date(date) : date;
+
+  /*
+  if (isNaN(inputDate?.getTime())) {
+    throw new Error('Invalid date');
+  }
+  */
+
+  const seconds = Math.floor((now.getTime() - inputDate.getTime()) / 1000);
+
+  const intervals: { [key: string]: number } = {
+    year: 60 * 60 * 24 * 365,
+    month: 60 * 60 * 24 * 30,
+    week: 60 * 60 * 24 * 7,
+    day: 60 * 60 * 24,
+    hour: 60 * 60,
+    minute: 60,
+    second: 1,
+  };
+
+  for (const [unit, secondsInUnit] of Object.entries(intervals)) {
+    const count = Math.floor(seconds / secondsInUnit);
+    if (count > 0) {
+      return `${count} ${unit}${count > 1 ? 's' : ''} ago`;
+    }
+  }
+
+  return 'just now';
+}
