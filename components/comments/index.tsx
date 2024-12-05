@@ -67,7 +67,6 @@ export default function Comments(props: IComments){
 		const [error, setError] = useState<string | null>(null);
 
 		const loadProfile = async (uid: string) => {
-			useEffect(() => {
 				if(!uid) return;
 				const fetchData = async() => {
 					try {
@@ -85,12 +84,12 @@ export default function Comments(props: IComments){
 					  }
 				};
 				fetchData();
-			}, []);
-			  //return profileData;
 		};
 
-		loadProfile(props.author);
-	
+		useEffect(() => {
+			loadProfile(props.author);
+		}, [])
+		
 		const [editComment, setEditComment] = useState<boolean>(false);
 		const [commentText, setCommentText] = useState(props.body);
 		
@@ -299,23 +298,22 @@ export default function Comments(props: IComments){
 		}
 		return (
 			comments && comments.map((comment: CommentSchema, index: number) => {
-					if(loading){
-						return (
-							<Loading />
-						);
-					} else {
-						return (
-							<li key={comment.id}>
-									<Comment
-										refString={`comments/${props.postId}/${comment.key}`}
-										id={comment.id}
-										author={comment.author}
-										body={comment.body} 
-										postDate={new Date(comment.posted).toISOString()} 
-									/>
-							</li>
-						);
-					}
+					return (
+						<li key={index}>
+							{
+								loading && <Loading />
+							}
+							{
+								!loading && <Comment
+									refString={`comments/${props.postId}/${comment.key}`}
+									id={comment.id}
+									author={comment.author}
+									body={comment.body} 
+									postDate={new Date(comment.posted).toISOString()} 
+								/>
+							}
+						</li>
+					)
 			})
 		)
 
