@@ -15,15 +15,21 @@ export default function ViewProfile(props: {
     const [profile, setProfile] = useState<any>(null);
     
     useEffect(() => {
-        if(props.uid === null){
+        if(props.uid === null || profile === null){
             router.push('/');
         }
         if(props.uid === user.uid){
             router.push('/profile');
         }
         getUserProfile(props.uid).then((data) => {
-            setProfile(data);
-            setLoading(false);
+            if(data !== null){
+                setProfile(data);
+                setLoading(false);
+            } else {
+                router.push('/profile');
+            }
+        }).catch((error) => {
+            router.push('/');
         });
     });
 
@@ -32,8 +38,9 @@ export default function ViewProfile(props: {
             <LoadingPage />
         )
     }
+
     return (
-        <div className="p-6 sm:p-12 bg-gray-50 text-gray-800">
+        <div className="p-6 sm:p-12 bg-gray-50 dark:bg-gray-900 text-gray-800">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
                 <img src={profile.avatar} alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 border-gray-300" />
                 <div className="flex flex-col">

@@ -1,10 +1,11 @@
 'use client'
 
+import { useEffect, useState } from 'react';
 import { Avatar, Dropdown, Navbar, Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
 import { HiUser } from "react-icons/hi";
 import { useAuthContext } from "@/context/AuthContext";
-import { useEffect, useState } from 'react';
-import { auth, provider } from '@/lib/firebase';
+
+import { auth } from '@/lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { getUserProfile } from '@/lib/hooks/users';
 

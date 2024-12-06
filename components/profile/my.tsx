@@ -9,6 +9,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import LoadingPage from '@/components/loading';
 import { getUserProfile } from "@/lib/hooks/users";
 import { error } from 'console';
+import Link from 'next/link';
 
 export default function MyProfile(){
     const { user } = useAuthContext() as { user: any };
@@ -42,7 +43,7 @@ export default function MyProfile(){
     return (
         (profile !== null) && (
         <>
-            <div className="p-6 sm:p-12 bg-gray-50 text-gray-800">
+            <div className="p-6 sm:p-12 bg-gray-50 dark:bg-gray-900 text-gray-800">
                 <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
                     <img src={profile.avatar} alt="User Avatar" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 border-gray-300" />
                     <div className="flex flex-col">
@@ -74,6 +75,13 @@ export default function MyProfile(){
                         </svg>
                     </a>
                 </div>
+            </div>
+            <div>
+                <Link href="/profile/settings">
+                    <button type="button" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Account Settings
+                    </button>
+                </Link>
             </div>
         </>
         )
