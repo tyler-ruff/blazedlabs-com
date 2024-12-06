@@ -10,15 +10,15 @@ import { getSinglePost } from '@/lib/hooks/blog';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-import Loading from '@/app/loading';
 import { estimateReadTime } from '@/lib/functions';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
 import Comments from '../comments';
+import SocialShare from '../share';
+import LoadingPage from '@/components/loading';
 
 import './blog.css';
-import SocialShare from '../share';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);
@@ -62,7 +62,7 @@ export default function SinglePost(props: any){
 
     if(loading){
         return (
-            <Loading />
+            <LoadingPage />
         );
     }
 

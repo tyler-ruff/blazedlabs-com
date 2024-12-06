@@ -14,7 +14,7 @@ import { ref, push, onValue, remove, update } from "firebase/database";
 import { realtime } from "@/lib/firebase";
 import CommentsMenu from "./menu";
 import { timeAgo } from "@/lib/functions";
-import Loading from "@/components/loading";
+import LoadingPage from "@/components/loading";
 import { getUserProfile } from "@/lib/hooks/users";
 
 import "./comments.css";
@@ -286,7 +286,7 @@ export default function Comments(props: IComments){
 					return (
 						<li key={index}>
 							{
-								loading && <Loading />
+								loading && <LoadingPage />
 							}
 							{
 								!loading && <Comment

@@ -1,13 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { auth } from '@/lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
-import { useRouter } from 'next/navigation';
-
-import Loading from '@/components/loading';
+import LoadingPage from '@/components/loading';
 import LoginForm from "./form";
 
 export default function Login(){
@@ -18,7 +17,7 @@ export default function Login(){
         const unsubscribe = onAuthStateChanged( auth, ( user ) => {
             if ( user ) {
               // User is signed in
-              router.push('/');
+              router.push('/profile');
             } else {
                 setLoading(false);
             }
@@ -28,7 +27,7 @@ export default function Login(){
 
     if(loading){
         return (
-            <Loading />
+            <LoadingPage />
         )
     }
 

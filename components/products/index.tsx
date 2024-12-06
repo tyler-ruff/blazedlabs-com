@@ -3,13 +3,14 @@
 import { useEffect, useState } from 'react';
 
 import ProductCard from "@/components/card/product";
-import Loading from '@/app/loading';
 import { Product } from '@/lib/types/product';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 import { getProducts } from '@/lib/hooks/products';
 import BasicHero from '../hero/basic';
 import { MenuItem } from '@/lib/types/site';
+
+import LoadingPage from '@/components/loading';
 
 export default function Products(){
     const [loading, setLoading] = useState<boolean>(true);
@@ -30,7 +31,7 @@ export default function Products(){
 
       if(loading){
         return (
-          <Loading />
+          <LoadingPage />
         );
       }
     

@@ -1,9 +1,14 @@
-export default function Profile() {
+import ViewProfile from "@/components/profile/view";
+
+export default async function Profile({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const id = (await params).id;
     return (
       <div>
-        <p>
-          View Profile
-        </p>
+        <ViewProfile uid={id} />
       </div>
     )
   }  

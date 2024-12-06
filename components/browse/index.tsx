@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import Loading from '@/app/loading';
-
 import BlogCard from "./card";
 import { Post } from '@/lib/types/blog';
 import { Pagination, Breadcrumb } from 'flowbite-react';
@@ -14,6 +12,8 @@ import SearchForm from '@/components/search/form';
 import { itemsPerPage } from '@/config/blog';
 import { IBrowseBlog } from './data';
 import { getBlogPosts } from '@/lib/hooks/blog';
+
+import LoadingPage from '@/components/loading';
 
 export default function BrowseBlog(props: IBrowseBlog){
     const [loading, setLoading] = useState<boolean>(true);
@@ -94,7 +94,7 @@ export default function BrowseBlog(props: IBrowseBlog){
 
     if(loading){
         return (
-            <Loading />
+            <LoadingPage />
         );
     }
 

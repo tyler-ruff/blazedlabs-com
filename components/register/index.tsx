@@ -9,7 +9,7 @@ import { onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 
 import { useRouter } from 'next/navigation';
 
-import Loading from '@/components/loading';
+import LoadingPage from '@/components/loading';
 import RegisterForm from './form';
 
 export default function Register(){
@@ -104,7 +104,7 @@ export default function Register(){
 
     if(loading){
         return (
-            <Loading />
+            <LoadingPage />
         )
     }
 

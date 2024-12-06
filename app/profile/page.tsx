@@ -1,9 +1,9 @@
+import MyProfile from "@/components/profile/my";
+
 export default function Profile() {
     return (
       <div>
-        <p>
-          My Profile
-        </p>
+        <MyProfile />
       </div>
     )
   }  

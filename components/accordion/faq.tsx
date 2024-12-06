@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { Accordion, Button } from 'flowbite-react';
-import Loading from '@/app/loading';
 
 import { HiQuestionMarkCircle, HiOutlineChat } from 'react-icons/hi';
+
+import LoadingPage from '@/components/loading';
 
 export default function FaqAccordion(){
 
@@ -16,7 +17,7 @@ export default function FaqAccordion(){
     setMounted(true);
   }, []);
 
-  if (!mounted) return <><Loading /></>;
+  if (!mounted) return <><LoadingPage /></>;
 
   return (
     <Accordion>
