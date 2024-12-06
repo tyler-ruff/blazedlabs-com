@@ -1,6 +1,10 @@
+import { Metadata } from "next";
+
 import Register from "@/components/register";
 
-import { useAuthContext } from "@/context/AuthContext";
+export const metadata: Metadata = {
+  title: 'Register',
+}
 
 export default function RegisterPage() {
   return (

@@ -4,15 +4,6 @@ import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import LoadingPage from '@/components/loading';
 
-import { generateRandomHex, getInitials } from "@/lib/functions";
-
-import { getStorage,  
-         getDownloadURL, 
-         uploadBytesResumable 
-} from "firebase/storage";
-import { getUserProfile } from '@/lib/hooks/users';
-import { Profile } from '@/lib/types/user';
-
 // Create the authentication context
 export const AuthContext = createContext( {} );
 
@@ -26,7 +17,6 @@ interface AuthContextProviderProps {
 export function AuthContextProvider( { children }: AuthContextProviderProps ): JSX.Element {
   // Set up state to track the authenticated user and loading status
   const [ user, setUser ] = useState<User | null>( null );
-  const [ profile, setUserProfile ] = useState<Profile | null>( null );
   const [ loading, setLoading ] = useState( true );
 
   const LoadingSpinner = () => {
@@ -37,38 +27,6 @@ export function AuthContextProvider( { children }: AuthContextProviderProps ): J
     )
   }
 
-  //const database = getDatabase();
-
-  /*
-  const getSettings = async( user: User ) => {
-    const settingsRef = ref(realtime, `settings/${user.uid}`);
-    onValue(settingsRef, (snapshot) => {
-      //remove(settingsRef);
-        const newSettings = {
-          uid: user.uid,
-          avatar: `/api/og/avatar?title=${getInitials(user.displayName || 'US')}`,
-          displayName: user.displayName,
-          theme: generateRandomHex(),
-          location: "Anonymous",
-          social: {},
-          bio: "",
-          lastOnline: user.metadata.lastSignInTime
-        } as Settings;
-        set(settingsRef, newSettings).then(() => {
-          setUserSettings(newSettings);
-        });
-
-        /*
-        if(!snapshot.exists()){
-          
-        } else {
-          const data = snapshot.val() as Settings;
-          setUserSettings(data);
-        }
-        
-    });
-  };
-  */
   useEffect( () => {
     // Subscribe to the authentication state changes
     const unsubscribe = onAuthStateChanged( auth, ( user ) => {

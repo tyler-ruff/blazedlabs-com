@@ -10,13 +10,14 @@ import { CommentSchema } from '@/lib/types/blog';
 
 import { useAuthContext } from "@/context/AuthContext";
 
-import { ref, get, push, set, onValue, remove, update } from "firebase/database";
-import { db, realtime } from "@/lib/firebase";
+import { ref, push, onValue, remove, update } from "firebase/database";
+import { realtime } from "@/lib/firebase";
 import CommentsMenu from "./menu";
-import "./comments.css";
 import { timeAgo } from "@/lib/functions";
-import Loading from "@/app/loading";
+import Loading from "@/components/loading";
 import { getUserProfile } from "@/lib/hooks/users";
+
+import "./comments.css";
 
 export default function Comments(props: IComments){
 	const [loading, setLoading] = useState<boolean>(true);
@@ -43,11 +44,6 @@ export default function Comments(props: IComments){
 	};
 
 	useEffect(() => {
-		/*
-		const loadComments = async() => {
-			const commentList = await getComments(props.postId);
-		}
-		*/
 		loadComments();
 	}, []);
 
@@ -72,55 +68,19 @@ export default function Comments(props: IComments){
 		const [commentError, setCommentError] = useState<string | null>(null);
 
 		useEffect(() => {
-			
 			const fetchDocument = async () => {
 				try{
 					const userProfile: any = getUserProfile(props.author).then((data) => {
 						setProfileData(data);
 						setLoadingComment(false);
 					});
-					/*
-					if(userProfile !== undefined){
-						setProfileData(userProfile);
-						setLoadingComment(false);
-						console.log(userProfile);
-						return true;
-					}
-					*/
 				} catch(e: any){
 					setCommentError(e.message);
 				}
 			}
 			fetchDocument();
-			
-			//loadComments();
 		}, []);
-		/*
-		const loadProfile = async (uid: string) => {
-				if(!uid) return;
-				const fetchData = async() => {
-					try {
-						const response = await fetch(`/api/profile?id=${uid}`);
-						if (!response.ok) {
-						  throw new Error(`Error: ${response.statusText}`);
-						}
-						const result = await response.json();
-						setProfileData(result);
-						setLoadingComment(false);
-					  } catch (err: any) {
-						setError(err.message);
-					  } finally {
-						//return (loadingComments == true) ? null : data;
-					  }
-				};
-				fetchData();
-		};
 
-		useEffect(() => {
-			loadProfile(props.author);
-		}, [])
-		*/
-		
 		const [editComment, setEditComment] = useState<boolean>(false);
 		const [commentText, setCommentText] = useState(props.body);
 		
@@ -131,6 +91,7 @@ export default function Comments(props: IComments){
 				});
 			}
 		};
+
 		const handleCommentEdit = async() => {
 			if(user.uid === props.author){
 				update(ref(realtime, props.refString || ``), {
@@ -193,23 +154,23 @@ export default function Comments(props: IComments){
 			);
 		}
 
-	if(loadingComment){
-		return (
-			<div role="status" className="w-full max-w-2xl p-6 mx-auto bg-gray-50 dark:bg-gray-800 text-gray-800 animate-pulse">
-				<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
-				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
-				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
-				<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
-				<span className="sr-only">Loading...</span>
-			</div>
-		);
-	}
+		if(loadingComment){
+			return (
+				<div role="status" className="w-full max-w-2xl p-6 mx-auto bg-gray-50 dark:bg-gray-800 text-gray-800 animate-pulse">
+					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
+					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
+					<div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+					<span className="sr-only">Loading...</span>
+				</div>
+			);
+		}
 
-	const profile = profileData;
+		const profile = profileData;
 
-	return commentError == null && (
+		return commentError == null && (
 			<div role="comment" id={props.id} className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
@@ -261,7 +222,7 @@ export default function Comments(props: IComments){
 					</div>
 				</div>
 			</div>
-		)
+		);
 	}
 
 	const CommentForm = () => {
@@ -281,7 +242,6 @@ export default function Comments(props: IComments){
 								className="p-4 rounded-md resize-y text-gray-800 bg-gray-50">
 							</textarea>
 							<input name="postId" type="hidden" value={props.postId} />
-							{/*<input name="userId" type="hidden" value={user.uid} />*/}
 							<button type="submit" className="py-4 my-4 font-semibold rounded-md text-gray-50 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 active:ring ring-blue-200">
 								Submit Comment
 							</button>
@@ -340,8 +300,7 @@ export default function Comments(props: IComments){
 						</li>
 					)
 			})
-		)
-
+		);
 	};
 
     return (

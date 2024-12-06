@@ -4,6 +4,7 @@ export interface Profile{
     displayName: string;
     theme: string;
     lastOnline: string;
+    createdAt: string;
 }
 
 export interface Account {
