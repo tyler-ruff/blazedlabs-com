@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { z } from 'zod';
+
+import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
 
 import Link from 'next/link';
 import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
@@ -9,13 +11,68 @@ import { auth, provider } from '@/lib/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 
 export default function LoginForm(){
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    //const [email, setEmail] = useState<string>('');
+    //const [password, setPassword] = useState<string>('');
     const [remember, setRemember] = useState<boolean>(false);
+    
+    const loginFormSchema = z.object({
+        email: z.string()
+            .min(3, "Email is too short.")
+            .max(255, "Email may not be longer than 255 characters.")
+            .email("This is not a valid email."),
+        password: z.string()
+            .min(6, "Password must be at least 6 characters.")
+            .max(255, "Password may not be longer than 255 characters."),
+    });
 
-    const handleLogin = async () => {
+    type FormData = z.infer<typeof loginFormSchema>;
+    type FormErrors = Partial<Record<keyof FormData, string[]>>;
+
+    const [formData, setFormData] = useState<FormData>({
+        email: "",
+        password: ""
+    });
+    const [errors, setErrors] = useState<FormErrors>({});
+
+    const validateForm = (data: FormData, field?: keyof FormData): FormErrors => {
+        try{
+            loginFormSchema.parse(data);
+            return field ? { [field]: [] } : {};
+        } catch (error){
+            if(error instanceof z.ZodError){
+                const newErrors = error.flatten().fieldErrors;
+                return field ? { [field]: newErrors[field] || [] } : newErrors;
+            }
+            return {};
+        }
+    }
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const newErrors = validateForm(formData);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length === 0) {
+          // Form is valid, proceed with submission
+          //console.log("Form submitted:", formData);
+          handleLogin(formData);
+        }
+    };
+
+    const handleChange = async(
+        e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      ) => {
+        const { name, value } = e.target;
+        const updatedFormData = { ...formData, [name]: value };
+        setFormData(updatedFormData);
+        // Validate form on each change
+        //console.log(formData);
+        const newErrors = validateForm(updatedFormData);
+        setErrors(newErrors);
+    };
+
+    const handleLogin = async (data: FormData) => {
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, data.email, data.password);
             //console.log(`email: ${email}`)
             // Redirect or perform actions after successful login
         } catch (error) {
@@ -24,7 +81,7 @@ export default function LoginForm(){
     };
 
     return (
-        <form action={handleLogin} className="select-none">
+        <form onSubmit={handleSubmit} method="post" className="select-none">
           <div className="space-y-6">
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                   Sign in to our platform
@@ -46,13 +103,47 @@ export default function LoginForm(){
               <div className="mb-2 block">
                   <Label htmlFor="email" value="Your email" />
               </div>
-              <TextInput aria-required={true} id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com" required />
+              <TextInput 
+                id="email" 
+                value={formData.email}
+                name="email"
+                onChange={handleChange}
+                placeholder="name@example.com"
+                color={
+                    (errors.email && errors.email.length > 0) ?
+                    "failure" : "default"
+                }
+                helperText={
+                    errors.email && errors.email.length > 0 &&
+                    errors.email[0]
+                }
+              />
+                {errors.email && errors.email.length > 0 && (
+                    <p className="mt-2 text-sm text-red-600 dark:text-red-500 sr-only"><span className="font-medium">{errors.email[0]}</span></p>
+                )}
               </div>
               <div>
-              <div className="mb-2 block">
-                  <Label htmlFor="password" value="Your password" />
-              </div>
-              <TextInput aria-required={true} id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <div className="mb-2 block">
+                    <Label htmlFor="password" value="Your password" />
+                </div>
+                <TextInput 
+                    id="password" 
+                    type="password"
+                    name="password"
+                    value={formData.password} 
+                    onChange={handleChange}
+                    color={
+                        (errors.password && errors.password.length > 0) ?
+                        "failure" : "default"
+                    }
+                    helperText={
+                        errors.password && errors.password.length > 0 &&
+                        errors.password[0]
+                    }
+                />
+                {errors.password && errors.password.length > 0 && (
+                    <p className="mt-2 text-sm text-red-600 dark:text-red-500 sr-only"><span className="font-medium">{errors.password[0]}</span></p>
+                )}
               </div>
               <div className="flex justify-between">
               <div className="flex items-center gap-2">

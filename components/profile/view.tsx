@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from "@/context/AuthContext";
 import { getUserProfile } from "@/lib/hooks/users";
+
 import LoadingPage from "@/components/loading";
 
 export default function ViewProfile(props: {

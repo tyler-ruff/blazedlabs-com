@@ -32,7 +32,7 @@ export default function Login(){
     }
 
     return (
-        <div>
+        <div className="mx-5">
             <LoginForm />
         </div>
     );

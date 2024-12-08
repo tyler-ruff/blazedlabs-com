@@ -111,3 +111,8 @@ export function timeAgo(date: Date | string): string {
 export function generateRandomHex(): string{
   return String('#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'));
 }
+
+export function validateEmail(email: string): boolean {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(email);
+}

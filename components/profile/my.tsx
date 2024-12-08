@@ -42,7 +42,7 @@ export default function MyProfile(){
 
     return (
         (profile !== null) && (
-        <>
+        <div className="max-w-lg relative mx-auto">
             <div className="p-6 sm:p-12 bg-gray-50 dark:bg-gray-900 text-gray-800">
                 <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
                     <img src={profile.avatar} alt="User Avatar" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 border-gray-300" />
@@ -83,7 +83,7 @@ export default function MyProfile(){
                     </button>
                 </Link>
             </div>
-        </>
+        </div>
         )
     )
 }

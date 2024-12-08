@@ -3,19 +3,18 @@
 import { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { Timestamp } from 'firebase/firestore';
-
-import { getSinglePost } from '@/lib/hooks/blog';
+import { Breadcrumb } from 'flowbite-react';
+import { HiHome } from 'react-icons/hi';
 
 import { remark } from 'remark';
 import html from 'remark-html';
 
+import { getSinglePost } from '@/lib/hooks/blog';
 import { estimateReadTime } from '@/lib/functions';
-import { Breadcrumb } from 'flowbite-react';
-import { HiHome } from 'react-icons/hi';
+import { Timestamp } from 'firebase/firestore';
 
-import Comments from '../comments';
-import SocialShare from '../share';
+import Comments from '@/components/comments';
+import SocialShare from '@/components/share';
 import LoadingPage from '@/components/loading';
 
 import './blog.css';
