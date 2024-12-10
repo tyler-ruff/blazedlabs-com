@@ -90,10 +90,10 @@ export default function CommentsMenu() {
                 {user.email}
               </span>
             </Dropdown.Header>
-            <Dropdown.Item href="/dash">
-              Dashboard
+            <Dropdown.Item href="/profile">
+              Profile
             </Dropdown.Item>
-            <Dropdown.Item href="/settings">
+            <Dropdown.Item href="/profile/settings">
               Settings
             </Dropdown.Item>
             <Dropdown.Divider />

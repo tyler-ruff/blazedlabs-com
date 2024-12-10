@@ -5,21 +5,29 @@ import { z } from 'zod';
 import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
 
 import { useRouter } from 'next/navigation';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { updateProfile } from 'firebase/auth';
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 
 import { useAuthContext } from "@/context/AuthContext";
 import { getUserProfile } from '@/lib/hooks/users';
+import { db, storage } from '@/lib/firebase';
+
+import { v4 as uuidv4 } from 'uuid';
 
 import "./settings.css";
+import { getFileExtension, getInitials } from '@/lib/functions';
 
 export default function Settings(){
     const router = useRouter();
     const { user } = useAuthContext() as { user: any };
     const [profile, setProfileData] = useState<any | null>(null);
     
-    const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>("");
-
-    const [bio, setBio] = useState<string>("");
+    const [image, setImage] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [progress, setProgress] = useState<number>(0);
+    const [uploading, setUploading] = useState<boolean>(false);
+    const [newAvatarUrl, setNewAvatarUrl] = useState<string | null>(null);
 
     const errorClasses = "focus:ring-red-500 border-red-500 focus:border-red-500 text-red-500";
 
@@ -64,6 +72,9 @@ export default function Settings(){
         if (Object.keys(newErrors).length === 0) {
           // Form is valid, proceed with submission
           //console.log("Form submitted:", formData);
+          if(imagePreview !== null){
+            handleUpload();
+          }
           handleUpdate(formData);
         }
     };
@@ -78,6 +89,55 @@ export default function Settings(){
         //console.log(formData);
         const newErrors = validateForm(updatedFormData);
         setErrors(newErrors);
+    };
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          setImage(file);
+          const previewUrl = URL.createObjectURL(file);
+          setImagePreview(previewUrl);
+        }
+    };
+
+    const handleUpload = () => {
+        if (image) {
+          setUploading(true);
+          const uniqueName = uuidv4();
+          const fileExt = getFileExtension(image.name);
+          const storageRef = ref(storage, `profile_pictures/${user.uid}/${uniqueName}.${fileExt}`);
+            
+          //const uploadTask = storage.ref(`profile_pictures/${image.name}`).put(image);
+          const uploadTask = uploadBytes(storageRef, image);
+
+          uploadTask.then(() => {
+            // Get the download URL after the upload is complete
+            getDownloadURL(storageRef)
+              .then((url) => {
+                //console.log(url);
+                //onUploadComplete(url); // Pass the image URL back to the parent
+                const docRef = doc(db, "profiles", user.uid);
+                setDoc(docRef, { avatar: url }, { merge: true });
+                setUploading(false);
+                //setImage(null);
+                //setImagePreview(null); // Reset preview
+              })
+              .catch((error) => {
+                console.error('Error getting download URL:', error);
+                setUploading(false);
+              });
+          }).catch((error) => {
+            console.error('Upload error:', error);
+            setUploading(false);
+          });
+
+        }
+    };
+
+
+    const onUploadComplete = (url: string) => {
+        //update profile url on profile object
+        setNewAvatarUrl(url);
     };
 
     useEffect(() => {
@@ -110,6 +170,28 @@ export default function Settings(){
 
     const handleUpdate = async (data: FormData) => {
         //TODO: Add update profile logic
+        const fullName = `${data.firstName} ${data.lastName}`;
+        updateProfile(user, {
+            displayName: fullName
+            }).then(() => {
+            // Update profile document
+            const docRef = doc(db, "profiles", user.uid);
+            /*
+            updateDoc(docRef, {
+                avatar: `https://blazedlabs.com/api/og/avatar?title=${getInitials(fullName)}`,
+                displayName: fullName,
+            });
+            */
+                //console.log(newAvatarUrl);
+            setDoc(docRef, {
+                displayName: fullName
+            }, { merge: true }).then(() => {
+                //router.push('/profile/settings');
+                router.refresh();
+            });
+            }).catch((error) => {
+            // An error occurred
+            });
     };
 
     return profile !== null && (
@@ -160,10 +242,11 @@ export default function Settings(){
                             <input id="email" readOnly={true} value={user.email} disabled={true} type="email" placeholder="Email" className="w-full rounded-md text-gray-900 border-gray-300 bg-gray-300" />
                         </div>
                         <div className="col-span-full">
-                            <label htmlFor="bio" className="text-sm">Photo</label>
+                            <label htmlFor="avatar_upload" className="text-sm">Photo</label>
                             <div className="flex items-center space-x-2">
-                                <img src={profile.avatar} alt="User Avatar" className="w-10 h-10 bg-gray-50 dark:bg-gray-8000 rounded-full bg-gray-300" />
-                                <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+                                <img src={imagePreview ? imagePreview : profile.avatar} alt="User Avatar" className="w-10 h-10 bg-gray-50 dark:bg-gray-8000 rounded-full bg-gray-300" />
+                                {/*imagePreview && <img src={imagePreview} alt="Preview" style={{ width: 45, height: 45, borderRadius: '50%' }} />*/}
+                                <input onChange={handleFileChange} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="avatar_upload" type="file"/>
                             </div>
                         </div>
                     </div>
@@ -204,6 +287,9 @@ export default function Settings(){
                         </div>
                     </div>
                 </fieldset>
+                <div className="max-w-md relative mx-auto">
+                    <input type="submit" value="Update Profile" className="px-8 py-3 font-semibold rounded bg-gray-800 hover:bg-gray-900 active:bg-gray-700 text-gray-100" />
+                </div>
             </form>
         </section>
     );

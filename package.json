@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@firebase/auth": "^1.8.1",
+    "@firebase/storage": "^0.13.4",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/env": "^14.2.10",
