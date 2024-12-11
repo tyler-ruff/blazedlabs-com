@@ -19,15 +19,17 @@ export default function ViewProfile(props: {
         if(props.uid === null){
             router.push('/');
         }
-        if(props.uid === user.uid){
-            router.push('/profile');
+        if(user){
+            if(props.uid === user.uid){
+                router.push('/profile');
+            }
         }
         getUserProfile(props.uid).then((data) => {
             if(data !== null){
                 setProfile(data);
                 setLoading(false);
             } else {
-                router.push('/profile');
+                router.push('/');
             }
         }).catch((error) => {
             router.push('/');
