@@ -1,54 +1,61 @@
 import { NextResponse } from 'next/server';
 
-//import { auth } from '@/lib/firebase';
-
 import { initializeApp } from 'firebase/app';
 
 import { firebaseConfig } from '@/config/firebase';
 
-import { getDatabase, ref, get } from 'firebase/database';
+import { getFirestore, getDoc, doc } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+const db = getFirestore();
+const storage = getStorage(app);
 
 export async function GET(request: Request) {
     try{
         const { searchParams } = new URL(request.url);
-        const hasID = searchParams.has('id');
+        const hasID = searchParams.has('uid');
         const uid = hasID
-        ? searchParams.get('id')?.slice(0, 100)
+        ? searchParams.get('uid')?.slice(0, 100)
         : null;
 
-        if(uid === null){
-            return NextResponse.json(
-                { 
-                    message: `The requested user 
-                              UID is invalid.`
-                },
-                {
-                    status: 412
-                }
-            );
+        if(uid === null || uid === undefined){
+            throw new URIError("The user id (UID) is invalid.");
         }
 
-        const settingsRef = ref(db, `settings/${uid}`);
-        const snapshot = await get(settingsRef);
+        const userDoc = doc(db, "profiles", uid);
+        const userSnapshot = await getDoc(userDoc);
 
-        if(!snapshot.exists()){
+        const userProfile = userSnapshot.exists() ? userSnapshot.data() : null;
+
+        // 404 Error
+        if(userProfile === null){
             return NextResponse.json(
                 { 
-                    message: `The requested user 
-                             (UID: ${uid}) cannot 
-                             be found or is invalid.`
+                    message: `The requested user (UID: ${uid}) cannot be found or the user has been deleted.`
                 },
                 {
                     status: 404
                 }
             );
         }
-
+        
+        // Get avatar URL
+        let avatarURL = "";
+        const size: { width: number, height: number } = {
+            width: 98,
+            height: 98
+        };
+        const fileType = "png";
+        const avatarRef = ref(storage, `profile_pictures/${uid}/${userProfile.avatar}_${size.width}x${size.height}.${fileType}`);
+        try{
+            avatarURL = await getDownloadURL(avatarRef);
+        } catch(err){
+            avatarURL = "/api/og/avatar/default";
+        }
+        
         return NextResponse.json(
-            snapshot.val(),
+            { ... userProfile, avatar: avatarURL },
             {
                 status: 200
             }

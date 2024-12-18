@@ -1,25 +1,26 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { Avatar, Dropdown, Navbar, Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { Avatar, Dropdown, Navbar, Modal } from 'flowbite-react';
 import { HiUser } from "react-icons/hi";
 import { useAuthContext } from "@/context/AuthContext";
 
 import { auth } from '@/lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { getUserProfile } from '@/lib/hooks/users';
 
 import LoginForm from '@/components/login/form';
 
 export default function CommentsMenu() {
-  const { user } = useAuthContext() as { user: any };
+  const { user, profile } = useAuthContext() as { user: any, profile: any };
 
-  const [profileData, setProfileData] = useState<any | null>(null);
+  //const [profileData, setProfileData] = useState<any | null>(null);
   const [openModal, setOpenModal] = useState<string | undefined>();
 	const [loadingComment, setLoadingComment] = useState<boolean>(true);
 	const [commentError, setCommentError] = useState<string | null>(null);
 
   useEffect(() => {
+    setLoadingComment(false);
+    /*
     const fetchDocument = async () => {
       try{
         const userProfile: any = getUserProfile(user.uid).then((data) => {
@@ -31,6 +32,7 @@ export default function CommentsMenu() {
       }
     }
     fetchDocument();
+    */
   }, []);
 
   const LoginModal = () => {
@@ -62,10 +64,7 @@ export default function CommentsMenu() {
           </Modal.Body>
       </Modal>
     )
-
   }
- 
-  let profile = profileData;
 
   return (
     <>
@@ -80,7 +79,7 @@ export default function CommentsMenu() {
             (<Dropdown
               arrowIcon={false}
               inline
-              label={<Avatar alt="Avatar" img={profile?.avatar} rounded/>}
+              label={<Avatar alt="My User Avatar" img={profile.avatar} rounded/>}
               placement="bottom-end"
             ><Dropdown.Header>
               <span className="block text-sm">

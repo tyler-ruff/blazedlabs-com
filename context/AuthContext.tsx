@@ -17,6 +17,7 @@ interface AuthContextProviderProps {
 export function AuthContextProvider( { children }: AuthContextProviderProps ): JSX.Element {
   // Set up state to track the authenticated user and loading status
   const [ user, setUser ] = useState<User | null>( null );
+  const [ profile, setProfile ] = useState<any | null>(null);
   const [ loading, setLoading ] = useState( true );
 
   const LoadingSpinner = () => {
@@ -28,11 +29,21 @@ export function AuthContextProvider( { children }: AuthContextProviderProps ): J
   }
 
   useEffect( () => {
+    async function getProfile(user: any){
+      try{
+        const res = await fetch(`/api/profile?uid=${user.uid}`);
+        const data = await res.json();
+        setProfile(data);
+      } catch (error){
+        setProfile(null);
+      }
+    }
     // Subscribe to the authentication state changes
     const unsubscribe = onAuthStateChanged( auth, ( user ) => {
       if ( user ) {
         // User is signed in
         setUser( user );
+        getProfile( user );
       } else {
         // User is signed out
         setUser( null );
@@ -47,7 +58,7 @@ export function AuthContextProvider( { children }: AuthContextProviderProps ): J
 
   // Provide the authentication context to child components
   return (
-      <AuthContext.Provider value={{ user }}>
+      <AuthContext.Provider value={{ user, profile }}>
         {loading ? <div className="py-20"><LoadingSpinner /></div> : children}
       </AuthContext.Provider>
   );

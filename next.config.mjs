@@ -8,7 +8,11 @@ const nextConfig = {
       domains: [
         'blazed.sirv.com',
         'lh3.googleusercontent.com',
+        'firebasestorage.googleapis.com',
+        'blz-one-9e383.appspot.com',
+        'storage.googleapis.com'
       ],
+      formats: ['image/webp']
     },
     experimental: {
       mdxRs: true,

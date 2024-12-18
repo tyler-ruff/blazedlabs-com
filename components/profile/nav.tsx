@@ -1,42 +1,26 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
 import { HiUser } from "react-icons/hi";
 
 import { auth } from '@/lib/firebase';
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 import { useAuthContext } from "@/context/AuthContext";
-import { getUserProfile } from '@/lib/hooks/users';
 
 export default function ProfileNav(){
     const router = useRouter();
-    const { user } = useAuthContext() as { user: any };
-    const [profile, setProfileData] = useState<any | null>(null);
-
-    useEffect(() => {
-        const fetchDocument = async () => {
-          try{
-            getUserProfile(user.uid).then((data) => {
-              setProfileData(data);
-              //setLoading(false);
-            });
-          } catch(e: any){
-            //setError(true);
-            console.log(e.message);
-          }
-        }
-        fetchDocument();
-    }, []);
+    const { user, profile } = useAuthContext() as { user: any, profile: any };
+    
     const logout = (auth: any) => {
         signOut(auth);
         router.push('/login');
     }
-    return (
-    <Navbar fluid rounded>
+    return profile && (
+    <Navbar fluid rounded className="border-b">
         <Navbar.Brand>
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white select-none">
             Nav Menu
@@ -47,7 +31,7 @@ export default function ProfileNav(){
             (<Dropdown
               arrowIcon={false}
               inline
-              label={<Avatar alt="Avatar" img={profile?.avatar} rounded/>}
+              label={<Avatar alt="Avatar" img={profile.avatar} rounded/>}
               placement="bottom-end"
             >
               <Dropdown.Header>

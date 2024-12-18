@@ -26,6 +26,11 @@
         "source": "/license",
         "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/TXT/LICENSE.txt",
         "permanent": true 
+      },
+      {
+        "source": "/flyer",
+        "destination": "https://storage.googleapis.com/blz-one-9e383.appspot.com/PDF/Blazed-One-Flyer.pdf",
+        "permanent": true
       }
     ]
   }

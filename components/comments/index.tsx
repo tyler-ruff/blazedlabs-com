@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { Button, Dropdown, Modal, Textarea } from 'flowbite-react';
 import { v4 as uuidv4 } from 'uuid';
@@ -68,17 +69,17 @@ export default function Comments(props: IComments){
 		const [commentError, setCommentError] = useState<string | null>(null);
 
 		useEffect(() => {
-			const fetchDocument = async () => {
+			async function fetchAuthor() {
 				try{
-					const userProfile: any = getUserProfile(props.author).then((data) => {
-						setProfileData(data);
-						setLoadingComment(false);
-					});
-				} catch(e: any){
-					setCommentError(e.message);
+					const res = await fetch(`/api/profile?uid=${props.author}`);
+					const data = await res.json();
+					setProfileData(data);
+					setLoadingComment(false);
+				} catch (error: any){
+					setCommentError(error.message);
 				}
 			}
-			fetchDocument();
+			fetchAuthor();
 		}, []);
 
 		const [editComment, setEditComment] = useState<boolean>(false);
@@ -168,22 +169,22 @@ export default function Comments(props: IComments){
 			);
 		}
 
-		const profile = profileData;
-
 		return commentError == null && (
 			<div role="comment" id={props.id} className="container flex flex-col w-full max-w-2xl p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 dark:bg-gray-800 text-gray-800">
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
 						<div>
-							<img src={`${profile.avatar}`} 
+							<Image src={profileData.avatar}
+									width={50}
+									height={50}
 									alt="User Avatar" 
-									className="object-cover w-12 h-12 rounded-full bg-gray-500" 
+									className="object-cover w-12 h-12 rounded-full bg-white border" 
 							/>
 						</div>
 						<div>
-							<Link href={`/profile/${profile.uid}`}>
+							<Link href={`/profile/${profileData.uid}`}>
 								<h4 className="font-bold">
-									{profile.displayName}
+									{profileData.displayName}
 								</h4>
 							</Link>
 							<span className="text-xs text-gray-600" title="Last Online">

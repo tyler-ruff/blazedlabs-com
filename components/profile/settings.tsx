@@ -1,43 +1,49 @@
 'use client'
 
 import { z } from 'zod';
-
-import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
-
-import { useRouter } from 'next/navigation';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { updateProfile } from 'firebase/auth';
-import { doc, setDoc, updateDoc } from "firebase/firestore";
-
-import { useAuthContext } from "@/context/AuthContext";
-import { getUserProfile } from '@/lib/hooks/users';
-import { db, storage } from '@/lib/firebase';
-
 import { v4 as uuidv4 } from 'uuid';
 
+import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+
+import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from 'firebase/storage';
+import { updateProfile } from 'firebase/auth';
+import { doc, setDoc } from "firebase/firestore";
+
+import { useAuthContext } from "@/context/AuthContext";
+import { db, isAuthenticated, storage } from '@/lib/firebase';
+import { getFileExtension } from '@/lib/functions';
+
+import LoadingPage from '../loading';
+
 import "./settings.css";
-import { getFileExtension, getInitials } from '@/lib/functions';
 
 export default function Settings(){
-    const router = useRouter();
-    const { user } = useAuthContext() as { user: any };
-    const [profile, setProfileData] = useState<any | null>(null);
+    const { user, profile } = useAuthContext() as { user: any, profile: any };
     
     const [image, setImage] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [progress, setProgress] = useState<number>(0);
     const [uploading, setUploading] = useState<boolean>(false);
-    const [newAvatarUrl, setNewAvatarUrl] = useState<string | null>(null);
 
+    const router = useRouter();
+
+    useEffect(() => {
+        const checkAuth = async () => {
+            const isLoggedIn = await isAuthenticated();
+            if (!isLoggedIn) {
+                router.push('/login');
+            }
+            };
+            checkAuth();
+    }, []);
     const errorClasses = "focus:ring-red-500 border-red-500 focus:border-red-500 text-red-500";
 
     const settingsFormSchema = z.object({
-        firstName: z.string()
-            .min(1, "First name is smaller than minimum length.")
-            .max(255, "First name exceeds acceptable length."),
-        lastName: z.string()
-            .min(1, "Last name is smaller than minimum length.")
-            .max(255, "Last name exceeds acceptable length."),
+        displayName: z.string()
+            .min(1, "Display name is smaller than minimum length.")
+            .max(255, "Display name exceeds acceptable length (255 characters)."),
         bio: z.string()
             .max(255, "Bio exceeds acceptable length.")
     });
@@ -46,8 +52,7 @@ export default function Settings(){
     type FormErrors = Partial<Record<keyof FormData, string[]>>;
     
     const [formData, setFormData] = useState<FormData>({
-        firstName: "",
-        lastName: "",
+        displayName: profile.displayName,
         bio: ""
     });
     const [errors, setErrors] = useState<FormErrors>({});
@@ -101,13 +106,20 @@ export default function Settings(){
     };
 
     const handleUpload = () => {
+        const userProfileLoc = `profile_pictures/${user.uid}`;
         if (image) {
           setUploading(true);
+          // First, check existing profile pic renders & delete existing
+          const listRef = ref(storage, userProfileLoc);
+          listAll(listRef).then((res) => {
+            res.items.forEach((itemRef) => {
+                deleteObject(itemRef);
+            });
+          });
+          // Prepare new file upload
           const uniqueName = uuidv4();
           const fileExt = getFileExtension(image.name);
-          const storageRef = ref(storage, `profile_pictures/${user.uid}/${uniqueName}.${fileExt}`);
-            
-          //const uploadTask = storage.ref(`profile_pictures/${image.name}`).put(image);
+          const storageRef = ref(storage, `${userProfileLoc}/${uniqueName}.${fileExt}`);
           const uploadTask = uploadBytes(storageRef, image);
 
           uploadTask.then(() => {
@@ -117,7 +129,7 @@ export default function Settings(){
                 //console.log(url);
                 //onUploadComplete(url); // Pass the image URL back to the parent
                 const docRef = doc(db, "profiles", user.uid);
-                setDoc(docRef, { avatar: url }, { merge: true });
+                setDoc(docRef, { avatar: uniqueName }, { merge: true });
                 setUploading(false);
                 //setImage(null);
                 //setImagePreview(null); // Reset preview
@@ -134,67 +146,26 @@ export default function Settings(){
         }
     };
 
-
-    const onUploadComplete = (url: string) => {
-        //update profile url on profile object
-        setNewAvatarUrl(url);
-    };
-
-    useEffect(() => {
-        if(!user){
-            router.push('/login');
-        }
-        const fetchDocument = async () => {
-          try{
-            getUserProfile(user.uid).then((data) => {
-              if(data !== null){
-                setProfileData(data);
-                const splitFullName = data.displayName.split(' ');
-                if(splitFullName.length >= 2){
-                    setFormData({
-                        firstName: splitFullName[0],
-                        lastName: splitFullName[1],
-                        bio: ""
-                    });
-                }
-              }
-              //setLoading(false);
-            });
-          } catch(e: any){
-            //setError(true);
-            console.log(e.message);
-          }
-        }
-        fetchDocument();
-    }, []);
-
     const handleUpdate = async (data: FormData) => {
         //TODO: Add update profile logic
-        const fullName = `${data.firstName} ${data.lastName}`;
         updateProfile(user, {
-            displayName: fullName
+            displayName: data.displayName
             }).then(() => {
             // Update profile document
-            const docRef = doc(db, "profiles", user.uid);
-            /*
-            updateDoc(docRef, {
-                avatar: `https://blazedlabs.com/api/og/avatar?title=${getInitials(fullName)}`,
-                displayName: fullName,
-            });
-            */
-                //console.log(newAvatarUrl);
-            setDoc(docRef, {
-                displayName: fullName
-            }, { merge: true }).then(() => {
-                //router.push('/profile/settings');
-                router.refresh();
-            });
+                const docRef = doc(db, "profiles", user.uid);
+
+                setDoc(docRef, {
+                    displayName: data.displayName
+                }, { merge: true }).then(() => {
+                    //router.push('/profile/settings');
+                    router.refresh();
+                });
             }).catch((error) => {
             // An error occurred
-            });
+        });
     };
 
-    return profile !== null && (
+    return (profile !== null) ? (
         <section className="p-6 bg-gray-100 dark:bg-gray-900 text-gray-900">
             <form onSubmit={handleSubmit} method="post" className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50 dark:bg-gray-800">
@@ -206,34 +177,18 @@ export default function Settings(){
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
-                            <label htmlFor="firstname" className="text-sm">First name</label>
+                            <label htmlFor="displayname" className="text-sm">First name</label>
                             <input 
-                                id="firstname"
-                                name="firstName"
+                                id="displayname"
+                                name="displayName"
                                 type="text" 
-                                placeholder="First name" 
-                                value={formData.firstName} 
+                                placeholder="John Smith" 
+                                value={formData.displayName} 
                                 onChange={handleChange} 
-                                className={`w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-emerald-600 border-gray-300 ${errors.firstName && errors.firstName.length > 0 && errorClasses}`} />
+                                className={`w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-emerald-600 border-gray-300 ${errors.displayName && errors.displayName.length > 0 && errorClasses}`} />
                             {
-                                errors.firstName && errors.firstName.length > 0 && (
-                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.firstName[0]}</span></p>
-                                )
-                            }
-                        </div>
-                        <div className="col-span-full sm:col-span-3">
-                            <label htmlFor="lastname" className="text-sm">Last name</label>
-                            <input 
-                                id="lastname"
-                                name="lastName"
-                                type="text" 
-                                placeholder="Last name" 
-                                value={formData.lastName} 
-                                onChange={handleChange} 
-                                className={`w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-emerald-600 border-gray-300 ${errors.lastName && errors.lastName.length > 0 && errorClasses}`} />
-                            {
-                                errors.lastName && errors.lastName.length > 0 && (
-                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.lastName[0]}</span></p>
+                                errors.displayName && errors.displayName.length > 0 && (
+                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.displayName[0]}</span></p>
                                 )
                             }
                         </div>
@@ -244,9 +199,20 @@ export default function Settings(){
                         <div className="col-span-full">
                             <label htmlFor="avatar_upload" className="text-sm">Photo</label>
                             <div className="flex items-center space-x-2">
-                                <img src={imagePreview ? imagePreview : profile.avatar} alt="User Avatar" className="w-10 h-10 bg-gray-50 dark:bg-gray-8000 rounded-full bg-gray-300" />
-                                {/*imagePreview && <img src={imagePreview} alt="Preview" style={{ width: 45, height: 45, borderRadius: '50%' }} />*/}
-                                <input onChange={handleFileChange} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="avatar_upload" type="file"/>
+                                <Image 
+                                    src={imagePreview ? imagePreview : profile.avatar} 
+                                    alt="User Avatar"
+                                    width={58}
+                                    height={58}
+                                    className="w-10 h-10 bg-gray-50 dark:bg-gray-8000 rounded-full bg-gray-300" 
+                                />
+                                <input 
+                                    onChange={handleFileChange} 
+                                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                                    id="avatar_upload" 
+                                    type="file" 
+                                    accept="image/png, image/jpeg"
+                                />
                             </div>
                         </div>
                     </div>
@@ -292,5 +258,7 @@ export default function Settings(){
                 </div>
             </form>
         </section>
-    );
+    ) : (
+        <LoadingPage />
+    )
 }

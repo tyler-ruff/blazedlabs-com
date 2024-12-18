@@ -2,8 +2,6 @@ import type { MDXComponents } from 'mdx/types';
 
 import Link from 'next/link';
 
-import { HiLink } from "react-icons/hi";
-
 import slugify from 'slugify';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,8 +14,6 @@ function reverseSlugify(slug: string){
     str = str.replace(/\b\w/g, (match: string) => match.toUpperCase());
     return str;
 }
-
-//let idList = ['blz-app', 'top'];
 
 let createUniqueId = () => {
   let id = uuidv4();

@@ -2,50 +2,40 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+
+import { isAuthenticated } from "@/lib/firebase";
 
 import { useAuthContext } from "@/context/AuthContext";
-import { auth } from '@/lib/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
 import LoadingPage from '@/components/loading';
-import { getUserProfile } from "@/lib/hooks/users";
-import { error } from 'console';
-import Link from 'next/link';
 
 export default function MyProfile(){
-    const { user } = useAuthContext() as { user: any };
+    const { user, profile } = useAuthContext() as { user: any, profile: any };
     const router = useRouter();
-    const [loading, setLoading] = useState<boolean>(true);
-    const [profile, setProfile] = useState<any>(null);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged( auth, ( user ) => {
-            if ( !user ) {
-              // User is not signed in
+        const checkAuth = async () => {
+            const isLoggedIn = await isAuthenticated();
+            if (!isLoggedIn) {
               router.push('/login');
-            } else {
-                getUserProfile(user.uid).then((data) => {
-                    setProfile(data)
-                    setLoading(false);
-                }).catch((error) => {
-                    router.push('/');
-                });
             }
-          } );
-          return () => unsubscribe();
+          };
+          checkAuth();
     }, []);
 
-    if(loading){
-        return (
-            <LoadingPage />
-        );
-    }
-
     return (
-        (profile !== null) && (
-        <div className="max-w-lg relative mx-auto">
+        (profile !== null) ? (
+        <div className="max-w-lg relative mx-auto my-10">
             <div className="p-6 sm:p-12 bg-gray-50 dark:bg-gray-900 text-gray-800">
                 <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-                    <img src={profile.avatar} alt="User Avatar" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 border-gray-300" />
+                    <Image 
+                        src={profile.avatar} 
+                        alt="User Avatar"
+                        width={180}
+                        height={180}
+                        className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-white border-gray-300" 
+                    />
                     <div className="flex flex-col">
                         <h4 className="text-lg font-semibold text-center md:text-left">
                             {profile.displayName}
@@ -84,6 +74,8 @@ export default function MyProfile(){
                 </Link>
             </div>
         </div>
+        ) : (
+            <LoadingPage />
         )
     )
 }

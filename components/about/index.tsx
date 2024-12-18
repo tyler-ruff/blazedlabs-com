@@ -26,7 +26,7 @@ export default function About(){
             <div className="overflow-hidden sm:grid sm:grid-cols-2 pb-24 hidden sm:block">
                 <div className="p-8 md:p-12 lg:px-16 lg:py-24">
                     <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right space-y-10">
-                        <h1 className="text-3xl font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20 dark:text-gray-200">
+                        <h1 className="text-3xl font-serif font-bold text-gray-900 md:text-4xl sm:pt-10 md:pt-20 dark:text-gray-200">
                             About Blazed Labs
                         </h1>
                         <p className="text-gray-500 md:mt-4 dark:text-gray-200">

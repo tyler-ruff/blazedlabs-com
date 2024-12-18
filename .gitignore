@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/blz-one-9e383-firebase-adminsdk-yjgdt-277e96b805.json
+
 # dependencies
 /node_modules
 /.pnp
