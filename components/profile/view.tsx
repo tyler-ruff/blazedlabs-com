@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+
 import { useAuthContext } from "@/context/AuthContext";
-import { getUserProfile } from "@/lib/hooks/users";
+//import { getUserProfile } from "@/lib/hooks/users";
 
 import LoadingPage from "@/components/loading";
 
@@ -24,16 +26,18 @@ export default function ViewProfile(props: {
                 router.push('/profile');
             }
         }
-        getUserProfile(props.uid).then((data) => {
-            if(data !== null){
-                setProfile(data);
-                setLoading(false);
-            } else {
-                router.push('/');
+        async function getProfile(){
+            try{
+              const res = await fetch(`/api/profile?uid=${props.uid}`);
+              const data = await res.json();
+              setProfile(data);
+              setLoading(false);
+            } catch (error){
+              //setProfile(null);
+              router.push('/');
             }
-        }).catch((error) => {
-            router.push('/');
-        });
+        }
+        getProfile();
     });
 
     if(loading){
@@ -45,11 +49,17 @@ export default function ViewProfile(props: {
     return (
         <div className="p-6 sm:p-12 bg-gray-50 dark:bg-gray-900 text-gray-800">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-                <img src={`/api/og/avatar/picture?uid=${profile.uid}`} alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-gray-500 border-gray-300" />
+                <Image 
+                    src={profile.avatar} 
+                    alt="User Avatar"
+                    className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start bg-white border-gray-300"
+                    width={250}
+                    height={250}
+                />
                 <div className="flex flex-col">
-                    <h4 className="text-lg font-semibold text-center md:text-left">
+                    <h1 className="text-xl md:text-3xl font-semibold text-center md:text-left">
                         {profile.displayName}
-                    </h4>
+                    </h1>
                     <p className="text-gray-600">
                         {profile.bio}
                     </p>

@@ -21,12 +21,6 @@ import "./settings.css";
 
 export default function Settings(){
     const { user, profile } = useAuthContext() as { user: any, profile: any };
-    
-    const [image, setImage] = useState<File | null>(null);
-    const [imagePreview, setImagePreview] = useState<string | null>(null);
-    const [progress, setProgress] = useState<number>(0);
-    const [uploading, setUploading] = useState<boolean>(false);
-
     const router = useRouter();
 
     useEffect(() => {
@@ -35,9 +29,15 @@ export default function Settings(){
             if (!isLoggedIn) {
                 router.push('/login');
             }
-            };
-            checkAuth();
+        };
+        checkAuth();
     }, []);
+
+    const [image, setImage] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [progress, setProgress] = useState<number>(0);
+    const [uploading, setUploading] = useState<boolean>(false);
+
     const errorClasses = "focus:ring-red-500 border-red-500 focus:border-red-500 text-red-500";
 
     const settingsFormSchema = z.object({

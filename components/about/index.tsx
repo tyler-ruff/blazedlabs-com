@@ -32,11 +32,17 @@ export default function About(){
                         <p className="text-gray-500 md:mt-4 dark:text-gray-200">
                             We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
                         </p>
-                        <div className="mt-4 md:mt-8">
+                        <div className="mt-4 md:mt-8 space-x-3">
                             <Link
                                 href="/solutions"
-                                className="inline-block rounded bg-error dark:bg-white px-12 py-3 text-sm font-medium text-white dark:text-black transition hover:bg-red-900 dark:hover:bg-gray-300 focus:outline-none focus:ring focus:ring-red-400 dark:focus:ring-gray-800">
+                                className="inline-block rounded bg-error dark:bg-white px-12 py-3 text-sm font-medium text-white dark:text-black transition dark:hover:text-gray-900 hover:bg-red-900 dark:hover:bg-gray-300 focus:outline-none focus:ring focus:ring-red-400 dark:focus:ring-gray-800">
                              Solutions
+                            </Link>
+                            <Link
+                                href="https://blazed.company/"
+                                target="_blank"
+                                className="inline-block rounded bg-error dark:bg-white px-12 py-3 text-sm font-medium text-white dark:text-black transition dark:hover:text-gray-900 hover:bg-gray-900 dark:hover:bg-gray-300 focus:outline-none focus:ring focus:ring-red-400 dark:focus:ring-gray-800">
+                             Corporate
                             </Link>
                         </div>
                     </div>
