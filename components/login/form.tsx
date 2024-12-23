@@ -59,10 +59,10 @@ export default function LoginForm(){
                 headers: {
                   Authorization: `Bearer ${token}`,
                 }
-            }).then(() => {
-                router.push("/profile");
             });
+            router.push("/");
         });
+        router.push("/");
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
