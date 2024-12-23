@@ -1,6 +1,6 @@
 {
   "name": "blazedlabs-com",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -33,6 +33,7 @@
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "firebase": "^11.0.2",
+    "firebase-admin": "^13.0.2",
     "flowbite-react": "^0.5.0",
     "lightningcss": "^1.28.2",
     "next": "^13.5.7",

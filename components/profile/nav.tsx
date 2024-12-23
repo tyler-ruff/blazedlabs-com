@@ -1,13 +1,12 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
 import { HiUser } from "react-icons/hi";
 
 import { auth } from '@/lib/firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 
 import { useAuthContext } from "@/context/AuthContext";
 
@@ -15,9 +14,13 @@ export default function ProfileNav(){
     const router = useRouter();
     const { user, profile } = useAuthContext() as { user: any, profile: any };
     
-    const logout = (auth: any) => {
-        signOut(auth);
-        router.push('/login');
+    const logout = async(auth: any) => {
+        await signOut(auth);
+        await fetch("/api/logout", {
+          method: "POST",
+        }).then(() => {
+          router.push('/');
+        });
     }
     return profile && (
     <Navbar fluid rounded className="border-b">

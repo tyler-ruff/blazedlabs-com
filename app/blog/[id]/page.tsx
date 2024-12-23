@@ -1,20 +1,19 @@
 import type { Metadata, ResolvingMetadata } from 'next'
-
-import SinglePost from "@/components/single";
-import React from 'react';
-import { getSinglePost } from '@/lib/hooks/blog';
 import { redirect } from 'next/navigation';
+import React from 'react';
+
+import { getSinglePost } from '@/lib/hooks/blog';
+import SinglePost from "@/components/single";
 
 type Props = {
     params: Promise<{ id: string }>
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
     const id = (await params).id;
     const document = await getSinglePost(id);
     if(!document){ 
-        redirect('/');
+        redirect('/404');
     }
     return {
         title: `${document.title} | Blog`,

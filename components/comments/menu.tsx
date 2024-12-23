@@ -66,6 +66,13 @@ export default function CommentsMenu() {
     )
   }
 
+  const logout = async(auth: any) => {
+    await signOut(auth);
+    await fetch("/api/logout", {
+      method: "POST",
+    });
+  }
+
   return (
     <>
       <Navbar fluid rounded>
@@ -76,7 +83,7 @@ export default function CommentsMenu() {
         </Navbar.Brand>
         <div className="flex md:order-2">
           {user ?
-            (<Dropdown
+            profile && (<Dropdown
               arrowIcon={false}
               inline
               label={<Avatar alt="My User Avatar" img={profile.avatar} rounded/>}
@@ -96,7 +103,7 @@ export default function CommentsMenu() {
               Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={() => signOut(auth)}>
+            <Dropdown.Item onClick={() => logout(auth)}>
               Sign out
             </Dropdown.Item></Dropdown>) : (
             <Dropdown

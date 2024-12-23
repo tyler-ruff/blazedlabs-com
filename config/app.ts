@@ -1,5 +1,8 @@
 import { Brand, Config, Social } from "@/lib/types/app";
 
+const url = process.env.NODE_ENV === "development" ? 
+'http://localhost:3000' : 'https://blazedlabs.com';
+
 const config = {
     name: "Blazed Labs",
     fbAppId: "",
@@ -23,5 +26,5 @@ const brand = {
 } as Brand;
 
 export {
-    config, brand, social
+    config, brand, social, url
 };

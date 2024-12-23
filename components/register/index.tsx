@@ -14,6 +14,7 @@ import RegisterForm from './form';
 
 export default function Register(){
     const router = useRouter();
+    
     const [loading, setLoading] = useState<boolean>(true);
 
     const pageHeader = 'Welcome to Blazed';
