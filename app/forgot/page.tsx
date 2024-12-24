@@ -1,9 +1,9 @@
-export default function Register() {
+import ForgotPassword from "@/components/forgot";
+
+export default function Forgot() {
     return (
       <div>
-        <p>
-          Forgot my password
-        </p>
+        <ForgotPassword />
       </div>
     )
   }

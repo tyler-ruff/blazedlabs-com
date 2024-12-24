@@ -9,6 +9,7 @@ import { auth } from '@/lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 import LoginForm from '@/components/login/form';
+import AuthMenu from '@/components/auth/menu';
 
 export default function CommentsMenu() {
   const { user, profile } = useAuthContext() as { user: any, profile: any };
@@ -20,19 +21,6 @@ export default function CommentsMenu() {
 
   useEffect(() => {
     setLoadingComment(false);
-    /*
-    const fetchDocument = async () => {
-      try{
-        const userProfile: any = getUserProfile(user.uid).then((data) => {
-          setProfileData(data);
-          setLoadingComment(false);
-        });
-      } catch(e: any){
-        setCommentError(e.message);
-      }
-    }
-    fetchDocument();
-    */
   }, []);
 
   const LoginModal = () => {
@@ -82,48 +70,7 @@ export default function CommentsMenu() {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          {user ?
-            profile && (<Dropdown
-              arrowIcon={false}
-              inline
-              label={<Avatar alt="My User Avatar" img={profile.avatar} rounded/>}
-              placement="bottom-end"
-            ><Dropdown.Header>
-              <span className="block text-sm">
-                {user.displayName}
-              </span>
-              <span className="block truncate text-sm font-medium">
-                {user.email}
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item href="/profile">
-              Profile
-            </Dropdown.Item>
-            <Dropdown.Item href="/profile/settings">
-              Settings
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item onClick={() => logout(auth)}>
-              Sign out
-            </Dropdown.Item></Dropdown>) : (
-            <Dropdown
-              arrowIcon={false}
-              inline
-              label={<HiUser className="w-6 h-6" />}
-              placement="bottom-end">
-              <Dropdown.Header>
-              <span className="block text-sm">
-                Not logged in.
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item onClick={() => setOpenModal('form-elements')}>
-              Login
-            </Dropdown.Item>
-            <Dropdown.Item href="/register">
-              Sign Up
-            </Dropdown.Item>
-            </Dropdown>
-            )}
+            <AuthMenu />
         </div>
       </Navbar>
       <LoginModal />
