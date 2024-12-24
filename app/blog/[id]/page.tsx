@@ -1,9 +1,10 @@
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from 'next/navigation';
 import React from 'react';
 
 import { getSinglePost } from '@/lib/hooks/blog';
 import SinglePost from "@/components/single";
+import { url } from '@/config/app';
 
 type Props = {
     params: Promise<{ id: string }>
@@ -21,8 +22,8 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
         openGraph: {
             title: document.title,
             type: "article",
-            url: `https://blazedlabs.com/blog/${id}`,
-            images: [{url: `https://blazedlabs.com/api/og/blog?title=${document.title}`}],
+            url: new URL(`/blog/${id}`, url),
+            images: [{url: new URL(`/api/og/blog?title=${document.title}`, url)}],
         }
     }
 }

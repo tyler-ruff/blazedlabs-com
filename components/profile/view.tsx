@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import { useAuthContext } from "@/context/AuthContext";
-//import { getUserProfile } from "@/lib/hooks/users";
 
 import LoadingPage from "@/components/loading";
 
@@ -27,14 +26,16 @@ export default function ViewProfile(props: {
             }
         }
         async function getProfile(){
-            try{
-              const res = await fetch(`/api/profile?uid=${props.uid}`);
-              const data = await res.json();
-              setProfile(data);
-              setLoading(false);
-            } catch (error){
-              //setProfile(null);
-              router.push('/');
+            if(loading === true){
+                try{
+                const res = await fetch(`/api/profile?uid=${props.uid}`);
+                const data = await res.json();
+                setProfile(data);
+                setLoading(false);
+                } catch (error){
+                //setProfile(null);
+                router.push('/');
+                }
             }
         }
         getProfile();
