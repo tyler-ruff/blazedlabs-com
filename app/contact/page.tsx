@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import ContactPage from '@/components/contact';
 
 export const metadata: Metadata = {
-    title: 'Get in Touch',
+    title: 'Contact Us',
 }
 
 export default function Contact(){

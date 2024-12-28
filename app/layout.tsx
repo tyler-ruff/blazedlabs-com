@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Hind_Vadodara, DM_Serif_Display } from 'next/font/google';
 
-import { config } from '@/config/app';
+import { config, url } from '@/config/app';
 import { Providers } from './providers';
 
 import Header from '@/components/header';
@@ -27,7 +27,7 @@ const dm = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blazedlabs.com'),
+  metadataBase: new URL(url),
   title: {
     template: `%s | ${config.name}`,
     default: config.name, 
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
   publisher: 'Blazed Labs LLC',
   icons: {
     icon: [
-      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
       { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
       { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png'}
     ],
@@ -65,8 +64,11 @@ export const metadata: Metadata = {
         type: "text/plain",
         rel: "author",
         url: "/humans"
-      }
+      },
     ]
+  },
+  other: {
+    "fb:app_id": config.fbAppId || ""
   },
   manifest: '/manifest.webmanifest'
 }

@@ -5,8 +5,8 @@ const url = process.env.NODE_ENV === "development" ?
 
 const config = {
     name: "Blazed Labs",
-    fbAppId: "",
-    description: "The main website for Blazed Labs."
+    fbAppId: "503698127531557",
+    description: "We turn Dreams into Reality!"
 } as Config;
 
 const social = {

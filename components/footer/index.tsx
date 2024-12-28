@@ -1,11 +1,11 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { brand, config, social } from "@/config/app";
 
 import ThemeSwitcher from "@/components/theme";
 
 import { linksFooter } from './data';
-
-import Image from "next/image";
-import Link from "next/link";
 
 export default function Footer(){
     const CopyrightAttribute = () => {

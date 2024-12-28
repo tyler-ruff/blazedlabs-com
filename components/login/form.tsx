@@ -14,7 +14,7 @@ export default function LoginForm(){
     const router = useRouter();
     //const [email, setEmail] = useState<string>('');
     //const [password, setPassword] = useState<string>('');
-    const [remember, setRemember] = useState<boolean>(false);
+    //const [remember, setRemember] = useState<boolean>(false);
     
     const loginFormSchema = z.object({
         email: z.string()
