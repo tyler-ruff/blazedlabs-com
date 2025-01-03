@@ -1,9 +1,7 @@
 "use client"
 
-import Image from "next/image";
-import Link from "next/link";
 import { Breadcrumb } from 'flowbite-react';
-import { HiOutlineCheck, HiHome } from "react-icons/hi";
+import { HiHome } from "react-icons/hi";
 
 export default function About(){
     return (
