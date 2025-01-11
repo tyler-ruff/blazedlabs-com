@@ -52,6 +52,11 @@ export default function Products(){
                   </Breadcrumb.Item>
               </Breadcrumb>
           </div>
+          <div>
+            <h1 className="text-3xl px-10">
+              Blazed Store
+            </h1>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
               {data?.map((item: Product) => (
                 <ProductCard 
@@ -64,15 +69,6 @@ export default function Products(){
                 />
               ))}
           </div>
-          <BasicHero 
-                image="/images/ibis.jpg"
-                title="Discover our software solutions"
-                body="We build open source software and manage decentralized development teams."
-                action={{
-                    label: "Learn More",
-                    href: "https://blazed.dev/"
-                } as MenuItem}
-            />
         </div>
       );
     }

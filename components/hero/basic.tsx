@@ -10,7 +10,7 @@ export default function BasicHero(props: any){
     return (
         <div className="text-gray-800">
             <div className="container flex flex-col mx-auto lg:flex-row">
-                <div className="w-full lg:w-1/3 md:pl-10">
+                <div className="w-full hidden lg:flex lg:w-1/3 md:pl-10">
                     <Image src={props.image} width={300} height={300} alt="Hero Image" className="rounded-md" />
                 </div>
                 <div className="flex flex-col w-full p-6 lg:w-2/3 md:p-8 lg:p-12">

@@ -4,6 +4,8 @@ import { Breadcrumb } from 'flowbite-react';
 import SolutionCard from "@/components/card/solution";
 import { HiCloud, HiPhone, HiPencil, HiHome } from 'react-icons/hi';
 import AdvancedHero from '../hero/advanced';
+import BasicHero from '../hero/basic';
+import { MenuItem } from '@/lib/types/site';
 
 export default function Solutions(){
     return (
@@ -52,6 +54,17 @@ export default function Solutions(){
                     url="https://blazed.xyz/" 
                     target="_blank" 
                     icon={(<HiPencil className="h-8 w-8" />)}
+                />
+            </div>
+            <div className="max-w-6xl relative mx-auto lg:pb-10 lg:pt-4">
+                <BasicHero 
+                    image="/images/ibis.jpg"
+                    title="Learn more about our software solutions"
+                    body="We build open source software and manage decentralized development teams."
+                    action={{
+                        label: "Learn More",
+                        href: "/about"
+                    } as MenuItem}
                 />
             </div>
             <div className="px-5">
