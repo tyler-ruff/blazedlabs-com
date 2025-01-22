@@ -6,6 +6,7 @@ import { HiHome } from 'react-icons/hi';
 
 import ContactForm from './form';
 import { formatTelephone } from '@/lib/functions';
+import TrustWidget from '../trust/widget';
 
 export default function Contact(){
     return (
@@ -32,7 +33,7 @@ export default function Contact(){
                             <h1 className="text-2xl font-semibold text-gray-800 capitalize dark:text-white lg:text-3xl">
                                 Contact Us
                             </h1>
-                            <div className="mt-6 space-y-8 md:mt-8">
+                            <div className="mt-6 mb-10 space-y-8 md:mt-8">
                                 <p className="flex items-start -mx-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-blue-500 dark:text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -55,12 +56,20 @@ export default function Contact(){
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
 
-                                    <a href={`mailto:` + brand.email} className="mx-2 text-gray-700 truncate w-72 dark:text-gray-400" title="Reach us by Email">
+                                    <a href={`mailto:` + brand.email} className="mx-2 text-gray-700 hover:text-gray-900 truncate w-72 dark:text-gray-400" title="Reach us by Email">
                                         {brand.email}
                                     </a>
                                 </p>
+                                <p className="flex items-start -mx-2">
+                                    <svg className="w-6 h-6 mx-2 text-blue-500 dark:text-gray-100" viewBox="0 0 799.89 761" xmlns="http://www.w3.org/2000/svg" width="2500" height="2378"><path d="M799.89 290.83H494.44L400.09 0l-94.64 290.83L0 290.54l247.37 179.92L152.72 761l247.37-179.63L647.16 761l-94.35-290.54z" fill="#00b67a"/><path d="M574.04 536.24l-21.23-65.78-152.72 110.91z" fill="#005128"/></svg>
+                                    
+                                    <a href="https://www.trustpilot.com/review/blazedlabs.com" target="_blank" className="mx-2 text-gray-700 hover:text-gray-900 truncate w-72 dark:text-gray-400" title="Review our company">
+                                        Review us on Trustpilot
+                                    </a>
+                                </p>
                             </div>
-                            <div className="mt-6 w-80 md:mt-8">
+                            <hr />
+                            <div className="mt-3 mb-5 w-80 md:mt-8">
                                 <h3 className="pl-4 text-gray-600 dark:text-gray-300 select-none">
                                     Follow us
                                 </h3>
@@ -89,6 +98,7 @@ export default function Contact(){
                                     </a>
                                 </div>
                             </div>
+                            <hr />
                         </div>
                         <div className="mt-8 lg:w-1/2 lg:mx-6">
                             <div

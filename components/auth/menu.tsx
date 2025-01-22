@@ -51,7 +51,7 @@ export default function AuthMenu(){
         <Dropdown
           arrowIcon={false}
           inline
-          label={<HiUser className="w-6 h-6" />}
+          label={<HiUser title="Not logged in." className="w-6 h-6 dark:text-gray-300 dark:hover:text-gray-400 hover:text-gray-600" />}
           placement="bottom-end">
           <Dropdown.Header>
           <span className="block text-sm">

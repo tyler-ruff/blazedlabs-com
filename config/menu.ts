@@ -16,8 +16,8 @@ const mainMenu = {
             href: "/solutions"
         },
         {
-            label: "Products",
-            href: "/products"
+            label: "Blog",
+            href: "/blog"
         }
     ] as MenuItem[],
     cta: {

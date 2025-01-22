@@ -22,28 +22,29 @@ export const linksFooter = [
                 href: "/solutions"
             },
             {
-                label: "Products",
-                href: "/products"
-            }
+                label: "Corporate",
+                target: "_blank",
+                href: "https://blazed.company/"
+            },
         ]
     },
     {
         title: "Community",
         items: [
             {
+                label: "Marketing",
+                target: "_blank",
+                href: "https://blazed.space/"
+            },
+            {
                 label: "Developers",
                 target: "_blank",
                 href: "https://blazed.dev/"
             },
             {
-                label: "Company",
+                label: "Publishing",
                 target: "_blank",
-                href: "https://blazed.company/"
-            },
-            {
-                label: "R&D",
-                target: "_blank",
-                href: "https://blazed-space.github.io/"
+                href: "https://blazed.xyz/"
             }
         ]
     },
