@@ -32,12 +32,12 @@ export const linksFooter = [
         title: "Community",
         items: [
             {
-                label: "Marketing",
+                label: "Design",
                 target: "_blank",
                 href: "https://blazed.space/"
             },
             {
-                label: "Developers",
+                label: "Develop",
                 target: "_blank",
                 href: "https://blazed.dev/"
             },

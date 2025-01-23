@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import Solutions from "@/components/solutions";
 import SolutionCard from "@/components/card/solution";
-import { HiCloud, HiPhone, HiPencil, HiHome } from 'react-icons/hi';
+import { HiTerminal, HiPhone, HiPencil, HiBeaker } from 'react-icons/hi';
 import AdvancedHero from '@/components/hero/advanced';
 import BasicHero from '@/components/hero/basic';
 import { MenuItem } from '@/lib/types/site';
@@ -29,14 +29,14 @@ export default function Page(){
                     description="We craft impactful experiences through meaningful UI/UX design."
                     url="https://blazed.space/" 
                     target="_blank"
-                    icon={(<HiPhone className="h-8 w-8" />)}
+                    icon={(<HiBeaker className="h-8 w-8" />)}
                 />
                 <SolutionCard 
                     title="Develop." 
                     description="Discover how Blazed can help your business build software and websites. "
                     url="https://blazed.dev/" 
                     target="_blank"
-                    icon={(<HiCloud className="h-8 w-8" />)}
+                    icon={(<HiTerminal className="h-8 w-8" />)}
                 />
                 <SolutionCard 
                     title="Publish." 
