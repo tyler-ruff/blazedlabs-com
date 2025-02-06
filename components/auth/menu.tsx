@@ -22,7 +22,7 @@ export default function AuthMenu(){
         });
     }
 
-    return user ?
+    return profile ?
         (<Dropdown
           arrowIcon={false}
           inline
