@@ -11,7 +11,7 @@ import { ILogo } from "./data";
  */
 const Logo = (props: ILogo) => {
     return (
-        <Link href="/" 
+        <a href="/" 
             aria-label="Back to homepage"
             title={props.title} 
             className="flex items-center p-2 hover:opacity-75 select-none">
@@ -29,7 +29,7 @@ const Logo = (props: ILogo) => {
                 alt="Logo" 
                 className="hidden dark:block"
             />
-        </Link>
+        </a>
     );
 }
 
