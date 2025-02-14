@@ -31,10 +31,7 @@ export default function AuthMenu(){
         >
           <Dropdown.Header>
             <span className="block text-sm">
-              {user.displayName}
-            </span>
-            <span className="block truncate text-sm font-medium">
-              {user.email}
+              {profile.displayName}
             </span>
           </Dropdown.Header>
           <Dropdown.Item href="/profile">
