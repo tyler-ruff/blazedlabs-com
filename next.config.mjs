@@ -15,8 +15,7 @@ const nextConfig = {
       formats: ['image/webp']
     },
     experimental: {
-      mdxRs: true,
-      serverActions: true,
+      mdxRs: true
     },
 }
 
