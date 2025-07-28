@@ -2,7 +2,8 @@
 
 import { z } from 'zod';
 
-import { sendMail } from "@/lib/sendgrid";
+//import { sendMail } from "@/lib/sendgrid";
+import { sendMail } from '@/lib/nodemailer';
 import { redirect } from 'next/navigation';
 import { RedirectType } from 'next/dist/client/components/redirect';
 
@@ -35,8 +36,8 @@ export async function sendContactEmail(formData: FormData){
         message: validatedFields.data.message,
     };
     const msg = {
-        to: 'hello@blazed.space',
-        from: 'noreply@blazed.space', // Use the email address or domain you verified above
+        to: 'truff@blazed.work, contact@blazed.space',
+        from: '"Blazed Labs LLC" <hello@blazed.space>',
         subject: 'New Contact Message',
         text: `
     Name: ${rawFormData.name} \n
