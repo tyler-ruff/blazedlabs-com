@@ -25,7 +25,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
           expiresIn,
         });
         const options = {
-          name: "session",
+          name: "blazedlabs-com-session",
           value: sessionCookie,
           maxAge: expiresIn,
           httpOnly: true,
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     Check if logged in
 */
 export async function GET(request: NextRequest) {
-    const session = cookies().get("session")?.value || "";
+    const session = cookies().get("blazedlabs-com-session")?.value || "";
   
     //Validate if the cookie exist in the request
     if (!session) {
