@@ -15,14 +15,7 @@ import { generateRandomHex, getInitials } from '@/lib/functions';
 
 export default function RegisterForm(){
     const router = useRouter();
-
-    /*
-    const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>("");
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [passwordRepeat, setPasswordRepeat] = useState<string>('');
-    */
+    
     const [subscribe, setSubscribe] = useState<boolean>(false);
 
     const [error, setError] = useState<boolean | null>(null);
@@ -125,19 +118,14 @@ export default function RegisterForm(){
                       }).then(() => {
                         // Update profile document
                         const docRef = doc(db, "profiles", user.uid);
-                        /*
-                        updateDoc(docRef, {
-                            avatar: `https://blazedlabs.com/api/og/avatar?title=${getInitials(fullName)}`,
-                            displayName: fullName,
-                        });
-                        */
                         setDoc(docRef, {
                             uid: user.uid,
                             avatar: `https://blazedlabs.com/api/og/avatar?title=${getInitials(fullName)}`,
                             displayName: fullName,
                             theme: generateRandomHex(),
                             createdAt: user.metadata.creationTime,
-                            lastOnline: user.metadata.lastSignInTime
+                            lastOnline: user.metadata.lastSignInTime,
+                            bio: "Just another user."
                         }).then(() => {
                             router.push('/');
                         });

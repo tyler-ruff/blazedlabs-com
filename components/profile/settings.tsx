@@ -17,7 +17,7 @@ import { getFileExtension } from '@/lib/functions';
 
 import LoadingPage from '../loading';
 
-import "./settings.css";
+//import "./settings.css";
 
 export default function Settings(){
     const { user, profile } = useAuthContext() as { user: any, profile: any };

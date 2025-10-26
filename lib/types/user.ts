@@ -5,6 +5,7 @@ export interface Profile{
     theme: string;
     lastOnline: string;
     createdAt: string;
+    bio: string;
 }
 
 export interface Account {
