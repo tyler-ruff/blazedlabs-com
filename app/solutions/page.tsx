@@ -19,8 +19,8 @@ export default function Page(){
                 <h1 className="text-3xl my-10 mx-5 inline-flex">
                     Blazed One Solution
                 </h1>
-                <a href="/flyer" target="_blank" className="underline inline-flex hover:opacity-75" title="Learn more about the Blazed One Solution">
-                    Download Pitch Deck
+                <a href="/about/pitch-deck" className="underline inline-flex hover:opacity-75" title="Learn more about the Blazed One Solution">
+                    Read Pitch Deck
                 </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 pt-4 px-4 select-none">

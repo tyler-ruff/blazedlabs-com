@@ -17,7 +17,7 @@ import Comments from '@/components/comments';
 import SocialShare from '@/components/share';
 import LoadingPage from '@/components/loading';
 
-import './blog.css';
+//import './blog.css';
 
 export default function SinglePost(props: any){
     const [loading, setLoading] = useState<boolean>(true);

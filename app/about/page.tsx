@@ -23,6 +23,11 @@ export default function Page(){
                         <p className="text-gray-500 md:mt-4 dark:text-gray-200">
                             We are a team of innovative thinkers and problem solvers dedicated to creating cutting-edge technology solutions for businesses and individuals alike.
                         </p>
+                        <div className="ml-10">
+                            <a href="/about/pitch-deck" className="underline inline-flex hover:opacity-75" title="Learn more about the Blazed One Solution">
+                                Read Pitch Deck
+                            </a>
+                        </div>
                         <div className="mt-4 md:mt-8 space-x-3 space-y-3">
                             <Link
                                 href="/solutions"

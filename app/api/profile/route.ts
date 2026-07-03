@@ -1,15 +1,17 @@
 import { NextResponse } from 'next/server';
 
-import { initializeApp } from 'firebase/app';
+//import { initializeApp } from 'firebase/app';
 
-import { firebaseConfig } from '@/config/firebase';
+import { db, storage } from '@/lib/firebase';
+
+//import { firebaseConfig } from '@/config/firebase';
 
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore();
-const storage = getStorage(app);
+//const app = initializeApp(firebaseConfig);
+//const db = getFirestore();
+//const storage = getStorage(app);
 
 export async function GET(request: Request) {
     try{

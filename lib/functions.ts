@@ -9,7 +9,7 @@ export function estimateReadTime(text: string, wordsPerMinute: number = 200): st
     if (readTimeMinutes === 1) {
       return '1 minute';
     } else {
-      return `${readTimeMinutes} minutes`;
+      return `${readTimeMinutes} minute`;
     }
 }
 
